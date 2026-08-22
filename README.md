@@ -35,17 +35,19 @@ svg/
   flat/    5 reaction glyphs, flat fill, no gradients — inline UI, ~14-18px
   3d/      the same 5 reaction glyphs, radial-gradient shaded — prominent UI, ~32px+
   places/  13 place-category pictograms, flat only — map filter chips, ~16px
-  gifts/   6 gift-theme + split-bill pictograms, flat only — chat gift flow, ~16px
+  gifts/   7 gift-theme + split-bill + voucher pictograms, flat only — chat gift flow, ~16px
+  hearts/  2-state like/wishlist heart toggle, flat only — ~16-28px
 react/     thin React component wrappers around the SVGs above
 ```
 
-24 glyphs today:
+27 glyphs today:
 
 - **Reactions** (`thumbs-up`, `heart`, `laughing`, `wow`, `sad`) — itunda's real chat quick-reactions.
 - **Places** (`restaurant`, `cafe`, `hospital`, `pharmacy`, `bank`, `atm`, `hotel`, `supermarket`, `gas-station`, `school`, `agent`, `market`, `bus-stop`) — itunda's real map place-category markers, the largest single group.
-- **Gifts** (`gift`, `congratulations`, `heartfelt`, `good-luck`, `settle-up`, `dice`) — itunda's real send-a-gift theme picker plus the split-bill "ladder mode" glyph.
+- **Gifts** (`gift`, `congratulations`, `heartfelt`, `good-luck`, `settle-up`, `dice`, `voucher`) — itunda's real send-a-gift theme picker, the split-bill "ladder mode" glyph, and the gift-voucher flow.
+- **Hearts** (`filled`, `outline`) — itunda's real like/wishlist toggle, reused across Marketplace, Jobs, Real Estate, Eats favorites, and Commerce. Same exact shape as the `heart` reaction glyph, traced two ways — itundaface's heart is the same heart everywhere.
 
-A few smaller groups (like/heart toggle, ~10 misc single-use icons) are next; see [itunda's own build log](https://github.com/itunda-rw/itunda) for the running account of what's shipped and what's queued.
+A few smaller groups (~10 misc single-use icons) are next; see [itunda's own build log](https://github.com/itunda-rw/itunda) for the running account of what's shipped and what's queued.
 
 ## Using it
 

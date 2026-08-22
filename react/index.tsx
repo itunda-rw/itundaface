@@ -639,3 +639,51 @@ export function SplitBillDice(props: ItundaFaceIconProps) {
     </GiftBase>
   );
 }
+
+export function VoucherTicket(props: ItundaFaceIconProps) {
+  return (
+    <GiftBase {...props}>
+      <circle cx="30" cy="30" r="28" fill="#97d5f5"/>
+      <path d="M14,24 C14,21.8 15.8,20 18,20 H42 C44.2,20 46,21.8 46,24 V26 C44.3,26 43,27.3 43,29 C43,30.7 44.3,32 46,32 V36 C46,38.2 44.2,40 42,40 H18 C15.8,40 14,38.2 14,36 V32 C15.7,32 17,30.7 17,29 C17,27.3 15.7,26 14,26 Z" fill="#005d7f"/>
+      <line x1="30" y1="24" x2="30" y2="36" stroke="#97d5f5" strokeWidth="2" strokeDasharray="2.5,2.5" strokeLinecap="round"/>
+    </GiftBase>
+  );
+}
+
+// itundaface heart-toggle glyphs -- thin wrappers around ../svg/hearts/. The
+// SAME shape as ReactionHeart above (identical path data): itundaface's own
+// heart is the same heart everywhere, not a redrawn one per feature.
+function HeartBase({ size = 24, children, ...rest }: ItundaFaceIconProps & { children: React.ReactNode }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 80 80" {...rest}>
+      {children}
+    </svg>
+  );
+}
+
+export function HeartFilled(props: ItundaFaceIconProps) {
+  return (
+    <HeartBase {...props}>
+      <path d="M40,18.4 C42,14.4 46.4,10 53.4,10 C62.9,10 72,17.7 72,29.6 C72,52.6 40,74 40,74 L40,18.4 Z" fill="#ef4a63"/>
+      <path d="M40,18.4 C38,14.4 33.6,10 26.6,10 C17.1,10 8,17.7 8,29.6 C8,52.6 40,74 40,74 L40,18.4 Z" fill="#c72e4c"/>
+    </HeartBase>
+  );
+}
+
+export function HeartOutline(props: ItundaFaceIconProps) {
+  return (
+    <HeartBase {...props}>
+      <path
+        d="M40,18.4 C42,14.4 46.4,10 53.4,10 C62.9,10 72,17.7 72,29.6 C72,52.6 40,74 40,74 C40,74 8,52.6 8,29.6 C8,17.7 17.1,10 26.6,10 C33.6,10 38,14.4 40,18.4 Z"
+        fill="none"
+        stroke="#9099a8"
+        strokeWidth="5"
+        strokeLinejoin="round"
+      />
+    </HeartBase>
+  );
+}
+
+export function WishlistHeart({ favorited, size = 18, ...rest }: ItundaFaceIconProps & { favorited: boolean }) {
+  return favorited ? <HeartFilled size={size} {...rest} /> : <HeartOutline size={size} {...rest} />;
+}
