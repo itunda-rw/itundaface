@@ -38,16 +38,18 @@ svg/
   gifts/   7 gift-theme + split-bill + voucher pictograms, flat only — chat gift flow, ~16px
   hearts/  2-state like/wishlist heart toggle, flat only — ~16-28px
   security/ 1 lock glyph, flat only, no badge — inline in running text, ~12-16px
+  misc/    flame, package, bike + electric-bike, flat only, no badge — ~12-17px
 react/     thin React component wrappers around the SVGs above
 ```
 
-28 glyphs today:
+32 glyphs today:
 
 - **Reactions** (`thumbs-up`, `heart`, `laughing`, `wow`, `sad`) — itunda's real chat quick-reactions.
 - **Places** (`restaurant`, `cafe`, `hospital`, `pharmacy`, `bank`, `atm`, `hotel`, `supermarket`, `gas-station`, `school`, `agent`, `market`, `bus-stop`) — itunda's real map place-category markers, the largest single group.
 - **Gifts** (`gift`, `congratulations`, `heartfelt`, `good-luck`, `settle-up`, `dice`, `voucher`) — itunda's real send-a-gift theme picker, the split-bill "ladder mode" glyph, and the gift-voucher flow.
 - **Hearts** (`filled`, `outline`) — itunda's real like/wishlist toggle, reused across Marketplace, Jobs, Real Estate, Eats favorites, and Commerce. Same exact shape as the `heart` reaction glyph, traced two ways — itundaface's heart is the same heart everywhere.
 - **Security** (`lock`) — itunda's real device step-up verification, escrow payment-held messaging, and frozen-card status.
+- **Misc** (`flame`, `package`, `bike`, `ebike`) — Commerce's "Deals" rail and busy-merchant warning, Marketplace escrow delivery address, and BikeShareView's Regular/Electric bike-type label.
 
 A few smaller groups (~10 misc single-use icons) are next; see [itunda's own build log](https://github.com/itunda-rw/itunda) for the running account of what's shipped and what's queued.
 
