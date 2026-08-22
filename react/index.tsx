@@ -687,3 +687,17 @@ export function HeartOutline(props: ItundaFaceIconProps) {
 export function WishlistHeart({ favorited, size = 18, ...rest }: ItundaFaceIconProps & { favorited: boolean }) {
   return favorited ? <HeartFilled size={size} {...rest} /> : <HeartOutline size={size} {...rest} />;
 }
+
+// itundaface security glyph -- thin wrapper around ../svg/security/lock.svg.
+// No badge circle (unlike the reaction/place/gift glyphs) since it's meant to
+// render inline in running text of varying context, same as the hearts above.
+export function LockGlyph({ size = 16, ...rest }: ItundaFaceIconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" {...rest}>
+      <path d="M8,10 V7.5 C8,4.5 9.8,2.5 12,2.5 C14.2,2.5 16,4.5 16,7.5 V10" fill="none" stroke="#483eb6" strokeWidth="2.4" strokeLinecap="round"/>
+      <rect x="5.5" y="10" width="13" height="11.5" rx="3" fill="#483eb6"/>
+      <circle cx="12" cy="14.8" r="1.6" fill="#c0c6ff"/>
+      <rect x="11.1" y="15.6" width="1.8" height="3" rx="0.9" fill="#c0c6ff"/>
+    </svg>
+  );
+}
