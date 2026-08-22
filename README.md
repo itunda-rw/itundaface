@@ -32,12 +32,18 @@ TossFace's own real recognizable traits are structural — uniform visual weight
 
 ```
 svg/
-  flat/   5 glyphs, flat fill, no gradients — inline UI, ~14-18px
-  3d/     the same 5 glyphs, radial-gradient shaded — prominent UI, ~32px+
-react/    thin React component wrappers around the SVGs above
+  flat/    5 reaction glyphs, flat fill, no gradients — inline UI, ~14-18px
+  3d/      the same 5 reaction glyphs, radial-gradient shaded — prominent UI, ~32px+
+  places/  13 place-category pictograms, flat only — map filter chips, ~16px
+react/     thin React component wrappers around the SVGs above
 ```
 
-Five glyphs today: `thumbs-up`, `heart`, `laughing`, `wow`, `sad` — itunda's real chat quick-reactions, the first slice of a larger set (map place-category markers, gift types, and more are next; see [itunda's own build log](https://github.com/itunda-rw/itunda) for the running account of what's shipped and what's queued).
+18 glyphs today:
+
+- **Reactions** (`thumbs-up`, `heart`, `laughing`, `wow`, `sad`) — itunda's real chat quick-reactions.
+- **Places** (`restaurant`, `cafe`, `hospital`, `pharmacy`, `bank`, `atm`, `hotel`, `supermarket`, `gas-station`, `school`, `agent`, `market`, `bus-stop`) — itunda's real map place-category markers, the largest single group.
+
+Gift types and a few smaller groups are next; see [itunda's own build log](https://github.com/itunda-rw/itunda) for the running account of what's shipped and what's queued.
 
 ## Using it
 
