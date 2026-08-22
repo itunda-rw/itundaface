@@ -25,7 +25,8 @@ export function ReactionThumbsUp(props: ItundaFaceIconProps) {
 export function ReactionHeart(props: ItundaFaceIconProps) {
   return (
     <Base {...props}>
-      <path d="M40,74 C40,74 8,52.6 8,29.6 C8,17.7 17.1,10 26.6,10 C33.6,10 38,14.4 40,18.4 C42,14.4 46.4,10 53.4,10 C62.9,10 72,17.7 72,29.6 C72,52.6 40,74 40,74 Z" fill="#ef4a63"/>
+      <path d="M40,18.4 C42,14.4 46.4,10 53.4,10 C62.9,10 72,17.7 72,29.6 C72,52.6 40,74 40,74 L40,18.4 Z" fill="#ef4a63"/>
+      <path d="M40,18.4 C38,14.4 33.6,10 26.6,10 C17.1,10 8,17.7 8,29.6 C8,52.6 40,74 40,74 L40,18.4 Z" fill="#c72e4c"/>
     </Base>
   );
 }
@@ -37,7 +38,7 @@ export function ReactionLaughing(props: ItundaFaceIconProps) {
       <path d="M18,32 C21,26 27,26 30,32" stroke="#664500" strokeWidth="4.4" strokeLinecap="round" fill="none"/>
       <path d="M50,32 C53,26 59,26 62,32" stroke="#664500" strokeWidth="4.4" strokeLinecap="round" fill="none"/>
       <path d="M16,48 C16,48 24,66 40,66 C56,66 64,48 64,48 C64,48 56,54 40,54 C24,54 16,48 16,48 Z" fill="#66471b"/>
-      <path d="M23,52 C23,52 26,60 25,66" stroke="#7cd9ff" strokeWidth="4" strokeLinecap="round" fill="none"/>
+      <path d="M23,52 C23,52 26,60 25,66" stroke="#7472f4" strokeWidth="4" strokeLinecap="round" fill="none"/>
     </Base>
   );
 }
@@ -60,7 +61,7 @@ export function ReactionSad(props: ItundaFaceIconProps) {
       <path d="M20,32 C23,36 29,36 32,32" stroke="#664500" strokeWidth="4.4" strokeLinecap="round" fill="none"/>
       <path d="M48,32 C51,36 57,36 60,32" stroke="#664500" strokeWidth="4.4" strokeLinecap="round" fill="none"/>
       <path d="M26,62 C30,54 50,54 54,62" stroke="#664500" strokeWidth="4.4" strokeLinecap="round" fill="none"/>
-      <path d="M48,40 C51,44 54,49 54,53.6 C54,57.6 51,60.6 48,60.6 C45,60.6 42,57.6 42,53.6 C42,49 45,44 48,40 Z" fill="#5ec2ea"/>
+      <path d="M48,40 C51,44 54,49 54,53.6 C54,57.6 51,60.6 48,60.6 C45,60.6 42,57.6 42,53.6 C42,49 45,44 48,40 Z" fill="#7472f4"/>
     </Base>
   );
 }
@@ -79,20 +80,25 @@ export function ReactionThumbsUp3D(props: ItundaFaceIconProps) {
       <stop offset="55%" stopColor="#e0a655"/>
       <stop offset="100%" stopColor="#9c6423"/>
       </radialGradient>
-      <radialGradient id="itdf-thumbs-up-heart" cx="32%" cy="20%" r="90%">
+      <linearGradient id="itdf-thumbs-up-heart-r" x1="20%" y1="0%" x2="88%" y2="95%">
       <stop offset="0%" stopColor="#ff9fb0"/>
-      <stop offset="42%" stopColor="#ef4a63"/>
+      <stop offset="45%" stopColor="#ef4a63"/>
       <stop offset="100%" stopColor="#a91733"/>
-      </radialGradient>
+      </linearGradient>
+      <linearGradient id="itdf-thumbs-up-heart-l" x1="75%" y1="5%" x2="10%" y2="95%">
+      <stop offset="0%" stopColor="#f2748c"/>
+      <stop offset="50%" stopColor="#c72e4c"/>
+      <stop offset="100%" stopColor="#7a0f28"/>
+      </linearGradient>
       <radialGradient id="itdf-thumbs-up-face" cx="32%" cy="20%" r="90%">
       <stop offset="0%" stopColor="#ffe89e"/>
       <stop offset="50%" stopColor="#ffcc4d"/>
       <stop offset="100%" stopColor="#d98e0a"/>
       </radialGradient>
       <radialGradient id="itdf-thumbs-up-tear" cx="32%" cy="16%" r="90%">
-      <stop offset="0%" stopColor="#d8f4ff"/>
-      <stop offset="55%" stopColor="#7cd9ff"/>
-      <stop offset="100%" stopColor="#1c8dc4"/>
+      <stop offset="0%" stopColor="#c0c6ff"/>
+      <stop offset="55%" stopColor="#7c7bfd"/>
+      <stop offset="100%" stopColor="#483eb6"/>
       </radialGradient>
       <radialGradient id="itdf-thumbs-up-hl" cx="50%" cy="50%" r="50%">
       <stop offset="0%" stopColor="#ffffff" stopOpacity="0.6"/>
@@ -135,20 +141,25 @@ export function ReactionHeart3D(props: ItundaFaceIconProps) {
       <stop offset="55%" stopColor="#e0a655"/>
       <stop offset="100%" stopColor="#9c6423"/>
       </radialGradient>
-      <radialGradient id="itdf-heart-heart" cx="32%" cy="20%" r="90%">
+      <linearGradient id="itdf-heart-heart-r" x1="20%" y1="0%" x2="88%" y2="95%">
       <stop offset="0%" stopColor="#ff9fb0"/>
-      <stop offset="42%" stopColor="#ef4a63"/>
+      <stop offset="45%" stopColor="#ef4a63"/>
       <stop offset="100%" stopColor="#a91733"/>
-      </radialGradient>
+      </linearGradient>
+      <linearGradient id="itdf-heart-heart-l" x1="75%" y1="5%" x2="10%" y2="95%">
+      <stop offset="0%" stopColor="#f2748c"/>
+      <stop offset="50%" stopColor="#c72e4c"/>
+      <stop offset="100%" stopColor="#7a0f28"/>
+      </linearGradient>
       <radialGradient id="itdf-heart-face" cx="32%" cy="20%" r="90%">
       <stop offset="0%" stopColor="#ffe89e"/>
       <stop offset="50%" stopColor="#ffcc4d"/>
       <stop offset="100%" stopColor="#d98e0a"/>
       </radialGradient>
       <radialGradient id="itdf-heart-tear" cx="32%" cy="16%" r="90%">
-      <stop offset="0%" stopColor="#d8f4ff"/>
-      <stop offset="55%" stopColor="#7cd9ff"/>
-      <stop offset="100%" stopColor="#1c8dc4"/>
+      <stop offset="0%" stopColor="#c0c6ff"/>
+      <stop offset="55%" stopColor="#7c7bfd"/>
+      <stop offset="100%" stopColor="#483eb6"/>
       </radialGradient>
       <radialGradient id="itdf-heart-hl" cx="50%" cy="50%" r="50%">
       <stop offset="0%" stopColor="#ffffff" stopOpacity="0.6"/>
@@ -168,7 +179,8 @@ export function ReactionHeart3D(props: ItundaFaceIconProps) {
       </defs>
       <ellipse cx="40" cy="76" rx="26" ry="5" fill="url(#itdf-heart-floor)"/>
       <g filter="url(#itdf-heart-ds)">
-      <path d="M40,74.4 C40,74.4 7.4,52.4 7.4,28.8 C7.4,16.4 16.9,8.4 26.8,8.4 C34.1,8.4 38.7,13 40,17.2 C41.3,13 45.9,8.4 53.2,8.4 C63.1,8.4 72.6,16.4 72.6,28.8 C72.6,52.4 40,74.4 40,74.4 Z" fill="url(#itdf-heart-heart)"/>
+      <path d="M40,17.2 C41.3,13 45.9,8.4 53.2,8.4 C63.1,8.4 72.6,16.4 72.6,28.8 C72.6,52.4 40,74.4 40,74.4 L40,17.2 Z" fill="url(#itdf-heart-heart-r)"/>
+      <path d="M40,17.2 C38.7,13 34.1,8.4 26.8,8.4 C16.9,8.4 7.4,16.4 7.4,28.8 C7.4,52.4 40,74.4 40,74.4 L40,17.2 Z" fill="url(#itdf-heart-heart-l)"/>
       <path d="M24,13 C29,10.5 35,12.5 38,17" stroke="url(#itdf-heart-rim)" strokeWidth="3" strokeLinecap="round" fill="none"/>
       <ellipse cx="26" cy="24" rx="11" ry="7.5" fill="url(#itdf-heart-hl)"/>
       </g>
@@ -190,20 +202,25 @@ export function ReactionLaughing3D(props: ItundaFaceIconProps) {
       <stop offset="55%" stopColor="#e0a655"/>
       <stop offset="100%" stopColor="#9c6423"/>
       </radialGradient>
-      <radialGradient id="itdf-laughing-heart" cx="32%" cy="20%" r="90%">
+      <linearGradient id="itdf-laughing-heart-r" x1="20%" y1="0%" x2="88%" y2="95%">
       <stop offset="0%" stopColor="#ff9fb0"/>
-      <stop offset="42%" stopColor="#ef4a63"/>
+      <stop offset="45%" stopColor="#ef4a63"/>
       <stop offset="100%" stopColor="#a91733"/>
-      </radialGradient>
+      </linearGradient>
+      <linearGradient id="itdf-laughing-heart-l" x1="75%" y1="5%" x2="10%" y2="95%">
+      <stop offset="0%" stopColor="#f2748c"/>
+      <stop offset="50%" stopColor="#c72e4c"/>
+      <stop offset="100%" stopColor="#7a0f28"/>
+      </linearGradient>
       <radialGradient id="itdf-laughing-face" cx="32%" cy="20%" r="90%">
       <stop offset="0%" stopColor="#ffe89e"/>
       <stop offset="50%" stopColor="#ffcc4d"/>
       <stop offset="100%" stopColor="#d98e0a"/>
       </radialGradient>
       <radialGradient id="itdf-laughing-tear" cx="32%" cy="16%" r="90%">
-      <stop offset="0%" stopColor="#d8f4ff"/>
-      <stop offset="55%" stopColor="#7cd9ff"/>
-      <stop offset="100%" stopColor="#1c8dc4"/>
+      <stop offset="0%" stopColor="#c0c6ff"/>
+      <stop offset="55%" stopColor="#7c7bfd"/>
+      <stop offset="100%" stopColor="#483eb6"/>
       </radialGradient>
       <radialGradient id="itdf-laughing-hl" cx="50%" cy="50%" r="50%">
       <stop offset="0%" stopColor="#ffffff" stopOpacity="0.6"/>
@@ -251,20 +268,25 @@ export function ReactionWow3D(props: ItundaFaceIconProps) {
       <stop offset="55%" stopColor="#e0a655"/>
       <stop offset="100%" stopColor="#9c6423"/>
       </radialGradient>
-      <radialGradient id="itdf-wow-heart" cx="32%" cy="20%" r="90%">
+      <linearGradient id="itdf-wow-heart-r" x1="20%" y1="0%" x2="88%" y2="95%">
       <stop offset="0%" stopColor="#ff9fb0"/>
-      <stop offset="42%" stopColor="#ef4a63"/>
+      <stop offset="45%" stopColor="#ef4a63"/>
       <stop offset="100%" stopColor="#a91733"/>
-      </radialGradient>
+      </linearGradient>
+      <linearGradient id="itdf-wow-heart-l" x1="75%" y1="5%" x2="10%" y2="95%">
+      <stop offset="0%" stopColor="#f2748c"/>
+      <stop offset="50%" stopColor="#c72e4c"/>
+      <stop offset="100%" stopColor="#7a0f28"/>
+      </linearGradient>
       <radialGradient id="itdf-wow-face" cx="32%" cy="20%" r="90%">
       <stop offset="0%" stopColor="#ffe89e"/>
       <stop offset="50%" stopColor="#ffcc4d"/>
       <stop offset="100%" stopColor="#d98e0a"/>
       </radialGradient>
       <radialGradient id="itdf-wow-tear" cx="32%" cy="16%" r="90%">
-      <stop offset="0%" stopColor="#d8f4ff"/>
-      <stop offset="55%" stopColor="#7cd9ff"/>
-      <stop offset="100%" stopColor="#1c8dc4"/>
+      <stop offset="0%" stopColor="#c0c6ff"/>
+      <stop offset="55%" stopColor="#7c7bfd"/>
+      <stop offset="100%" stopColor="#483eb6"/>
       </radialGradient>
       <radialGradient id="itdf-wow-hl" cx="50%" cy="50%" r="50%">
       <stop offset="0%" stopColor="#ffffff" stopOpacity="0.6"/>
@@ -312,20 +334,25 @@ export function ReactionSad3D(props: ItundaFaceIconProps) {
       <stop offset="55%" stopColor="#e0a655"/>
       <stop offset="100%" stopColor="#9c6423"/>
       </radialGradient>
-      <radialGradient id="itdf-sad-heart" cx="32%" cy="20%" r="90%">
+      <linearGradient id="itdf-sad-heart-r" x1="20%" y1="0%" x2="88%" y2="95%">
       <stop offset="0%" stopColor="#ff9fb0"/>
-      <stop offset="42%" stopColor="#ef4a63"/>
+      <stop offset="45%" stopColor="#ef4a63"/>
       <stop offset="100%" stopColor="#a91733"/>
-      </radialGradient>
+      </linearGradient>
+      <linearGradient id="itdf-sad-heart-l" x1="75%" y1="5%" x2="10%" y2="95%">
+      <stop offset="0%" stopColor="#f2748c"/>
+      <stop offset="50%" stopColor="#c72e4c"/>
+      <stop offset="100%" stopColor="#7a0f28"/>
+      </linearGradient>
       <radialGradient id="itdf-sad-face" cx="32%" cy="20%" r="90%">
       <stop offset="0%" stopColor="#ffe89e"/>
       <stop offset="50%" stopColor="#ffcc4d"/>
       <stop offset="100%" stopColor="#d98e0a"/>
       </radialGradient>
       <radialGradient id="itdf-sad-tear" cx="32%" cy="16%" r="90%">
-      <stop offset="0%" stopColor="#d8f4ff"/>
-      <stop offset="55%" stopColor="#7cd9ff"/>
-      <stop offset="100%" stopColor="#1c8dc4"/>
+      <stop offset="0%" stopColor="#c0c6ff"/>
+      <stop offset="55%" stopColor="#7c7bfd"/>
+      <stop offset="100%" stopColor="#483eb6"/>
       </radialGradient>
       <radialGradient id="itdf-sad-hl" cx="50%" cy="50%" r="50%">
       <stop offset="0%" stopColor="#ffffff" stopOpacity="0.6"/>

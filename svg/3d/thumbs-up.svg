@@ -10,20 +10,25 @@
       <stop offset="55%" stop-color="#e0a655"/>
       <stop offset="100%" stop-color="#9c6423"/>
     </radialGradient>
-    <radialGradient id="itdf-heart" cx="32%" cy="20%" r="90%">
+    <linearGradient id="itdf-heart-r" x1="20%" y1="0%" x2="88%" y2="95%">
       <stop offset="0%" stop-color="#ff9fb0"/>
-      <stop offset="42%" stop-color="#ef4a63"/>
+      <stop offset="45%" stop-color="#ef4a63"/>
       <stop offset="100%" stop-color="#a91733"/>
-    </radialGradient>
+    </linearGradient>
+    <linearGradient id="itdf-heart-l" x1="75%" y1="5%" x2="10%" y2="95%">
+      <stop offset="0%" stop-color="#f2748c"/>
+      <stop offset="50%" stop-color="#c72e4c"/>
+      <stop offset="100%" stop-color="#7a0f28"/>
+    </linearGradient>
     <radialGradient id="itdf-face" cx="32%" cy="20%" r="90%">
       <stop offset="0%" stop-color="#ffe89e"/>
       <stop offset="50%" stop-color="#ffcc4d"/>
       <stop offset="100%" stop-color="#d98e0a"/>
     </radialGradient>
     <radialGradient id="itdf-tear" cx="32%" cy="16%" r="90%">
-      <stop offset="0%" stop-color="#d8f4ff"/>
-      <stop offset="55%" stop-color="#7cd9ff"/>
-      <stop offset="100%" stop-color="#1c8dc4"/>
+      <stop offset="0%" stop-color="#c0c6ff"/>
+      <stop offset="55%" stop-color="#7c7bfd"/>
+      <stop offset="100%" stop-color="#483eb6"/>
     </radialGradient>
     <radialGradient id="itdf-hl" cx="50%" cy="50%" r="50%">
       <stop offset="0%" stop-color="#ffffff" stop-opacity="0.6"/>

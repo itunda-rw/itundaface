@@ -21,6 +21,13 @@ Adapted from studying TossFace's own real, published rules (not its artwork):
 - **Flat for small, 3D for prominent.** Every glyph in `svg/flat/` is a small, single-pass flat illustration meant for inline UI at ~14–18px. Every glyph in `svg/3d/` is the same shape with a radial-gradient shading pass, a rim-light, and a ground shadow — reserved for a genuinely prominent moment (a picker, a celebration screen), not forced onto small UI.
 - **One palette, both themes.** No glyph changes color between light and dark backgrounds. If it reads on white, it reads on near-black too.
 
+### itundaface's own signature
+
+TossFace's own real recognizable traits are structural — uniform visual weight, every directional glyph facing right, one internal palette — not "everything is Toss Blue." itundaface has its own equivalent, not just itunda-colored generic emoji shapes:
+
+- **Shared-seam construction.** Where a shape has natural bilateral symmetry, it's built the same way [itunda's own app icon](https://github.com/itunda-rw/itunda) is: one outer silhouette split by a single shared seam into a lit right facet and a shaded left facet, rather than one flat or single-gradient fill. `heart` is built this way today — a real, literal visual link back to the product's own mark, not applied where it wouldn't be a natural fit.
+- **Real brand color on secondary elements.** Every glyph's non-semantic accent details (currently: the tear drop on `laughing`/`sad`) use itunda's actual indigo brand color, not a generic convention hue. A tear's exact color isn't meaning-bearing the way a heart's red or a face's yellow is — still unmistakably "a tear" in any cool tone — so this is a safe, deliberate consistency touch without repeating TossFace's own early meaning-changing misstep.
+
 ## What's in here
 
 ```
