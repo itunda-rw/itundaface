@@ -38,18 +38,18 @@ svg/
   gifts/   7 gift-theme + split-bill + voucher pictograms, flat only — chat gift flow, ~16px
   hearts/  2-state like/wishlist heart toggle, flat only — ~16-28px
   security/ 1 lock glyph, flat only, no badge — inline in running text, ~12-16px
-  misc/    flame, package, bike + electric-bike, flat only, no badge — ~12-17px
+  misc/    17 low-repeat single-use pictograms, flat only, no badge — ~12-17px
 react/     thin React component wrappers around the SVGs above
 ```
 
-32 glyphs today:
+45 glyphs today:
 
 - **Reactions** (`thumbs-up`, `heart`, `laughing`, `wow`, `sad`) — itunda's real chat quick-reactions.
 - **Places** (`restaurant`, `cafe`, `hospital`, `pharmacy`, `bank`, `atm`, `hotel`, `supermarket`, `gas-station`, `school`, `agent`, `market`, `bus-stop`) — itunda's real map place-category markers, the largest single group.
 - **Gifts** (`gift`, `congratulations`, `heartfelt`, `good-luck`, `settle-up`, `dice`, `voucher`) — itunda's real send-a-gift theme picker, the split-bill "ladder mode" glyph, and the gift-voucher flow.
 - **Hearts** (`filled`, `outline`) — itunda's real like/wishlist toggle, reused across Marketplace, Jobs, Real Estate, Eats favorites, and Commerce. Same exact shape as the `heart` reaction glyph, traced two ways — itundaface's heart is the same heart everywhere.
 - **Security** (`lock`) — itunda's real device step-up verification, escrow payment-held messaging, and frozen-card status.
-- **Misc** (`flame`, `package`, `bike`, `ebike`) — Commerce's "Deals" rail and busy-merchant warning, Marketplace escrow delivery address, and BikeShareView's Regular/Electric bike-type label.
+- **Misc** (`flame`, `package`, `bike`, `ebike`, `pin`, `soldout`, `link`, `chat`, `clock`, `globe`, `bell`, `camera`, `cake`, `money-bag`, `shopping-bag`, `wrench`, `price-drop`) — the remaining low-repeat single-use emoji from the audit: Commerce's Deals rail/busy-merchant warning, Marketplace escrow delivery, BikeShareView's bike-type label, pinned messages, sold-out/closed status, invite-link sharing, in-app messaging, scheduled-trip time, open chat, real-time alerts, QR-style open-chat join, photo attach, birthday banners, price offers, the emoticon store, marketplace inspections, and price-dropped listings.
 
 See [itunda's own build log](https://github.com/itunda-rw/itunda) for the running account of what's shipped and what's queued next.
 
