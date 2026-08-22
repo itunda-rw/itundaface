@@ -51,7 +51,7 @@ react/     thin React component wrappers around the SVGs above
 - **Security** (`lock`) — itunda's real device step-up verification, escrow payment-held messaging, and frozen-card status.
 - **Misc** (`flame`, `package`, `bike`, `ebike`) — Commerce's "Deals" rail and busy-merchant warning, Marketplace escrow delivery address, and BikeShareView's Regular/Electric bike-type label.
 
-A few smaller groups (~10 misc single-use icons) are next; see [itunda's own build log](https://github.com/itunda-rw/itunda) for the running account of what's shipped and what's queued.
+See [itunda's own build log](https://github.com/itunda-rw/itunda) for the running account of what's shipped and what's queued next.
 
 ## Using it
 
