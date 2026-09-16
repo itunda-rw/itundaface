@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" role="img" aria-label="ItundaFace 3D voice">
   <defs>
-    <linearGradient id="body" x1="18%" y1="0%" x2="85%" y2="100%"><stop offset="0" stop-color="#9C9AFF"/><stop offset="45%" stop-color="#7472F4"/><stop offset="100%" stop-color="#4D4AB8"/></linearGradient>
-    <linearGradient id="highlight" x1="20%" y1="0%" x2="80%" y2="100%"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".82"/><stop offset="100%" stop-color="#E8E8FF" stop-opacity=".35"/></linearGradient>
-    <radialGradient id="ground" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#000000" stop-opacity=".18"/><stop offset="100%" stop-color="#000000" stop-opacity="0"/></radialGradient>
+    <linearGradient id="body" x1="18%" y1="0%" x2="85%" y2="100%"><stop offset="0" stop-color="#AAA8FF"/><stop offset="42%" stop-color="#7472F4"/><stop offset="100%" stop-color="#4643AA"/></linearGradient>
+    <linearGradient id="highlight" x1="20%" y1="0%" x2="80%" y2="100%"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".88"/><stop offset="1" stop-color="#E8E8FF" stop-opacity=".3"/></linearGradient>
+    <radialGradient id="ground" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#000000" stop-opacity=".18"/><stop offset="1" stop-color="#000000" stop-opacity="0"/></radialGradient>
     <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%"><feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#000000" flood-opacity=".28"/></filter>
   </defs>
   <ellipse cx="40" cy="74" rx="21" ry="4" fill="url(#ground)"/>
@@ -12,5 +12,6 @@
     <path d="M40 60V70" stroke="url(#body)" stroke-width="6" stroke-linecap="round"/>
     <path d="M31 70H49" stroke="url(#body)" stroke-width="6" stroke-linecap="round"/>
     <path d="M34 16C36.5 13.7 39.8 12.8 43 13.3" fill="none" stroke="url(#highlight)" stroke-width="3" stroke-linecap="round"/>
+    <path d="M24 43C25.3 51.2 31.6 56.3 40 57.1" fill="none" stroke="#4643AA" stroke-opacity=".35" stroke-width="2.6" stroke-linecap="round"/>
   </g>
 </svg>
