@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" role="img" aria-label="ItundaFace lock">
+  <rect x="14" y="34" width="52" height="36" rx="9" fill="#282565"/>
+  <path d="M24 35V27c0-10 7-17 16-17s16 7 16 17v8" fill="none" stroke="#7472F4" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="40" cy="51" r="5" fill="#FFFFFF"/>
+  <path d="M40 55v7" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
+</svg>
