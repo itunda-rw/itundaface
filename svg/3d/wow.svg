@@ -1,20 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" role="img" aria-label="ItundaFace 3D wow">
   <defs>
-    <radialGradient id="face" cx="32%" cy="20%" r="90%">
-      <stop offset="0" stop-color="#FFE89E"/><stop offset="50%" stop-color="#FFCC4D"/><stop offset="100%" stop-color="#D98E0A"/>
-    </radialGradient>
-    <radialGradient id="highlight" cx="50%" cy="50%" r="50%">
-      <stop offset="0" stop-color="#FFFFFF" stop-opacity=".55"/><stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
-    </radialGradient>
-    <linearGradient id="rim" x1="20%" y1="0%" x2="70%" y2="60%">
-      <stop offset="0" stop-color="#FFFFFF" stop-opacity=".82"/><stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
-    </linearGradient>
-    <radialGradient id="ground" cx="50%" cy="50%" r="50%">
-      <stop offset="0" stop-color="#000000" stop-opacity=".22"/><stop offset="100%" stop-color="#000000" stop-opacity="0"/>
-    </radialGradient>
-    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
-      <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#000000" flood-opacity=".32"/>
-    </filter>
+    <radialGradient id="face" cx="32%" cy="20%" r="90%"><stop offset="0" stop-color="#FFE89E"/><stop offset="50%" stop-color="#FFCC4D"/><stop offset="100%" stop-color="#D98E0A"/></radialGradient>
+    <radialGradient id="highlight" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".48"/><stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/></radialGradient>
+    <linearGradient id="rim" x1="20%" y1="0%" x2="70%" y2="60%"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".78"/><stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/></linearGradient>
+    <radialGradient id="ground" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#000000" stop-opacity=".18"/><stop offset="100%" stop-color="#000000" stop-opacity="0"/></radialGradient>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%"><feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#000000" flood-opacity=".28"/></filter>
   </defs>
   <ellipse cx="40" cy="76" rx="25" ry="4.5" fill="url(#ground)"/>
   <g filter="url(#shadow)">
@@ -23,8 +13,8 @@
     <ellipse cx="27" cy="23" rx="13" ry="8.5" fill="url(#highlight)"/>
     <circle cx="26" cy="33.5" r="5.2" fill="#664500"/>
     <circle cx="54" cy="33.5" r="5.2" fill="#664500"/>
-    <circle cx="24.3" cy="31.8" r="1.4" fill="#FFFFFF" opacity=".72"/>
-    <circle cx="52.3" cy="31.8" r="1.4" fill="#FFFFFF" opacity=".72"/>
+    <circle cx="24.3" cy="31.8" r="1.4" fill="#FFFFFF" opacity=".68"/>
+    <circle cx="52.3" cy="31.8" r="1.4" fill="#FFFFFF" opacity=".68"/>
     <ellipse cx="40" cy="56" rx="9.4" ry="11.5" fill="#66471B"/>
     <ellipse cx="40" cy="59" rx="5.6" ry="6.5" fill="#4A3212" opacity=".45"/>
   </g>
