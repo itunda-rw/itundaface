@@ -3,25 +3,119 @@ import type { SVGProps } from 'react';
 export type PlaceKind = 'agent' | 'atm' | 'bank' | 'bus-stop' | 'cafe' | 'gas-station' | 'hospital' | 'hotel' | 'market' | 'pharmacy' | 'restaurant' | 'school' | 'supermarket' | 'pin' | 'bike' | 'ebike';
 export type PlaceIconProps = SVGProps<SVGSVGElement> & { size?: number };
 
+const canonical: Partial<Record<PlaceKind, React.ReactNode>> = {};
+
 export function PlaceIcon({ kind, size = 24, 'aria-label': ariaLabel, ...props }: PlaceIconProps & { kind: PlaceKind }) {
   const label = ariaLabel ?? `ItundaFace ${kind}`;
-  return <svg width={size} height={size} viewBox="0 0 80 80" role="img" aria-label={label} {...props}>
-    <circle cx="40" cy="40" r="34" fill="#7472F4" opacity=".14"/>
-    {kind === 'pin' && <path d="M40 70S18 50 18 33a22 22 0 1 1 44 0c0 17-22 37-22 37Zm0-27a10 10 0 1 0 0-20 10 10 0 0 0 0 20Z" fill="#7472F4"/>}
-    {kind === 'atm' && <><rect x="20" y="14" width="40" height="52" rx="6" fill="#282565"/><rect x="27" y="22" width="26" height="15" rx="2" fill="#7c7bfd"/><rect x="27" y="44" width="26" height="4" rx="2" fill="#7c7bfd"/><circle cx="48" cy="56" r="2" fill="#7c7bfd"/></>}
-    {kind === 'bank' && <><path d="m14 30 26-17 26 17H14Z" fill="#7472F4"/><path d="M20 34h7v22h-7zm13 0h7v22h-7zm13 0h7v22h-7z" fill="#7472F4"/><rect x="13" y="58" width="54" height="7" rx="3" fill="#282565"/></>}
-    {kind === 'restaurant' && <><path d="M23 17v23M18 17v11M28 17v11M23 40v24" stroke="#7472F4" strokeWidth="5" strokeLinecap="round"/><path d="M54 17v47M54 17c8 5 8 15 0 20" fill="none" stroke="#7472F4" strokeWidth="5" strokeLinecap="round"/></>}
-    {kind === 'cafe' && <><path d="M20 27h35v23c0 9-7 15-17 15s-18-6-18-15V27Z" fill="#7472F4"/><path d="M55 33h5a9 9 0 0 1 0 18h-5" fill="none" stroke="#7472F4" strokeWidth="6"/><path d="M27 18c-3-5 5-6 2-11M40 18c-3-5 5-6 2-11" fill="none" stroke="#7472F4" strokeWidth="4" strokeLinecap="round"/></>}
-    {kind === 'hospital' && <><rect x="17" y="17" width="46" height="46" rx="7" fill="#7472F4"/><path d="M40 25v30M25 40h30" stroke="#fff" strokeWidth="7" strokeLinecap="round"/></>}
-    {kind === 'pharmacy' && <><circle cx="40" cy="40" r="25" fill="#7472F4"/><path d="m29 51 22-22M34 28h12a8 8 0 0 1 0 16H34a8 8 0 0 1 0-16Z" fill="none" stroke="#fff" strokeWidth="5" strokeLinecap="round"/></>}
-    {kind === 'hotel' && <><path d="M18 57V25c0-5 4-9 9-9s9 4 9 9v32M36 37h18c5 0 8 4 8 9v11M18 58h44" fill="none" stroke="#7472F4" strokeWidth="6" strokeLinecap="round"/><circle cx="27" cy="28" r="4" fill="#7472F4"/></>}
-    {kind === 'market' && <><path d="M16 31h48l-5 31H21l-5-31Z" fill="#7472F4"/><path d="M13 31h54l-6-15H19l-6 15Z" fill="#282565"/><path d="M25 16v15M40 16v15M55 16v15" stroke="#fff" strokeWidth="3"/></>}
-    {kind === 'supermarket' && <><path d="M18 20h8l5 32h29l6-23H28" fill="none" stroke="#7472F4" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round"/><circle cx="35" cy="61" r="5" fill="#7472F4"/><circle cx="56" cy="61" r="5" fill="#7472F4"/></>}
-    {kind === 'gas-station' && <><path d="M21 63V20h28v43" fill="none" stroke="#7472F4" strokeWidth="6"/><rect x="27" y="27" width="16" height="13" rx="2" fill="#7472F4"/><path d="M49 28h8l6 8v27M58 28v10h5" fill="none" stroke="#7472F4" strokeWidth="5" strokeLinecap="round"/></>}
-    {kind === 'school' && <><path d="m15 32 25-18 25 18-25 18-25-18Z" fill="#7472F4"/><path d="M24 38v18h32V38M32 48h16" fill="none" stroke="#7472F4" strokeWidth="6" strokeLinecap="round"/></>}
-    {kind === 'bus-stop' && <><rect x="24" y="18" width="32" height="43" rx="6" fill="#7472F4"/><path d="M30 27h20v14H30zM30 48h7M43 48h7" fill="none" stroke="#fff" strokeWidth="4"/><path d="M18 63h44" stroke="#282565" strokeWidth="6" strokeLinecap="round"/></>}
-    {kind === 'agent' && <><circle cx="40" cy="29" r="12" fill="#7472F4"/><path d="M18 62c2-15 10-22 22-22s20 7 22 22" fill="#7472F4"/></>}
-    {kind === 'bike' && <><circle cx="24" cy="54" r="11" fill="none" stroke="#7472F4" strokeWidth="5"/><circle cx="57" cy="54" r="11" fill="none" stroke="#7472F4" strokeWidth="5"/><path d="m24 54 12-22 9 22m-21 0h33M36 32h11l6-8" fill="none" stroke="#7472F4" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"/></>}
-    {kind === 'ebike' && <><circle cx="24" cy="54" r="11" fill="none" stroke="#7472F4" strokeWidth="5"/><circle cx="57" cy="54" r="11" fill="none" stroke="#7472F4" strokeWidth="5"/><path d="m24 54 12-22 9 22m-21 0h33M36 32h11l6-8M43 35l5-8 7 5-8 7" fill="none" stroke="#7472F4" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"/></>}
-  </svg>;
+  return (
+    <svg width={size} height={size} viewBox="0 0 80 80" role="img" aria-label={label} {...props}>
+      <g transform="translate(10 10)">
+        {kind === 'agent' && <>
+          <circle cx="30" cy="30" r="28" fill="#C0C6FF"/>
+          <g strokeLinecap="round" strokeLinejoin="round">
+            <path d="M24 20c0-4 3-7 6-7s6 3 6 7" fill="none" stroke="#483EB6" strokeWidth="2.8"/>
+            <path d="M20 22h20l4 16c1 5-3 10-9 10H25c-6 0-10-5-9-10z" fill="#483EB6"/>
+            <circle cx="30" cy="34" r="6" fill="none" stroke="#C0C6FF" strokeWidth="2.2"/>
+            <path d="M30 30v8M27 34h6" stroke="#C0C6FF" strokeWidth="2.2"/>
+            <path d="M37 18l3-2" stroke="#7472F4" strokeWidth="2.2"/>
+          </g>
+        </>}
+        {kind === 'atm' && <>
+          <circle cx="30" cy="30" r="28" fill="#c0c6ff"/>
+          <rect x="17" y="14" width="26" height="34" rx="4" fill="#282565"/>
+          <rect x="21" y="19" width="18" height="12" rx="1.5" fill="#7c7bfd"/>
+          <rect x="21" y="35" width="18" height="3" rx="1.5" fill="#7c7bfd"/>
+          <circle cx="34" cy="42" r="1.6" fill="#7c7bfd"/>
+        </>}
+        {kind === 'bank' && <>
+          <circle cx="30" cy="30" r="28" fill="#C0C6FF"/>
+          <g fill="#282565" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M14 22l16-10 16 10z"/><rect x="14" y="22" width="32" height="4" rx="1"/>
+            <rect x="18" y="28" width="4" height="16" rx="1"/><rect x="26" y="28" width="4" height="16" rx="1"/><rect x="34" y="28" width="4" height="16" rx="1"/><rect x="42" y="28" width="4" height="16" rx="1"/>
+            <rect x="13" y="46" width="34" height="4" rx="1"/>
+          </g>
+          <path d="M38 17l4-2" stroke="#7472F4" strokeWidth="2.2" strokeLinecap="round"/>
+        </>}
+        {kind === 'bus-stop' && <>
+          <circle cx="30" cy="30" r="28" fill="#c0ccdd"/>
+          <rect x="14" y="18" width="32" height="22" rx="5" fill="#253142"/>
+          <rect x="18" y="22" width="9" height="8" rx="1.5" fill="#c0ccdd"/><rect x="33" y="22" width="9" height="8" rx="1.5" fill="#c0ccdd"/>
+          <circle cx="21" cy="43" r="3.4" fill="#253142"/><circle cx="39" cy="43" r="3.4" fill="#253142"/>
+        </>}
+        {kind === 'cafe' && <>
+          <circle cx="30" cy="30" r="28" fill="#ECC38C"/>
+          <path d="M15 25.5h26v11.8c0 6.2-5 11.2-11.2 11.2h-3.6C20 48.5 15 43.5 15 37.3z" fill="#744C00"/>
+          <path d="M41 28h4.5a5.5 5.5 0 0 1 0 11H41" fill="none" stroke="#744C00" strokeWidth="2.8" strokeLinecap="round"/>
+          <path d="M21.5 19.5c0-3 3-3 3-6M29 19.5c0-3 3-3 3-6" fill="none" stroke="#744C00" strokeWidth="2.3" strokeLinecap="round"/>
+          <path d="M18 28h20" stroke="#7472F4" strokeWidth="2.2" strokeLinecap="round" opacity=".9"/>
+        </>}
+        {kind === 'gas-station' && <>
+          <circle cx="30" cy="30" r="28" fill="#C0CCDD"/>
+          <rect x="16" y="15" width="20" height="34" rx="3.5" fill="#415676"/>
+          <rect x="20" y="20" width="12" height="9" rx="1.8" fill="#C0CCDD"/>
+          <path d="M36 25.5h3.5a4 4 0 0 1 4 4v9.8c0 1.8 1.1 3 2.5 3s2.5-1.2 2.5-3V31l-3.2-3.1" fill="none" stroke="#415676" strokeWidth="2.7" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M23 24.5h6" stroke="#7472F4" strokeWidth="2.2" strokeLinecap="round"/>
+        </>}
+        {kind === 'hospital' && <>
+          <circle cx="30" cy="30" r="28" fill="#feb6aa"/><rect x="14" y="16" width="32" height="34" rx="4" fill="#ffffff"/>
+          <path d="M30 22V44M19 33H41" stroke="#a20800" strokeWidth="5" strokeLinecap="round"/>
+        </>}
+        {kind === 'hotel' && <>
+          <circle cx="30" cy="30" r="28" fill="#DCCB8A"/>
+          <path d="M13 45V27a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v5h12a4 4 0 0 1 4 4v9" fill="none" stroke="#665400" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M15 32h30v4H15z" fill="#665400"/><path d="M12 45h36" stroke="#665400" strokeWidth="2.8" strokeLinecap="round"/>
+          <circle cx="43" cy="19" r="4" fill="#7472F4"/><path d="M41.5 19h3" stroke="#fff" strokeWidth="1.5" strokeLinecap="round"/>
+        </>}
+        {kind === 'market' && <>
+          <circle cx="30" cy="30" r="28" fill="#B3D5B9"/>
+          <path d="M16 26h28l-4 18c-.5 2.3-2.5 4-5 4H25c-2.5 0-4.5-1.7-5-4z" fill="#156631" stroke="#156631" strokeLinejoin="round"/>
+          <path d="M23 26c0-6 3-10 7-10s7 4 7 10" fill="none" stroke="#156631" strokeWidth="2.8" strokeLinecap="round"/>
+          <path d="M22 32h16M23 38h14" stroke="#B3D5B9" strokeWidth="1.8" strokeLinecap="round"/><path d="M38 19l4-2" stroke="#7472F4" strokeWidth="2.2" strokeLinecap="round"/>
+        </>}
+        {kind === 'pharmacy' && <>
+          <circle cx="30" cy="30" r="28" fill="#8BDECB"/>
+          <g transform="rotate(-40 30 30)"><rect x="11" y="22" width="38" height="16" rx="8" fill="#FFFFFF"/>
+            <path d="M11 30a8 8 0 0 1 8-8h12v16H19a8 8 0 0 1-8-8z" fill="#006455"/>
+            <path d="M30 24v12M24 30h12" stroke="#7472F4" strokeWidth="2.2" strokeLinecap="round"/>
+          </g>
+        </>}
+        {kind === 'restaurant' && <>
+          <circle cx="30" cy="30" r="28" fill="#FEB6AA"/>
+          <g fill="none" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M20 14v12M24 14v12M22 14v30" stroke="#A20800" strokeWidth="3"/><path d="M20 26c0 3.5 4 3.5 4 0" stroke="#A20800" strokeWidth="3"/>
+            <path d="M40 14c-6 2-6 8 0 10v20" stroke="#A20800" strokeWidth="3"/><path d="M35 18c2-2 4-3 6-4" stroke="#7472F4" strokeWidth="2.2"/>
+          </g>
+        </>}
+        {kind === 'school' && <>
+          <circle cx="30" cy="30" r="28" fill="#97D5F5"/><path d="M30 14 50 24 30 34 10 24z" fill="#005D7F"/>
+          <path d="M20 29v9c0 3.8 4.4 7 10 7s10-3.2 10-7v-9" fill="none" stroke="#005D7F" strokeWidth="2.6" strokeLinecap="round"/>
+          <path d="M50 24v13" stroke="#005D7F" strokeWidth="2.4" strokeLinecap="round"/><circle cx="46" cy="18" r="4" fill="#7472F4"/>
+        </>}
+        {kind === 'supermarket' && <>
+          <circle cx="30" cy="30" r="28" fill="#B9D79B"/><path d="M15 15h6l5 23h17l4-16H23" fill="none" stroke="#3E6200" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+          <circle cx="29" cy="45" r="3.5" fill="#3E6200"/><circle cx="42" cy="45" r="3.5" fill="#3E6200"/><path d="M27 25h13" stroke="#7472F4" strokeWidth="2.2" strokeLinecap="round"/>
+        </>}
+        {kind === 'pin' && <path d="M30 58S8 38 8 21a22 22 0 1 1 44 0c0 17-22 37-22 37Zm0-27a10 10 0 1 0 0-20 10 10 0 0 0 0 20Z" fill="#7472F4"/>}
+        {kind === 'bike' && <><circle cx="14" cy="44" r="11" fill="none" stroke="#7472F4" strokeWidth="5"/><circle cx="47" cy="44" r="11" fill="none" stroke="#7472F4" strokeWidth="5"/><path d="m14 44 12-22 9 22m-21 0h33M26 22h11l6-8" fill="none" stroke="#7472F4" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"/></>}
+        {kind === 'ebike' && <><circle cx="14" cy="44" r="11" fill="none" stroke="#7472F4" strokeWidth="5"/><circle cx="47" cy="44" r="11" fill="none" stroke="#7472F4" strokeWidth="5"/><path d="m14 44 12-22 9 22m-21 0h33M26 22h11l6-8M33 25l5-8 7 5-8 7" fill="none" stroke="#7472F4" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"/></>}
+      </g>
+    </svg>
+  );
 }
+
+export const PlaceAgent = (props: PlaceIconProps) => <PlaceIcon kind="agent" {...props}/>;
+export const PlaceAtm = (props: PlaceIconProps) => <PlaceIcon kind="atm" {...props}/>;
+export const PlaceBank = (props: PlaceIconProps) => <PlaceIcon kind="bank" {...props}/>;
+export const PlaceBusStop = (props: PlaceIconProps) => <PlaceIcon kind="bus-stop" {...props}/>;
+export const PlaceCafe = (props: PlaceIconProps) => <PlaceIcon kind="cafe" {...props}/>;
+export const PlaceGasStation = (props: PlaceIconProps) => <PlaceIcon kind="gas-station" {...props}/>;
+export const PlaceHospital = (props: PlaceIconProps) => <PlaceIcon kind="hospital" {...props}/>;
+export const PlaceHotel = (props: PlaceIconProps) => <PlaceIcon kind="hotel" {...props}/>;
+export const PlaceMarket = (props: PlaceIconProps) => <PlaceIcon kind="market" {...props}/>;
+export const PlacePharmacy = (props: PlaceIconProps) => <PlaceIcon kind="pharmacy" {...props}/>;
+export const PlaceRestaurant = (props: PlaceIconProps) => <PlaceIcon kind="restaurant" {...props}/>;
+export const PlaceSchool = (props: PlaceIconProps) => <PlaceIcon kind="school" {...props}/>;
+export const PlaceSupermarket = (props: PlaceIconProps) => <PlaceIcon kind="supermarket" {...props}/>;
+export const PlacePin = (props: PlaceIconProps) => <PlaceIcon kind="pin" {...props}/>;
+export const PlaceBike = (props: PlaceIconProps) => <PlaceIcon kind="bike" {...props}/>;
+export const PlaceEbike = (props: PlaceIconProps) => <PlaceIcon kind="ebike" {...props}/>;
