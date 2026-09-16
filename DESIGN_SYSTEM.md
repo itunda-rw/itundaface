@@ -83,7 +83,21 @@ Target sizes: 32, 40, 48, 64px+.
 - Use rim light consistently rather than independently inventing highlights.
 - Never turn the 3D version into a photorealistic object.
 
-## 5. Color philosophy
+## 5. Master reaction set
+
+The first canonical reaction family is intentionally small and locked before expanding the catalog:
+
+- `thumbs-up`
+- `heart`
+- `laughing`
+- `sad`
+- `wow`
+
+These five are the reference set for proportion, optical size, expression, semantic color, indigo-accent placement, and flat-to-3D silhouette continuity. New reaction glyphs should be compared against this set before being added to the library.
+
+The master set is a calibration family, not a claim that the library is complete. Its purpose is to prevent system drift as the catalog grows.
+
+## 6. Color philosophy
 
 Color communicates meaning first and brand second.
 
@@ -93,7 +107,7 @@ Color communicates meaning first and brand second.
 - Keep the palette compact enough that the library feels like one family.
 - Light and dark surfaces should preserve the same glyph meaning.
 
-## 6. Expression system
+## 7. Expression system
 
 Faces should communicate emotion through a small number of strong changes:
 
@@ -105,7 +119,7 @@ Faces should communicate emotion through a small number of strong changes:
 
 Avoid tiny facial details that become noise at small sizes.
 
-## 7. Hands and repeated anatomy
+## 8. Hands and repeated anatomy
 
 Hands, faces, and other repeated anatomy must use shared proportions.
 
@@ -115,7 +129,7 @@ Hands, faces, and other repeated anatomy must use shared proportions.
 - Same visual volume and placement.
 - Expression changes should come from pose, not from inventing a new hand construction each time.
 
-## 8. Itunda signature
+## 9. Itunda signature
 
 The following details distinguish ItundaFace from generic emoji systems:
 
@@ -124,7 +138,7 @@ The following details distinguish ItundaFace from generic emoji systems:
 3. **Flat-to-3D continuity** — the 3D glyph is a dimensional rendering of the same underlying drawing.
 4. **Rwanda-native meaning** — commerce, transport, places, finance, identity, and community glyphs should reflect real Itunda use cases rather than merely reproduce a generic emoji catalog.
 
-## 9. Quality gate
+## 10. Quality gate
 
 A glyph is ready only when it passes all of these checks:
 
@@ -140,7 +154,7 @@ A glyph is ready only when it passes all of these checks:
 - No borrowed TossFace artwork, vectors, or modified TossFace assets.
 - SVG remains compact, accessible, and maintainable.
 
-## 10. Roadmap
+## 11. Roadmap
 
 The target is a coherent expressive system, not simply a large icon count:
 
@@ -156,7 +170,7 @@ The target is a coherent expressive system, not simply a large icon count:
 
 Each new family should be designed as a system before individual glyphs are produced.
 
-## 11. Originality boundary
+## 12. Originality boundary
 
 TossFace is a useful reference for system thinking, not a source of artwork. ItundaFace must remain independently authored.
 
