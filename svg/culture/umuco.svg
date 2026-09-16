@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" role="img" aria-label="ItundaFace community">
+  <circle cx="40" cy="40" r="30" fill="#B3D5B9"/>
+  <circle cx="40" cy="29" r="8" fill="#FFCF87"/>
+  <circle cx="24" cy="36" r="6.5" fill="#FFCF87"/>
+  <circle cx="56" cy="36" r="6.5" fill="#FFCF87"/>
+  <path d="M25 58c1-10 7-15 15-15s14 5 15 15" fill="#156631"/>
+  <path d="M13 58c.7-7 4.8-11 11-11 3.2 0 5.7 1 7.5 3M67 58c-.7-7-4.8-11-11-11-3.2 0-5.7 1-7.5 3" fill="none" stroke="#156631" stroke-width="6" stroke-linecap="round"/>
+  <path d="M40 19v-5M37 16h6" stroke="#7472F4" stroke-width="2.5" stroke-linecap="round"/>
+</svg>
