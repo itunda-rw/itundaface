@@ -83,6 +83,29 @@ Target sizes: 32, 40, 48, 64px+.
 - Use rim light consistently rather than independently inventing highlights.
 - Never turn the 3D version into a photorealistic object.
 
+### 4.1 Material grammar
+
+3D is a dimensional rendering layer, not a second illustration style.
+
+- Primary volume uses a restrained three-stop gradient: light plane → canonical color → deeper underside.
+- Highlights are broad and soft, concentrated toward the upper-left light source.
+- Underside facets may be darker, but must remain part of the original silhouette.
+- Ground shadows are soft, minimal, and consistent across the family.
+- White internal marks remain semantic details rather than decorative gloss.
+- Avoid metallic, glass, plastic, or photographic material effects unless a future family explicitly requires that material.
+
+### 4.2 Communication 3D family
+
+The canonical communication set is:
+
+- `chat`
+- `reply`
+- `send`
+- `voice`
+- `notification`
+
+These share the same indigo material, lighting direction, camera, shadow treatment, and flat-to-3D silhouette relationship. Their semantics are carried primarily by the silhouette and internal mark, not by extra decoration.
+
 ## 5. Master reaction set
 
 The first canonical reaction family is intentionally small and locked before expanding the catalog:
@@ -150,7 +173,7 @@ A glyph is ready only when it passes all of these checks:
 - Matches the visual weight of existing ItundaFace glyphs.
 - Uses brand indigo only where it strengthens Itunda identity.
 - Flat and 3D versions share the same silhouette.
-- 3D camera, light direction, and shadow language match the library.
+- 3D camera, light direction, material, and shadow language match the library.
 - No borrowed TossFace artwork, vectors, or modified TossFace assets.
 - SVG remains compact, accessible, and maintainable.
 
