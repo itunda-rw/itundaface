@@ -1,14 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" role="img" aria-label="ItundaFace 3D reply">
   <defs>
-    <linearGradient id="body" x1="18%" y1="0%" x2="85%" y2="100%"><stop offset="0" stop-color="#9C9AFF"/><stop offset="45%" stop-color="#7472F4"/><stop offset="100%" stop-color="#4D4AB8"/></linearGradient>
-    <linearGradient id="arrow" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".98"/><stop offset="100%" stop-color="#E8E8FF" stop-opacity=".8"/></linearGradient>
-    <radialGradient id="highlight" cx="35%" cy="24%" r="55%"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".32"/><stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/></radialGradient>
-    <radialGradient id="ground" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#000000" stop-opacity=".18"/><stop offset="100%" stop-color="#000000" stop-opacity="0"/></radialGradient>
+    <linearGradient id="body" x1="18%" y1="0%" x2="85%" y2="100%"><stop offset="0" stop-color="#AAA8FF"/><stop offset="42%" stop-color="#7472F4"/><stop offset="100%" stop-color="#4643AA"/></linearGradient>
+    <linearGradient id="arrow" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#E4E3FF"/></linearGradient>
+    <radialGradient id="highlight" cx="32%" cy="20%" r="58%"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".42"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></radialGradient>
+    <radialGradient id="ground" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#000000" stop-opacity=".18"/><stop offset="1" stop-color="#000000" stop-opacity="0"/></radialGradient>
     <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%"><feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#000000" flood-opacity=".28"/></filter>
   </defs>
   <ellipse cx="40" cy="73" rx="24" ry="4" fill="url(#ground)"/>
   <g filter="url(#shadow)">
     <path d="M15 38C15 23.6 27.2 13 42.6 13H65C68.3 13 71 15.7 71 19V48C71 51.3 68.3 54 65 54H42.6C37.5 54 33.1 55.2 29.2 57.7L19.2 64.1C16.8 65.6 14 63.8 14.5 61L16.5 51.4C15.5 47.3 15 42.8 15 38Z" fill="url(#body)"/>
+    <path d="M15.5 39C16.8 50.5 27.5 55.7 42.5 55.7H64C67 55.7 69.3 53.8 70.2 51.2C67.7 55.5 59.8 58.1 47 58.1C34.2 58.1 23.7 55.8 18.1 51.1L15.5 61.4L19.2 64.1C16.8 65.6 14 63.8 14.5 61L16.5 51.4C15.8 47.5 15.4 43.1 15.5 39Z" fill="#403D9B" opacity=".28"/>
     <path d="M15 38C15 23.6 27.2 13 42.6 13H65C68.3 13 71 15.7 71 19V48C71 51.3 68.3 54 65 54H42.6C37.5 54 33.1 55.2 29.2 57.7L19.2 64.1C16.8 65.6 14 63.8 14.5 61L16.5 51.4C15.5 47.3 15 42.8 15 38Z" fill="url(#highlight)"/>
     <path d="M34 37H54" stroke="url(#arrow)" stroke-width="5" stroke-linecap="round"/>
     <path d="M34 37L43 29" stroke="url(#arrow)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
