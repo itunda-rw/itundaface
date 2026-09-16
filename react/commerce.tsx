@@ -1,16 +1,15 @@
 import type { SVGProps } from 'react';
 
-export type CommerceKind = 'gift' | 'voucher' | 'package' | 'shopping-bag' | 'price-drop';
+export type CommerceKind = 'gift' | 'voucher' | 'package' | 'shopping-bag';
 export type CommerceIconProps = SVGProps<SVGSVGElement> & { size?: number };
 
 export function CommerceIcon({ kind, size = 24, 'aria-label': ariaLabel, ...props }: CommerceIconProps & { kind: CommerceKind }) {
   const label = ariaLabel ?? `ItundaFace ${kind}`;
   return <svg width={size} height={size} viewBox="0 0 80 80" role="img" aria-label={label} {...props}>
-    {kind === 'gift' && <><rect x="16" y="31" width="48" height="34" rx="5" fill="#7472F4"/><rect x="13" y="23" width="54" height="12" rx="4" fill="#282565"/><path d="M40 23v42M40 23c-13 0-18-5-13-11 6-6 13 3 13 11Zm0 0c13 0 18-5 13-11-6-6-13 3-13 11Z" fill="none" stroke="#fff" strokeWidth="4" strokeLinecap="round"/></>}
-    {kind === 'voucher' && <><path d="M14 24h52v13a7 7 0 0 0 0 14v13H14V51a7 7 0 0 0 0-14V24Z" fill="#7472F4"/><path d="M28 35h24M28 45h16" stroke="#fff" strokeWidth="5" strokeLinecap="round"/></>}
-    {kind === 'package' && <><path d="m15 27 25-13 25 13v27L40 68 15 54V27Z" fill="#7472F4"/><path d="M15 27 40 41l25-14M40 41v27M28 20l25 14" fill="none" stroke="#fff" strokeWidth="4" strokeLinejoin="round"/></>}
-    {kind === 'shopping-bag' && <><path d="M18 26h44l-5 39H23l-5-39Z" fill="#7472F4"/><path d="M29 28V22a11 11 0 0 1 22 0v6" fill="none" stroke="#282565" strokeWidth="6" strokeLinecap="round"/></>}
-    {kind === 'price-drop' && <><path d="M40 12v45M24 43l16 16 16-16" fill="none" stroke="#7472F4" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round"/><path d="M19 68h42" stroke="#282565" strokeWidth="6" strokeLinecap="round"/></>}
+    {kind === 'gift' && <><rect x="13" y="29" width="54" height="39" rx="6" fill="#EF4A63"/><rect x="11" y="25" width="58" height="11" rx="4" fill="#C72E4C"/><path d="M40 25v43" stroke="#FFCC4D" strokeWidth="7"/><path d="M18 42h44" stroke="#FFCC4D" strokeWidth="4"/><path d="M40 25c-8-1-16-5-16-11 0-4 3-6 7-6 6 0 9 8 9 17ZM40 25c8-1 16-5 16-11 0-4-3-6-7-6-6 0-9 8-9 17Z" fill="#7472F4"/></>}
+    {kind === 'voucher' && <><path d="M12 20a8 8 0 0 0 0 16 8 8 0 0 0 0 16 8 8 0 0 0 0 16v8h56v-8a8 8 0 0 0 0-16 8 8 0 0 0 0-16 8 8 0 0 0 0-16v-8Z" fill="#C0C6FF"/><path d="M28 20v40M52 20v40" stroke="#7472F4" strokeWidth="4" strokeDasharray="5 5"/><path d="M33 30h14M33 40h14M33 50h9" stroke="#282565" strokeWidth="4" strokeLinecap="round"/></>}
+    {kind === 'package' && <><path d="M12 25 40 12l28 13-28 13Z" fill="#D6A66A"/><path d="M12 25v31l28 13V38Z" fill="#B97C38"/><path d="M68 25v31L40 69V38Z" fill="#8C5B29"/><path d="M40 38v31M26 19l28 13" stroke="#7472F4" strokeWidth="4" strokeLinecap="round"/></>}
+    {kind === 'shopping-bag' && <><path d="M15 25h50l-4 42H19Z" fill="#7472F4"/><path d="M28 27v-7c0-7 5-12 12-12s12 5 12 12v7" fill="none" stroke="#282565" strokeWidth="6" strokeLinecap="round"/><path d="M30 43h20" stroke="#FFFFFF" strokeWidth="5" strokeLinecap="round"/></>}
   </svg>;
 }
 
@@ -18,4 +17,3 @@ export const CommerceGift = (props: CommerceIconProps) => <CommerceIcon kind="gi
 export const CommerceVoucher = (props: CommerceIconProps) => <CommerceIcon kind="voucher" {...props} />;
 export const CommercePackage = (props: CommerceIconProps) => <CommerceIcon kind="package" {...props} />;
 export const CommerceShoppingBag = (props: CommerceIconProps) => <CommerceIcon kind="shopping-bag" {...props} />;
-export const CommercePriceDrop = (props: CommerceIconProps) => <CommerceIcon kind="price-drop" {...props} />;
