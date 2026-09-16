@@ -1,6 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60">
-  <circle cx="30" cy="30" r="28" fill="#97d5f5"/>
-  <path d="M30,16 L50,25 L30,34 L10,25 Z" fill="#005d7f"/>
-  <path d="M20,29 V38 C20,41 24,44 30,44 C36,44 40,41 40,38 V29" stroke="#005d7f" stroke-width="2.4" fill="none" stroke-linecap="round"/>
-  <line x1="50" y1="25" x2="50" y2="37" stroke="#005d7f" stroke-width="2.2" stroke-linecap="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" role="img" aria-label="School">
+  <circle cx="30" cy="30" r="28" fill="#97D5F5"/>
+  <path d="M30 14 50 24 30 34 10 24z" fill="#005D7F"/>
+  <path d="M20 29v9c0 3.8 4.4 7 10 7s10-3.2 10-7v-9" fill="none" stroke="#005D7F" stroke-width="2.6" stroke-linecap="round"/>
+  <path d="M50 24v13" stroke="#005D7F" stroke-width="2.4" stroke-linecap="round"/>
+  <circle cx="46" cy="18" r="4" fill="#7472F4"/>
 </svg>

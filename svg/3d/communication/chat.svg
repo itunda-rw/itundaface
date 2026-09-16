@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" role="img" aria-label="ItundaFace 3D chat">
+  <defs>
+    <linearGradient id="body" x1="18%" y1="0%" x2="85%" y2="100%"><stop offset="0" stop-color="#AAA8FF"/><stop offset="42%" stop-color="#7472F4"/><stop offset="100%" stop-color="#4643AA"/></linearGradient>
+    <linearGradient id="lower" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7472F4" stop-opacity="0"/><stop offset="1" stop-color="#3E3B98" stop-opacity=".42"/></linearGradient>
+    <radialGradient id="highlight" cx="32%" cy="20%" r="58%"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".42"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></radialGradient>
+    <radialGradient id="ground" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#000000" stop-opacity=".18"/><stop offset="1" stop-color="#000000" stop-opacity="0"/></radialGradient>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%"><feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#000000" flood-opacity=".28"/></filter>
+  </defs>
+  <ellipse cx="40" cy="75" rx="24" ry="4" fill="url(#ground)"/>
+  <g filter="url(#shadow)">
+    <path d="M40 10C22.9 10 9 20.7 9 34C9 41.8 14.2 48.8 22.2 53C22 59.2 19.7 63.4 16.5 67.2C23 66.4 29 63.6 33.1 59.1C35.3 59.7 37.6 60 40 60C57.1 60 71 49.3 71 36C71 22.7 57.1 10 40 10Z" fill="url(#body)"/>
+    <path d="M9.5 34C10.2 48.5 23.8 58.5 40 59.5C52.5 60.2 63.7 55.2 68.5 46C63 52 53.3 55.5 42 55.5C25.7 55.5 13.1 47.7 9.5 34Z" fill="url(#lower)"/>
+    <path d="M40 10C22.9 10 9 20.7 9 34C9 41.8 14.2 48.8 22.2 53C22 59.2 19.7 63.4 16.5 67.2C23 66.4 29 63.6 33.1 59.1C35.3 59.7 37.6 60 40 60C57.1 60 71 49.3 71 36C71 22.7 57.1 10 40 10Z" fill="url(#highlight)"/>
+    <circle cx="29" cy="35" r="3.1" fill="#FFFFFF" fill-opacity=".96"/>
+    <circle cx="40" cy="35" r="3.1" fill="#FFFFFF" fill-opacity=".96"/>
+    <circle cx="51" cy="35" r="3.1" fill="#FFFFFF" fill-opacity=".96"/>
+  </g>
+</svg>

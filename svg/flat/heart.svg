@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" role="img" aria-label="ItundaFace heart">
-  <path d="M40 68.8C35.2 64.7 9 45.5 9 27.8 9 17.2 16.4 10 26.3 10c6.2 0 11.1 3.1 13.7 8.1C42.6 13.1 47.5 10 53.7 10 63.6 10 71 17.2 71 27.8c0 17.7-26.2 36.9-31 41Z" fill="#ef4a63"/>
-  <path d="M40 68.8C35.2 64.7 9 45.5 9 27.8 9 17.2 16.4 10 26.3 10c6.2 0 11.1 3.1 13.7 8.1Z" fill="#c72e4c"/>
-  <path d="M40 18.2v50.6" stroke="#7472F4" stroke-width="2.4" stroke-linecap="round" opacity=".9"/>
+  <path d="M40 69C35 64.8 10 46.3 10 28.1 10 17.5 17.1 10 26.6 10c6.2 0 10.8 3 13.4 8.1C42.6 13 47.2 10 53.4 10 62.9 10 70 17.5 70 28.1 70 46.3 45 64.8 40 69Z" fill="#EF4A63"/>
+  <path d="M40 69C35 64.8 10 46.3 10 28.1 10 17.5 17.1 10 26.6 10c6.2 0 10.8 3 13.4 8.1Z" fill="#C72E4C"/>
+  <path d="M40 18.1V69" stroke="#7472F4" stroke-width="2.4" stroke-linecap="round" opacity=".9"/>
 </svg>

@@ -1,7 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60">
-  <circle cx="30" cy="30" r="28" fill="#8bdecb"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" role="img" aria-label="Pharmacy">
+  <circle cx="30" cy="30" r="28" fill="#8BDECB"/>
   <g transform="rotate(-40 30 30)">
-    <rect x="12" y="23" width="36" height="14" rx="7" fill="#ffffff"/>
-    <path d="M12,30 A7,7 0 0 1 19,23 H30 V37 H19 A7,7 0 0 1 12,30 Z" fill="#006455"/>
+    <rect x="11" y="22" width="38" height="16" rx="8" fill="#FFFFFF"/>
+    <path d="M11 30a8 8 0 0 1 8-8h12v16H19a8 8 0 0 1-8-8z" fill="#006455"/>
+    <path d="M30 24v12M24 30h12" stroke="#7472F4" stroke-width="2.2" stroke-linecap="round"/>
   </g>
 </svg>
