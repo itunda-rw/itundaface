@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" role="img" aria-label="ItundaFace error">
+  <circle cx="40" cy="40" r="30" fill="#E84D5B"/>
+  <path d="M29 29l22 22M51 29 29 51" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
+  <path d="M40 10v7" stroke="#7472F4" stroke-width="3" stroke-linecap="round"/>
+</svg>
