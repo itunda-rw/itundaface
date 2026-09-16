@@ -10,13 +10,13 @@
       <stop offset="0" stop-color="#9C9AFF"/><stop offset="55%" stop-color="#7472F4"/><stop offset="100%" stop-color="#4D4AB8"/>
     </linearGradient>
     <radialGradient id="highlight" cx="50%" cy="50%" r="50%">
-      <stop offset="0" stop-color="#FFFFFF" stop-opacity=".55"/><stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity=".48"/><stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
     </radialGradient>
     <radialGradient id="ground" cx="50%" cy="50%" r="50%">
-      <stop offset="0" stop-color="#000000" stop-opacity=".22"/><stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="0" stop-color="#000000" stop-opacity=".18"/><stop offset="100%" stop-color="#000000" stop-opacity="0"/>
     </radialGradient>
     <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
-      <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#000000" flood-opacity=".32"/>
+      <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#000000" flood-opacity=".28"/>
     </filter>
   </defs>
   <ellipse cx="40" cy="76" rx="25" ry="4.5" fill="url(#ground)"/>
@@ -24,7 +24,7 @@
     <path d="M40 17.2C41.3 13 45.9 8.4 53.2 8.4C63.1 8.4 72.6 16.4 72.6 28.8C72.6 52.4 40 74.4 40 74.4Z" fill="url(#heartRight)"/>
     <path d="M40 17.2C38.7 13 34.1 8.4 26.8 8.4C16.9 8.4 7.4 16.4 7.4 28.8C7.4 52.4 40 74.4 40 74.4Z" fill="url(#heartLeft)"/>
     <path d="M40 17.5V73.3" stroke="url(#seam)" stroke-width="2.5" stroke-linecap="round"/>
-    <path d="M23.5 13.3C28.5 10.6 34.3 12.6 37.6 17.1" stroke="#FFFFFF" stroke-opacity=".7" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <path d="M23.5 13.3C28.5 10.6 34.3 12.6 37.6 17.1" stroke="#FFFFFF" stroke-opacity=".62" stroke-width="3" stroke-linecap="round" fill="none"/>
     <ellipse cx="26" cy="24" rx="11" ry="7.5" fill="url(#highlight)"/>
   </g>
 </svg>
