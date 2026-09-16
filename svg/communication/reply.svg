@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" role="img" aria-label="ItundaFace reply">
+  <path d="M15 38C15 23.6 27.2 13 42.6 13H65C68.3 13 71 15.7 71 19V48C71 51.3 68.3 54 65 54H42.6C37.5 54 33.1 55.2 29.2 57.7L19.2 64.1C16.8 65.6 14 63.8 14.5 61L16.5 51.4C15.5 47.3 15 42.8 15 38Z" fill="#7472F4"/>
+  <path d="M34 37H54" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/>
+  <path d="M34 37L43 29" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M34 37L43 45" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
