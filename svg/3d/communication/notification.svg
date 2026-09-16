@@ -1,17 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" role="img" aria-label="ItundaFace 3D notification">
   <defs>
-    <linearGradient id="body" x1="18%" y1="0%" x2="85%" y2="100%"><stop offset="0" stop-color="#9C9AFF"/><stop offset="45%" stop-color="#7472F4"/><stop offset="100%" stop-color="#4D4AB8"/></linearGradient>
-    <linearGradient id="clapper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7C7AF8"/><stop offset="100%" stop-color="#4D4AB8"/></linearGradient>
-    <radialGradient id="highlight" cx="35%" cy="22%" r="58%"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".34"/><stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/></radialGradient>
-    <radialGradient id="ground" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#000000" stop-opacity=".18"/><stop offset="100%" stop-color="#000000" stop-opacity="0"/></radialGradient>
+    <linearGradient id="body" x1="18%" y1="0%" x2="85%" y2="100%"><stop offset="0" stop-color="#AAA8FF"/><stop offset="42%" stop-color="#7472F4"/><stop offset="100%" stop-color="#4643AA"/></linearGradient>
+    <linearGradient id="clapper" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7C7AF8"/><stop offset="100%" stop-color="#403D9B"/></linearGradient>
+    <radialGradient id="highlight" cx="32%" cy="20%" r="58%"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".42"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></radialGradient>
+    <radialGradient id="ground" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#000000" stop-opacity=".18"/><stop offset="1" stop-color="#000000" stop-opacity="0"/></radialGradient>
     <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%"><feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#000000" flood-opacity=".28"/></filter>
   </defs>
   <ellipse cx="40" cy="75" rx="25" ry="4" fill="url(#ground)"/>
   <g filter="url(#shadow)">
     <path d="M40 10C33.9 10 29 14.9 29 21V25.1C23.3 28.5 20 34.6 20 41.5V55L14 63C12.1 65.5 13.9 69 17 69H63C66.1 69 67.9 65.5 66 63L60 55V41.5C60 34.6 56.7 28.5 51 25.1V21C51 14.9 46.1 10 40 10Z" fill="url(#body)"/>
+    <path d="M20 50.5V55L14 63C12.1 65.5 13.9 69 17 69H63C66.1 69 67.9 65.5 66 63L60 55V50.5C55.2 55.5 48.3 58.2 40 58.2C31.7 58.2 24.8 55.5 20 50.5Z" fill="#403D9B" opacity=".24"/>
     <path d="M40 10C33.9 10 29 14.9 29 21V25.1C23.3 28.5 20 34.6 20 41.5V55L14 63C12.1 65.5 13.9 69 17 69H63C66.1 69 67.9 65.5 66 63L60 55V41.5C60 34.6 56.7 28.5 51 25.1V21C51 14.9 46.1 10 40 10Z" fill="url(#highlight)"/>
     <path d="M31 70C31.8 74.2 35.3 77 40 77C44.7 77 48.2 74.2 49 70" fill="none" stroke="url(#clapper)" stroke-width="4.5" stroke-linecap="round"/>
     <circle cx="58" cy="18" r="7" fill="#EF4A63"/>
-    <circle cx="56.2" cy="16.2" r="2" fill="#FFFFFF" fill-opacity=".42"/>
+    <circle cx="56.2" cy="16.2" r="2" fill="#FFFFFF" fill-opacity=".48"/>
   </g>
 </svg>
