@@ -1,5 +1,17 @@
 # Changelog
 
+## 2.2.1 — 2026-09-17
+
+### React API and parity
+- Aligned the Places React family with the verified canonical flat artwork for agent, ATM, bank, bus stop, cafe, gas station, hospital, hotel, market, pharmacy, restaurant, school, and supermarket.
+- Preserved the existing public Places kinds for pin, bike, and ebike where a verified canonical source was not available in the repository inventory.
+- Aligned the Reactions React family with canonical flat geometry, including the thumbs-up accent, laughing highlight, wow accent, and sad tear/highlight details.
+- Expanded the Finance React family from the interaction layer to the complete 16-glyph canonical inventory, including Rwanda-native product and payment vocabulary.
+- Preserved accessible `aria-label` behavior and the existing typed family entrypoints.
+
+### Package
+- Bumped package version to `2.2.1`.
+
 ## 2.2.0 — 2026-09-16
 
 ### React API
