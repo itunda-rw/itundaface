@@ -1,13 +1,10 @@
 {
   "name": "itundaface",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "Itunda's independently authored expressive glyph system for reactions, communication, places, identity, commerce, finance, and Rwanda-native moments.",
   "license": "MIT",
   "homepage": "https://github.com/itunda-rw/itundaface",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/itunda-rw/itundaface.git"
-  },
+  "repository": {"type": "git", "url": "https://github.com/itunda-rw/itundaface.git"},
   "keywords": ["emoji", "icons", "svg", "react", "reactions", "itunda", "rwanda", "design-system"],
   "main": "react/index.tsx",
   "types": "react/index.tsx",
@@ -25,7 +22,5 @@
     "./validation": "./react/validation.ts"
   },
   "files": ["svg", "react", "tokens.json", "DESIGN_SYSTEM.md", "CHANGELOG.md", "RELEASE.md", "LICENSE", "README.md"],
-  "peerDependencies": {
-    "react": ">=17"
-  }
+  "peerDependencies": {"react": ">=17"}
 }
