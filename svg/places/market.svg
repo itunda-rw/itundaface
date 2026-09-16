@@ -1,6 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60">
-  <circle cx="30" cy="30" r="28" fill="#b3d5b9"/>
-  <path d="M16,26 H44 L40,44 C39.5,46.3 37.5,48 35,48 H25 C22.5,48 20.5,46.3 20,44 Z" fill="#156631"/>
-  <path d="M23,26 C23,20 26,16 30,16 C34,16 37,20 37,26" stroke="#156631" stroke-width="2.6" fill="none" stroke-linecap="round"/>
-  <path d="M22,32 H38 M23,38 H37" stroke="#b3d5b9" stroke-width="1.8" opacity="0.7"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" role="img" aria-label="ItundaFace market">
+  <circle cx="30" cy="30" r="28" fill="#B3D5B9"/>
+  <path d="M16 26h28l-4 18c-.5 2.3-2.5 4-5 4H25c-2.5 0-4.5-1.7-5-4z" fill="#156631" stroke="#156631" stroke-linejoin="round"/>
+  <path d="M23 26c0-6 3-10 7-10s7 4 7 10" fill="none" stroke="#156631" stroke-width="2.8" stroke-linecap="round"/>
+  <path d="M22 32h16M23 38h14" stroke="#B3D5B9" stroke-width="1.8" stroke-linecap="round"/>
+  <path d="M38 19l4-2" stroke="#7472F4" stroke-width="2.2" stroke-linecap="round"/>
 </svg>
