@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" role="img" aria-label="ItundaFace 3D umuganura harvest celebration">
+  <defs>
+    <linearGradient id="itdf-umuganura" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F4B52A"/><stop offset=".58" stop-color="#D98E0A"/><stop offset="1" stop-color="#A96800"/></linearGradient>
+  </defs>
+  <ellipse cx="40" cy="70" rx="18" ry="3.5" fill="#7472F4" opacity=".18"/>
+  <path d="M40 17v48" stroke="#7472F4" stroke-width="3.8" stroke-linecap="round"/>
+  <path d="M40 28c-8-8-18-7-22-2 5 5 13 8 22 2ZM40 40c8-8 18-7 22-2-5 5-13 8-22 2ZM40 51c-8-8-18-7-22-2 5 5 13 8 22 2Z" fill="url(#itdf-umuganura)"/>
+  <path d="M40 28c8-8 18-7 22-2-5 5-13 8-22 2ZM40 51c8-8 18-7 22-2-5 5-13 8-22 2Z" fill="#FFCC4D"/>
+  <path d="M30 66h20" stroke="#664500" stroke-width="4.5" stroke-linecap="round"/>
+  <circle cx="40" cy="12" r="4.5" fill="#7472F4"/>
+  <path d="M38.5 10.5c1-.8 2-1 3-.7" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" opacity=".75"/>
+</svg>
