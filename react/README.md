@@ -1,15 +1,22 @@
-# React API
+# ItundaFace React API
 
-The React package exposes typed, accessible components for ItundaFace families. Canonical SVG artwork remains under `svg/`; React components preserve the same semantic names and token vocabulary.
+The React surface is organized by canonical family modules. Canonical SVG artwork remains under `svg/` and is the visual source of truth.
 
-## Finance
+## Entrypoints
 
-Use `FinanceIcon` with `kind` values: `send`, `receive`, `cash-in`, `cash-out`, `qr-payment`, `refund`, `receipt`, `transaction-history`.
+- `itundaface` — legacy/core reaction exports
+- `itundaface/finance` — finance interaction icons
+- `itundaface/state` — product-state icons
+- `itundaface/families` — re-exports modern family modules
 
-Named helpers are also available: `FinanceSend`, `FinanceReceive`, `FinanceCashIn`, `FinanceCashOut`, `FinanceQrPayment`, `FinanceRefund`, `FinanceReceipt`, `FinanceTransactionHistory`.
+## API rules
 
-## State
+- Keep the 80×80 coordinate system and configurable `size`.
+- Meaningful icons expose an accessible `aria-label`.
+- `title` may override the generated label; visible text is not required for semantics.
+- Add new families as focused modules instead of expanding one monolithic component file.
+- 3D inline SVG definitions must use collision-safe IDs when multiple instances can render together.
 
-Use `StateIcon` with `success`, `verified`, `pending`, `warning`, `error`, `locked`, `processing`, `delivered`, or `completed`.
+## Migration
 
-All components accept `size`, standard SVG props, and optional accessible titles. Prefer the canonical SVG files when a product does not use React.
+The original root React entrypoint remains preserved for compatibility while consumers can migrate family-by-family to the canonical modules. This avoids a breaking rewrite of the existing inline-artwork implementation.
