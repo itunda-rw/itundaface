@@ -1,6 +1,6 @@
 # itundaface
 
-**v2.2.0** — Itunda's independently authored expressive glyph system, built with TossFace-level system discipline but original Itunda artwork.
+**v2.2.1** — Itunda's independently authored expressive glyph system, built with TossFace-level system discipline but original Itunda artwork.
 
 itundaface is a hand-drawn expressive glyph system for [itunda](https://github.com/itunda-rw/itunda), Rwanda's super-app. Core glyphs ship in flat form for small inline UI and 3D form for prominent moments.
 
@@ -37,7 +37,7 @@ svg/
   mobility/      bike and e-bike pictograms
   identity/      lock, verification, ID card, face ID
   commerce/      gift, voucher, package, shopping bag
-  finance/       money bag, settle-up, QR payment + finance interaction glyphs
+  finance/       16 canonical finance and payment glyphs
   culture/       celebration, Umuco, Agaseke, Umuganda, Umuganura
   motion/        canonical product-state motion grammar
   state/         success, verified, pending, warning, error, locked, processing, delivered, completed
@@ -75,7 +75,7 @@ Motion is treated as a semantic layer rather than decoration. Canonical states i
 
 ## Versioning
 
-Current package release: **2.2.0**. The project follows semantic versioning for package metadata and release documentation.
+Current package release: **2.2.1**. The project follows semantic versioning for package metadata and release documentation.
 
 ## License
 
