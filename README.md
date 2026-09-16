@@ -1,6 +1,6 @@
 # itundaface
 
-itunda's own reaction glyph set — built the way [Toss built TossFace](https://github.com/toss/tossface), released the way TossFace should have been.
+itunda's own reaction glyph set — built with TossFace-level system discipline, but with independently authored Itunda artwork.
 
 itundaface is a hand-drawn expressive glyph system for [itunda](https://github.com/itunda-rw/itunda), Rwanda's Toss-style super-app. Each core glyph can ship in flat form for small inline UI and 3D form for prominent moments.
 
@@ -30,17 +30,22 @@ So: itundaface is drawn from scratch and released under MIT — modify it, ship 
 ```
 svg/
   flat/          5 master reaction glyphs
-  3d/            5 matching master reaction glyphs
+  3d/            5 matching master reaction glyphs + family variants
   communication/ chat, reply, send, voice, notification
-  places/        13 place-category pictograms
-  gifts/         7 gift/split-bill/voucher pictograms
+  places/        place-category pictograms
+  maps/          map/location pictograms
+  mobility/      bike and e-bike pictograms
+  identity/      lock, verification, ID card, face ID
+  commerce/      gift, voucher, package, shopping bag
+  finance/       money bag, settle-up, QR payment
+  gifts/         existing gift/split-bill/voucher pictograms
   hearts/        2-state like/wishlist heart toggle
-  security/      lock glyph
+  security/      existing security glyphs
   misc/          low-repeat single-use pictograms
 react/            thin React component wrappers
 ```
 
-### Master Reaction Set
+## Master Reaction Set
 
 The five canonical reactions are:
 
@@ -52,7 +57,7 @@ The five canonical reactions are:
 
 They are the calibration set for optical size, expression geometry, color hierarchy, 2D↔3D silhouette parity, and rendering consistency.
 
-### Communication Set v1
+## Communication Set v1
 
 The first communication family is intentionally small and product-oriented:
 
@@ -63,6 +68,40 @@ The first communication family is intentionally small and product-oriented:
 - `notification` — message and activity notification
 
 These are new ItundaFace communication forms, not copied TossFace artwork.
+
+## Product families
+
+### Places, maps & mobility
+
+ItundaFace now includes a consistent 2D/3D vocabulary for places, navigation and mobility, including ATM, bus stop, map pin, bike and e-bike states.
+
+### Identity & security
+
+The identity family establishes a reusable vocabulary for trust and account states:
+
+- `lock`
+- `verification`
+- `id-card`
+- `face-id`
+
+### Commerce
+
+The commerce family covers common marketplace and delivery moments:
+
+- `gift`
+- `voucher`
+- `package`
+- `shopping-bag`
+
+### Finance
+
+The finance family begins with high-frequency money movement concepts:
+
+- `money-bag`
+- `settle-up`
+- `qr-payment`
+
+The same semantic shapes can be rendered flat for compact UI and 3D for key product moments.
 
 ## Using it
 
