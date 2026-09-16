@@ -21,7 +21,8 @@
     "./culture": "./react/culture.tsx",
     "./finance": "./react/finance.tsx",
     "./state": "./react/state.tsx",
-    "./families": "./react/families.ts"
+    "./families": "./react/families.ts",
+    "./validation": "./react/validation.ts"
   },
   "files": ["svg", "react", "tokens.json", "DESIGN_SYSTEM.md", "CHANGELOG.md", "RELEASE.md", "LICENSE", "README.md"],
   "peerDependencies": {
