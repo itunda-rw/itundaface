@@ -1,17 +1,17 @@
 {
   "name": "itundaface",
-  "version": "0.1.0",
-  "description": "itunda's own reaction glyph set -- built the way Toss built TossFace, released under a real open license.",
+  "version": "2.0.0",
+  "description": "Itunda's independently authored expressive glyph system for reactions, communication, places, identity, commerce, finance, and Rwanda-native moments.",
   "license": "MIT",
   "homepage": "https://github.com/itunda-rw/itundaface",
   "repository": {
     "type": "git",
     "url": "https://github.com/itunda-rw/itundaface.git"
   },
-  "keywords": ["emoji", "icons", "svg", "react", "reactions", "itunda"],
+  "keywords": ["emoji", "icons", "svg", "react", "reactions", "itunda", "rwanda", "design-system"],
   "main": "react/index.tsx",
   "types": "react/index.tsx",
-  "files": ["svg", "react", "LICENSE", "README.md"],
+  "files": ["svg", "react", "tokens.json", "DESIGN_SYSTEM.md", "CHANGELOG.md", "RELEASE.md", "LICENSE", "README.md"],
   "peerDependencies": {
     "react": ">=17"
   }
