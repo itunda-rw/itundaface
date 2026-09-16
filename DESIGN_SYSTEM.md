@@ -94,7 +94,16 @@ Target sizes: 32, 40, 48, 64px+.
 - White internal marks remain semantic details rather than decorative gloss.
 - Avoid metallic, glass, plastic, or photographic material effects unless a future family explicitly requires that material.
 
-### 4.2 Communication 3D family
+### 4.2 Family material mapping
+
+Different product families may use different semantic materials while sharing the same camera, depth, and light grammar:
+
+- Identity/security: deep indigo bodies, mint verification states, warm face/biometric states.
+- Commerce: recognizable gift, paper, parcel and bag materials with indigo identity accents.
+- Finance: mint/indigo trust language with warm currency accents.
+- Places/maps/mobility: semantic object colors with restrained indigo navigation accents.
+
+### 4.3 Communication 3D family
 
 The canonical communication set is:
 
@@ -177,19 +186,18 @@ A glyph is ready only when it passes all of these checks:
 - No borrowed TossFace artwork, vectors, or modified TossFace assets.
 - SVG remains compact, accessible, and maintainable.
 
-## 11. Roadmap
+## 11. Current family roadmap
 
-The target is a coherent expressive system, not simply a large icon count:
+The system now covers the main product vocabulary in this order:
 
-1. Reactions and emotions
-2. Communication
-3. Places and maps
-4. Commerce and marketplace
-5. Payments and finance
-6. Delivery and mobility
-7. Identity and security
-8. Rwanda-native culture and celebration
-9. Animated states for selected key moments
+1. Reactions and emotions — master set locked
+2. Communication — v1 family
+3. Places, maps and mobility — v1 family
+4. Identity and security — v1 family
+5. Commerce and marketplace — v1 family
+6. Payments and finance — v1 family
+7. Rwanda-native culture and celebration — next expansion
+8. Animated states for selected key moments — final polish layer
 
 Each new family should be designed as a system before individual glyphs are produced.
 
