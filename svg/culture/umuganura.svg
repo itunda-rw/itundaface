@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" role="img" aria-label="ItundaFace umuganura harvest celebration">
+  <path d="M40 17v48" stroke="#7472F4" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M40 28c-8-8-18-7-22-2 5 5 13 8 22 2ZM40 40c8-8 18-7 22-2-5 5-13 8-22 2ZM40 51c-8-8-18-7-22-2 5 5 13 8 22 2Z" fill="#D98E0A"/>
+  <path d="M40 28c8-8 18-7 22-2-5 5-13 8-22 2ZM40 51c8-8 18-7 22-2-5 5-13 8-22 2Z" fill="#FFCC4D"/>
+  <path d="M30 66h20" stroke="#664500" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="40" cy="12" r="4" fill="#7472F4"/>
+</svg>
