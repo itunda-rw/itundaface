@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" role="img" aria-label="ItundaFace 3D heart">
   <defs>
-    <linearGradient id="heartRight" x1="20%" y1="0%" x2="88%" y2="95%">
+    <linearGradient id="heartRight" x1="20%" y1="0" x2="88%" y2="95%">
       <stop offset="0" stop-color="#FF9FB0"/><stop offset="45%" stop-color="#EF4A63"/><stop offset="100%" stop-color="#A91733"/>
     </linearGradient>
     <linearGradient id="heartLeft" x1="75%" y1="5%" x2="10%" y2="95%">
@@ -21,10 +21,10 @@
   </defs>
   <ellipse cx="40" cy="76" rx="25" ry="4.5" fill="url(#ground)"/>
   <g filter="url(#shadow)">
-    <path d="M40 17.2C41.3 13 45.9 8.4 53.2 8.4C63.1 8.4 72.6 16.4 72.6 28.8C72.6 52.4 40 74.4 40 74.4Z" fill="url(#heartRight)"/>
-    <path d="M40 17.2C38.7 13 34.1 8.4 26.8 8.4C16.9 8.4 7.4 16.4 7.4 28.8C7.4 52.4 40 74.4 40 74.4Z" fill="url(#heartLeft)"/>
-    <path d="M40 17.5V73.3" stroke="url(#seam)" stroke-width="2.5" stroke-linecap="round"/>
-    <path d="M23.5 13.3C28.5 10.6 34.3 12.6 37.6 17.1" stroke="#FFFFFF" stroke-opacity=".62" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <path d="M40 18.1C41.2 14 45.6 10 52.7 10C62.2 10 70 17.2 70 28.3C70 47.8 40 68.9 40 70Z" fill="url(#heartRight)"/>
+    <path d="M40 18.1C38.8 14 34.4 10 27.3 10C17.8 10 10 17.2 10 28.3C10 47.8 40 68.9 40 70Z" fill="url(#heartLeft)"/>
+    <path d="M40 18.4V69.2" stroke="url(#seam)" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M23.5 14.5C28.2 12 33.7 13.6 37 17.7" stroke="#FFFFFF" stroke-opacity=".62" stroke-width="3" stroke-linecap="round" fill="none"/>
     <ellipse cx="26" cy="24" rx="11" ry="7.5" fill="url(#highlight)"/>
   </g>
 </svg>
