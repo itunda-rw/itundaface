@@ -1,5 +1,18 @@
 # Changelog
 
+## 2.1.0 — 2026-09-16
+
+### Added
+- Rwanda-native culture glyphs: Agaseke, Umuganda, and Umuganura, with flat and 3D variants.
+- Product-state family covering success, verified, pending, warning, error, locked, processing, delivered, and completed states.
+- Rwanda-native finance vocabulary for mobile money, wallet, bill payment, airtime, merchant payment, transport payment, interoperable payment, and government-service payment.
+- Flat and 3D finance variants with shared silhouettes and material grammar.
+
+### Finance design
+- Semantic finance colors remain meaning-first; Itunda indigo is used selectively as the identity accent.
+- Provider-specific marks and logos are intentionally excluded from generic finance glyphs.
+- Interoperable-payment vocabulary reflects Rwanda's national interoperable-payment direction without reproducing eKash artwork.
+
 ## 2.0.0 — 2026-09-16
 
 ### Added
