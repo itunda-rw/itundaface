@@ -1,6 +1,6 @@
-# ItundaFace 2.2.3
+# ItundaFace 2.2.4
 
-ItundaFace 2.2.3 hardens the visual system so TossFace-level principles are encoded as reusable quality rules rather than remaining only in documentation.
+ItundaFace 2.2.4 completes the current visual-quality hardening pass across the canonical React and SVG system.
 
 ## Scope
 
@@ -14,10 +14,13 @@ ItundaFace 2.2.3 hardens the visual system so TossFace-level principles are enco
 - Product state / status
 - Motion and reduced-motion grammar
 - Public visual quality rules
+- React ↔ SVG parity
+- Small-size readability
+- Light/dark surface readability
 
 ## Visual-system rules
 
-The quality layer codifies:
+The quality layer codifies and the 2.2.4 review verifies:
 
 - simple primitive-first construction
 - silhouette-first drawing
@@ -33,12 +36,13 @@ The quality layer codifies:
 - flat/3D silhouette parity
 - canonical SVG/React parity
 - family-level release review
+- accessible SVG metadata
 
 These rules are inspired by TossFace's published design principles, while ItundaFace artwork remains independently authored.
 
 ## Package
 
-The package root resolves to `react/canonical.tsx`. The quality rules are available from `itundaface/quality`, the canonical root, and the `families` API. The previous monolithic implementation remains available through `itundaface/legacy`.
+The package root resolves to `react/canonical.tsx`. Quality rules are available from `itundaface/quality`, the canonical root, and the `families` API. The previous monolithic implementation remains available through `itundaface/legacy`.
 
 ## Originality
 
