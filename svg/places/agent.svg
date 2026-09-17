@@ -1,10 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" role="img" aria-label="ItundaFace agent">
-  <circle cx="30" cy="30" r="28" fill="#C0C6FF"/>
-  <g stroke-linecap="round" stroke-linejoin="round">
-    <path d="M24 20c0-4 3-7 6-7s6 3 6 7" fill="none" stroke="#483EB6" stroke-width="2.8"/>
-    <path d="M20 22h20l4 16c1 5-3 10-9 10H25c-6 0-10-5-9-10z" fill="#483EB6"/>
-    <circle cx="30" cy="34" r="6" fill="none" stroke="#C0C6FF" stroke-width="2.2"/>
-    <path d="M30 30v8M27 34h6" stroke="#C0C6FF" stroke-width="2.2"/>
-    <path d="M37 18l3-2" stroke="#7472F4" stroke-width="2.2"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" role="img" aria-label="ItundaFace agent">
+  <circle cx="40" cy="40" r="29" fill="#FFCC4D"/>
+  <path d="M25 27h30l-4 23c-.7 4.5-4.5 7.8-9 7.8H38c-4.5 0-8.3-3.3-9-7.8Z" fill="#664500"/>
+  <path d="M33 27c0-5 3-8 7-8s7 3 7 8M40 36v11M36 41.5h8" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="m49 24 5-3" fill="none" stroke="#7472F4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
