@@ -1,13 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" role="img" aria-label="ItundaFace bank">
-  <circle cx="30" cy="30" r="28" fill="#C0C6FF"/>
-  <g fill="#282565" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M14 22l16-10 16 10z"/>
-    <rect x="14" y="22" width="32" height="4" rx="1"/>
-    <rect x="18" y="28" width="4" height="16" rx="1"/>
-    <rect x="26" y="28" width="4" height="16" rx="1"/>
-    <rect x="34" y="28" width="4" height="16" rx="1"/>
-    <rect x="42" y="28" width="4" height="16" rx="1"/>
-    <rect x="13" y="46" width="34" height="4" rx="1"/>
-  </g>
-  <path d="M38 17l4-2" stroke="#7472F4" stroke-width="2.2" stroke-linecap="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" role="img" aria-label="ItundaFace bank">
+  <path d="M12 28 40 12l28 16H12Z" fill="#664500"/>
+  <path d="M17 32h46M21 35v23M32 35v23M48 35v23M59 35v23M13 62h54" fill="none" stroke="#664500" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="m51 20 6-3" fill="none" stroke="#7472F4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
