@@ -8,16 +8,13 @@ type StateSvgProps = StateIconProps & { state: ItundaState };
 const brand = '#7472F4';
 const brandDark = '#514FC0';
 const face = '#FFCC4D';
-const faceShadow = '#D98E0A';
 const ink = '#664500';
 const inkSoft = '#66471B';
 const white = '#FFFFFF';
 const success = '#287A58';
 const successSurface = '#BFEAD7';
 const error = '#C72E4C';
-const errorSurface = '#F7C4CE';
 const warning = '#D98E0A';
-const warningSurface = '#FFF0B8';
 const neutralSurface = '#EEF0FF';
 
 const labels: Record<ItundaState, string> = {
