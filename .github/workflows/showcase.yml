@@ -3,9 +3,6 @@ name: Deploy ItundaFace Showcase
 on:
   push:
     branches: [main]
-    paths:
-      - 'showcase/**'
-      - '.github/workflows/showcase.yml'
   workflow_dispatch:
 
 permissions:
