@@ -50,7 +50,7 @@ export const FinanceGovernmentPayment = (p: FinanceIconProps) => <FinanceIcon {.
 export const FinanceSend = (p: FinanceIconProps) => <FinanceIcon {...p} kind="send" />;
 export const FinanceReceive = (p: FinanceIconProps) => <FinanceIcon {...p} kind="receive" />;
 export const FinanceCashIn = (p: FinanceIconProps) => <FinanceIcon {...p} kind="cash-in" />;
-export const FinanceCashOut = (p: FinanceIconProps) => <FinanceIcon {...p} kind="cash out" />;
+export const FinanceCashOut = (p: FinanceIconProps) => <FinanceIcon {...p} kind="cash-out" />;
 export const FinanceQrPayment = (p: FinanceIconProps) => <FinanceIcon {...p} kind="qr-payment" />;
 export const FinanceRefund = (p: FinanceIconProps) => <FinanceIcon {...p} kind="refund" />;
 export const FinanceReceipt = (p: FinanceIconProps) => <FinanceIcon {...p} kind="receipt" />;
