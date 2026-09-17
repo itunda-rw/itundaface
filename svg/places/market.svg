@@ -1,7 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" role="img" aria-label="ItundaFace market">
-  <circle cx="30" cy="30" r="28" fill="#B3D5B9"/>
-  <path d="M16 26h28l-4 18c-.5 2.3-2.5 4-5 4H25c-2.5 0-4.5-1.7-5-4z" fill="#156631" stroke="#156631" stroke-linejoin="round"/>
-  <path d="M23 26c0-6 3-10 7-10s7 4 7 10" fill="none" stroke="#156631" stroke-width="2.8" stroke-linecap="round"/>
-  <path d="M22 32h16M23 38h14" stroke="#B3D5B9" stroke-width="1.8" stroke-linecap="round"/>
-  <path d="M38 19l4-2" stroke="#7472F4" stroke-width="2.2" stroke-linecap="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" role="img" aria-label="ItundaFace market">
+  <path d="M18 30h44l-5 29c-.5 3-3 5-6 5H29c-3 0-5.5-2-6-5Z" fill="#664500"/>
+  <path d="M27 30c0-7 5-12 13-12s13 5 13 12M25 38h30M27 47h26" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="m49 23 6-3" stroke="#7472F4" stroke-width="3" stroke-linecap="round"/>
 </svg>
