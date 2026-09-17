@@ -14,3 +14,7 @@ jobs:
           node-version: 20
       - name: Validate canonical glyph manifest
         run: node scripts/validate-glyph-manifest.mjs
+      - name: Validate color-font mapping
+        run: node font/build-manifest.mjs
+      - name: Verify generated manifest is clean
+        run: git diff --exit-code -- font/build-manifest.json
