@@ -1,6 +1,6 @@
-# ItundaFace 2.2.1
+# ItundaFace 2.2.2
 
-ItundaFace 2.2.1 makes the canonical React family API the package-level source of truth while preserving the existing legacy surface for compatibility.
+ItundaFace 2.2.2 makes the canonical React family API the package-level source of truth while preserving the existing legacy surface for compatibility.
 
 ## Scope
 
