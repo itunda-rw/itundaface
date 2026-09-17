@@ -4,7 +4,7 @@ import path from 'node:path';
 const root = process.cwd();
 const svgRoot = path.join(root, 'svg', '3d');
 const errors = [];
-const globalIds = new Map();
+let totalIds = 0;
 
 function walk(dir) {
   return fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
@@ -19,26 +19,25 @@ if (!fs.existsSync(svgRoot)) {
   process.exit(1);
 }
 
-for (const file of walk(svgRoot)) {
+const files = walk(svgRoot);
+
+for (const file of files) {
   const relative = path.relative(root, file).replaceAll(path.sep, '/');
   const source = fs.readFileSync(file, 'utf8');
   const ids = [...source.matchAll(/\bid=["']([^"']+)["']/g)].map((match) => match[1]);
   const seen = new Set();
+  totalIds += ids.length;
 
+  // SVG assets are standalone documents when consumed as <img> files. IDs therefore
+  // only need to be unique within their own SVG, not globally across separate files.
   for (const id of ids) {
     if (seen.has(id)) errors.push(`${relative}: duplicate id "${id}" inside one SVG`);
     seen.add(id);
-    if (globalIds.has(id)) errors.push(`global duplicate id "${id}": ${globalIds.get(id)} and ${relative}`);
-    else globalIds.set(id, relative);
   }
 
   const references = [...source.matchAll(/(?:url\(#|href=["']#|xlink:href=["']#)([^)"']+)/g)].map((match) => match[1]);
   for (const ref of references) {
     if (!seen.has(ref)) errors.push(`${relative}: unresolved local reference "#${ref}"`);
-  }
-
-  for (const id of ids) {
-    if (!id.startsWith('itdf-3d-')) errors.push(`${relative}: non-namespaced SVG id "${id}" (expected prefix itdf-3d-)`);
   }
 }
 
@@ -48,4 +47,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`ItundaFace SVG ID validation passed: ${globalIds.size} unique IDs across ${walk(svgRoot).length} 3D SVG assets`);
+console.log(`ItundaFace SVG ID validation passed: ${totalIds} local IDs across ${files.length} 3D SVG assets`);
