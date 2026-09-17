@@ -1,6 +1,6 @@
 # itundaface
 
-**v2.2.1** — Itunda's independently authored expressive glyph system, built with TossFace-level system discipline but original Itunda artwork.
+**v2.2.3** — Itunda's independently authored expressive glyph system, built with TossFace-level system discipline but original Itunda artwork.
 
 itundaface is a hand-drawn expressive glyph system for [itunda](https://github.com/itunda-rw/itunda), Rwanda's super-app. Core glyphs ship in flat form for small inline UI and 3D form for prominent moments.
 
@@ -14,8 +14,11 @@ So: itundaface is drawn from scratch and released under MIT — modify it, ship 
 
 - **Simplest form, made beautiful.** Basic shapes, controlled curves, minimal detail, strong silhouettes.
 - **One glyph, one meaning.** Meaning stays recognizable while construction remains distinctly Itunda.
+- **One visual scale.** Glyphs are optically balanced rather than merely sharing the same numeric canvas.
+- **One direction.** Directional objects follow a shared left-to-right reading flow.
+- **One angle.** Deliberately tilted objects use the shared 45° clockwise rule where semantics allow.
+- **One compact palette.** Colors work across light and dark surfaces while semantic color remains more important than branding.
 - **Flat for small, 3D for prominent.** Flat glyphs target inline UI; 3D variants are reserved for deliberate key moments.
-- **One palette, both themes.** Glyph meaning remains stable across light and dark surfaces.
 - **System before scale.** Families are designed as systems before the library expands further.
 - **Family-level QA.** Optical balance, repeated geometry, accessibility, and flat/3D continuity are reviewed across a whole family before release.
 
@@ -42,12 +45,12 @@ svg/
   culture/       celebration, Umuco, Agaseke, Umuganda, Umuganura
   motion/        canonical product-state motion grammar
   state/         success, verified, pending, warning, error, locked, processing, delivered, completed
-react/            canonical family APIs + legacy-compatible helpers
+react/            canonical family APIs + legacy-compatible helpers + quality rules
 ```
 
 ## React API
 
-The package root now resolves to the **canonical React entrypoint** `react/canonical.tsx`. This makes the typed family modules the default source of truth rather than the historical monolithic implementation.
+The package root resolves to the **canonical React entrypoint** `react/canonical.tsx`. This makes the typed family modules the default source of truth rather than the historical monolithic implementation.
 
 Independently importable family entrypoints:
 
@@ -61,8 +64,13 @@ Independently importable family entrypoints:
 - `itundaface/state`
 - `itundaface/families`
 - `itundaface/validation`
+- `itundaface/quality`
 
 The previous monolithic implementation remains available at `itundaface/legacy` for compatibility. The family API uses the canonical 80×80 coordinate system, configurable sizes, and accessible labels. Canonical SVG assets under `svg/` remain the visual source of truth.
+
+## Visual quality rules
+
+The quality layer now codifies the core system rules instead of leaving them only in documentation: optical bounds, 14px minimum readability, 24px balance checks, right-facing directional flow, 45° tilt consistency, shared 3D viewpoint, compact palette, flat/3D silhouette parity, and family-level review.
 
 ## Master Reaction Set
 
@@ -78,7 +86,7 @@ Motion is treated as a semantic layer rather than decoration. Canonical states i
 
 ## Versioning
 
-Current package release: **2.2.1**. The project follows semantic versioning for package metadata and release documentation.
+Current package release: **2.2.3**. The project follows semantic versioning for package metadata and release documentation.
 
 ## License
 
