@@ -40,10 +40,13 @@ Before publishing a React-facing ItundaFace change, verify:
 
 ## SVG safety
 
-- Inline SVG definition IDs must be unique when a glyph contains `<defs>`.
+- Every SVG definition ID in `svg/3d/**/*.svg` uses the `itdf-3d-` namespace.
+- Definition IDs are unique within each SVG and globally unique across the 3D library so multiple inline glyphs cannot collide through shared document IDs.
+- Every local `url(#...)`, `href="#..."`, or `xlink:href="#..."` reference resolves to an ID in the same SVG.
+- CI runs the SVG ID safety validator on the complete 3D library.
 - Do not introduce copied, traced, recolored, or modified TossFace artwork.
 - Keep SVG structure compact and avoid details that disappear at inline sizes.
 
 ## Release gate
 
-A release is ready only after the package manifest, family exports, quality rules, accessibility surface, and canonical SVG assets have been reviewed together as complete families.
+A release is ready only after the package manifest, family exports, quality rules, accessibility surface, canonical SVG assets, and 3D SVG ID safety have been reviewed together as complete families.
