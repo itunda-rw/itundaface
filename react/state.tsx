@@ -5,6 +5,21 @@ export type ItundaState = 'success' | 'verified' | 'pending' | 'warning' | 'erro
 
 type StateSvgProps = StateIconProps & { state: ItundaState };
 
+const brand = '#7472F4';
+const brandDark = '#514FC0';
+const face = '#FFCC4D';
+const faceShadow = '#D98E0A';
+const ink = '#664500';
+const inkSoft = '#66471B';
+const white = '#FFFFFF';
+const success = '#287A58';
+const successSurface = '#BFEAD7';
+const error = '#C72E4C';
+const errorSurface = '#F7C4CE';
+const warning = '#D98E0A';
+const warningSurface = '#FFF0B8';
+const neutralSurface = '#EEF0FF';
+
 const labels: Record<ItundaState, string> = {
   success: 'ItundaFace success', verified: 'ItundaFace verified', pending: 'ItundaFace pending', warning: 'ItundaFace warning',
   error: 'ItundaFace error', locked: 'ItundaFace locked', processing: 'ItundaFace processing', delivered: 'ItundaFace delivered', completed: 'ItundaFace completed',
@@ -12,15 +27,15 @@ const labels: Record<ItundaState, string> = {
 
 export function StateIcon({ state, size = 24, 'aria-label': ariaLabel, ...props }: StateSvgProps) {
   const a = { width: size, height: size, viewBox: '0 0 80 80', role: 'img' as const, 'aria-label': ariaLabel ?? labels[state], ...props };
-  if (state === 'success') return <svg {...a}><circle cx="40" cy="40" r="30" fill="#39B97A"/><path d="M25 40.5 35 50l20-21" fill="none" stroke="#fff" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round"/><path d="M40 10v7" stroke="#7472F4" strokeWidth="3" strokeLinecap="round"/></svg>;
-  if (state === 'verified') return <svg {...a}><circle cx="40" cy="40" r="28" fill="#7472F4"/><path d="M40 17 46 22l8-1 3 8 7 4-3 8 3 8-7 4-3 8-8-1-6 5-6-5-8 1-3-8-7-4 3-8-3-8 7-4 3-8 8 1 6-5Z" fill="#8B89FF"/><path d="M26 40.5 35 49l19-20" fill="none" stroke="#fff" strokeWidth="5.5" strokeLinecap="round" strokeLinejoin="round"/></svg>;
-  if (state === 'pending') return <svg {...a}><circle cx="40" cy="40" r="30" fill="#FFCC4D"/><circle cx="40" cy="40" r="18" fill="none" stroke="#664500" strokeWidth="5"/><path d="M40 28v13l9 6" fill="none" stroke="#664500" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"/><path d="M40 10v7" stroke="#7472F4" strokeWidth="3" strokeLinecap="round"/></svg>;
-  if (state === 'warning') return <svg {...a}><path d="M40 10 70 65H10L40 10Z" fill="#F4B52A"/><path d="M40 28v19" stroke="#664500" strokeWidth="6" strokeLinecap="round"/><circle cx="40" cy="56" r="3.5" fill="#664500"/><path d="M40 10v7" stroke="#7472F4" strokeWidth="3" strokeLinecap="round"/></svg>;
-  if (state === 'error') return <svg {...a}><circle cx="40" cy="40" r="30" fill="#E84D5B"/><path d="M29 29l22 22M51 29 29 51" stroke="#fff" strokeWidth="6" strokeLinecap="round"/><path d="M40 10v7" stroke="#7472F4" strokeWidth="3" strokeLinecap="round"/></svg>;
-  if (state === 'locked') return <svg {...a}><rect x="17" y="34" width="46" height="34" rx="7" fill="#7472F4"/><path d="M27 35V27c0-8 5.5-14 13-14s13 6 13 14v8" fill="none" stroke="#7675F8" strokeWidth="7" strokeLinecap="round"/><circle cx="40" cy="50" r="5" fill="#fff"/><path d="M40 50v9" stroke="#fff" strokeWidth="4" strokeLinecap="round"/></svg>;
-  if (state === 'processing') return <svg {...a}><circle cx="40" cy="40" r="27" fill="#E8E8FF"/><path d="M40 16a24 24 0 0 1 24 24" fill="none" stroke="#7472F4" strokeWidth="7" strokeLinecap="round"/><path d="M64 40a24 24 0 0 1-24 24" fill="none" stroke="#B6B4FF" strokeWidth="7" strokeLinecap="round"/><circle cx="40" cy="40" r="7" fill="#7472F4"/></svg>;
-  if (state === 'delivered') return <svg {...a}><path d="M13 24h35l9 10h10v25H13Z" fill="#7472F4"/><path d="M48 24v10h9" fill="#8B89FF"/><circle cx="28" cy="61" r="6" fill="#664500"/><circle cx="59" cy="61" r="6" fill="#664500"/><path d="m24 42 5 5 10-11" fill="none" stroke="#fff" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/></svg>;
-  return <svg {...a}><circle cx="40" cy="40" r="30" fill="#39B97A"/><path d="M25 40.5 35 50l20-21" fill="none" stroke="#fff" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round"/><path d="M20 19l4 4M60 19l-4 4M40 10v5" stroke="#7472F4" strokeWidth="3" strokeLinecap="round"/></svg>;
+  if (state === 'success') return <svg {...a}><circle cx="40" cy="40" r="30" fill={success}/><path d="M25 40.5 35 50l20-21" fill="none" stroke={white} strokeWidth="6" strokeLinecap="round" strokeLinejoin="round"/><path d="M40 10v7" stroke={brand} strokeWidth="3" strokeLinecap="round"/></svg>;
+  if (state === 'verified') return <svg {...a}><circle cx="40" cy="40" r="29" fill={brand}/><path d="M40 15 47 21l9-1 3 9 8 4-4 8 4 8-8 4-3 9-9-1-7 6-7-6-9 1-3-9-8-4 4-8-4-8 8-4 3-9 9 1 7-6Z" fill={brandDark}/><path d="M26 40.5 35 49l19-20" fill="none" stroke={white} strokeWidth="5.5" strokeLinecap="round" strokeLinejoin="round"/></svg>;
+  if (state === 'pending') return <svg {...a}><circle cx="40" cy="40" r="30" fill={face}/><circle cx="40" cy="40" r="18" fill="none" stroke={ink} strokeWidth="5"/><path d="M40 28v13l9 6" fill="none" stroke={ink} strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"/><path d="M40 10v7" stroke={brand} strokeWidth="3" strokeLinecap="round"/></svg>;
+  if (state === 'warning') return <svg {...a}><path d="M40 10 70 65H10L40 10Z" fill={warning}/><path d="M40 28v19" stroke={ink} strokeWidth="6" strokeLinecap="round"/><circle cx="40" cy="56" r="3.5" fill={ink}/><path d="M40 10v7" stroke={brand} strokeWidth="3" strokeLinecap="round"/></svg>;
+  if (state === 'error') return <svg {...a}><circle cx="40" cy="40" r="30" fill={error}/><path d="M29 29l22 22M51 29 29 51" stroke={white} strokeWidth="6" strokeLinecap="round"/><path d="M40 10v7" stroke={brand} strokeWidth="3" strokeLinecap="round"/></svg>;
+  if (state === 'locked') return <svg {...a}><rect x="14" y="34" width="52" height="36" rx="10" fill={brand}/><path d="M24 35V27c0-10 7-17 16-17s16 7 16 17v8" fill="none" stroke={brandDark} strokeWidth="7" strokeLinecap="round"/><circle cx="40" cy="51" r="5" fill={white}/><path d="M40 55v7" stroke={white} strokeWidth="4" strokeLinecap="round"/><path d="M17 28v-5a4 4 0 0 1 4-4h5M63 28v-5a4 4 0 0 0-4-4h-5" fill="none" stroke={face} strokeWidth="3" strokeLinecap="round"/></svg>;
+  if (state === 'processing') return <svg {...a}><circle cx="40" cy="40" r="28" fill={neutralSurface}/><path d="M40 14a26 26 0 0 1 26 26" fill="none" stroke={brand} strokeWidth="7" strokeLinecap="round"/><path d="M66 40a26 26 0 0 1-26 26" fill="none" stroke={brandDark} strokeWidth="7" strokeLinecap="round"/><circle cx="40" cy="40" r="7" fill={face}/></svg>;
+  if (state === 'delivered') return <svg {...a}><path d="M12 24h37l9 10h10v25H12Z" fill={brand}/><path d="M49 24v10h9" fill={brandDark}/><circle cx="28" cy="61" r="6" fill={ink}/><circle cx="59" cy="61" r="6" fill={ink}/><path d="m24 42 5 5 10-11" fill="none" stroke={white} strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/></svg>;
+  return <svg {...a}><circle cx="40" cy="40" r="30" fill={success}/><circle cx="40" cy="40" r="23" fill={successSurface}/><path d="M25 40.5 35 50l20-21" fill="none" stroke={success} strokeWidth="6" strokeLinecap="round" strokeLinejoin="round"/><path d="M20 19l4 4M60 19l-4 4M40 10v5" stroke={brand} strokeWidth="3" strokeLinecap="round"/></svg>;
 }
 
 export const StateSuccess = (p: StateIconProps) => <StateIcon {...p} state="success" />;
