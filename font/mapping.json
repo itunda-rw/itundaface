@@ -1,0 +1,11 @@
+{
+  "format": "itundaface-color-font-mapping-v1",
+  "unicodePolicy": "private-use-distribution-only",
+  "glyphs": {
+    "itf_reactions_thumbs_up": "E000",
+    "itf_reactions_heart": "E001",
+    "itf_reactions_laughing": "E002",
+    "itf_reactions_wow": "E003",
+    "itf_reactions_sad": "E004"
+  }
+}
