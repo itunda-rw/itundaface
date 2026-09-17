@@ -4,7 +4,7 @@ The color-font layer is generated from the canonical SVG masters and `glyphs.jso
 
 ## Current compiler
 
-ItundaFace now produces a real **SVG-in-OpenType TrueType color font** using FontTools. FontTools documents the OpenType `SVG ` table as the table that stores SVG representations for glyphs. citeturn1search0
+ItundaFace now produces a real **SVG-in-OpenType TrueType color font** using FontTools. FontTools supports the OpenType `SVG ` table for storing SVG representations of glyphs.
 
 The current binary artifact is:
 
