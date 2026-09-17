@@ -2,7 +2,7 @@
 
 ItundaFace is Itunda's expressive glyph language. It uses professional emoji-system discipline while remaining an original visual identity for Itunda.
 
-The quality target is **TossFace-level system discipline, not TossFace artwork**. TossFace documents a strong emphasis on simple geometry, optical equalization, consistent direction, consistent angle, shared viewing height, and a unified palette. ItundaFace adopts those *design-system principles* while keeping its own artwork, indigo identity, semantic colors, and Rwanda-native vocabulary.
+The quality target is **TossFace-level system discipline, not TossFace artwork**. TossFace emphasizes simple forms, minimal depiction, small-size clarity, consistent visual treatment, modular construction, and iterative refinement. ItundaFace adopts those *design-system principles* while keeping its own artwork, indigo identity, semantic colors, and Rwanda-native vocabulary.
 
 ## 1. Brand identity
 
@@ -186,9 +186,24 @@ A glyph is ready only when it passes all of these checks:
 - No borrowed TossFace artwork, vectors, or modified TossFace assets.
 - SVG remains compact, accessible, and maintainable.
 
+### 10.1 Release gate
+
+Before a family is released, review the **whole family**, not isolated glyphs:
+
+1. Compare all glyphs at 14px and 24px side by side.
+2. Check occupied area and optical centering across the family.
+3. Check repeated primitives, stroke/fill weight, corner treatment, and directional angle.
+4. Check flat/3D silhouette parity where a 3D counterpart exists.
+5. Check accessibility labels and stable React entrypoints.
+6. Check that canonical SVG assets and React implementations describe the same geometry.
+7. Check light/dark surfaces and semantic-color preservation.
+8. Reject decorative details that do not survive the minimum readable size.
+
+This family-level gate is the main mechanism for preventing visual drift as the catalog grows.
+
 ## 11. Current family roadmap
 
-The system now covers the main product vocabulary in this order:
+The system now covers the main product vocabulary:
 
 1. Reactions and emotions — master set locked
 2. Communication — v1 family
@@ -196,8 +211,10 @@ The system now covers the main product vocabulary in this order:
 4. Identity and security — v1 family
 5. Commerce and marketplace — v1 family
 6. Payments and finance — v1 family
-7. Rwanda-native culture and celebration — next expansion
-8. Animated states for selected key moments — final polish layer
+7. Rwanda-native culture and celebration — v1 family
+8. State and status — v1 family
+9. Animated states for selected key moments — polish layer
+10. Additional Unicode-aligned everyday glyphs — future expansion, only when they fit Itunda's product vocabulary
 
 Each new family should be designed as a system before individual glyphs are produced.
 
