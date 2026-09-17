@@ -1,7 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" role="img" aria-label="School">
-  <circle cx="30" cy="30" r="28" fill="#97D5F5"/>
-  <path d="M30 14 50 24 30 34 10 24z" fill="#005D7F"/>
-  <path d="M20 29v9c0 3.8 4.4 7 10 7s10-3.2 10-7v-9" fill="none" stroke="#005D7F" stroke-width="2.6" stroke-linecap="round"/>
-  <path d="M50 24v13" stroke="#005D7F" stroke-width="2.4" stroke-linecap="round"/>
-  <circle cx="46" cy="18" r="4" fill="#7472F4"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" role="img" aria-label="ItundaFace school">
+  <path d="M10 28 40 12l30 16-30 16Z" fill="#664500"/>
+  <path d="M20 35v14c0 7 9 12 20 12s20-5 20-12V35M70 28v20" fill="none" stroke="#664500" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="58" cy="22" r="5" fill="#7472F4"/>
 </svg>
