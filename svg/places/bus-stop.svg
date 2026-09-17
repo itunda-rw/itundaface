@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60">
-  <circle cx="30" cy="30" r="28" fill="#c0ccdd"/>
-  <rect x="14" y="18" width="32" height="22" rx="5" fill="#253142"/>
-  <rect x="18" y="22" width="9" height="8" rx="1.5" fill="#c0ccdd"/>
-  <rect x="33" y="22" width="9" height="8" rx="1.5" fill="#c0ccdd"/>
-  <circle cx="21" cy="43" r="3.4" fill="#253142"/>
-  <circle cx="39" cy="43" r="3.4" fill="#253142"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" role="img" aria-label="ItundaFace bus stop">
+  <path d="M18 17h44v34H18z" fill="#664500"/>
+  <rect x="24" y="23" width="13" height="12" rx="2" fill="#FFCC4D"/>
+  <rect x="43" y="23" width="13" height="12" rx="2" fill="#FFCC4D"/>
+  <path d="M24 43h32M28 55v7M52 55v7" stroke="#664500" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="29" cy="53" r="4" fill="#7472F4"/>
+  <circle cx="51" cy="53" r="4" fill="#7472F4"/>
 </svg>
