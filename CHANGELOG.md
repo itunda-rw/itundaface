@@ -1,5 +1,17 @@
 # Changelog
 
+## 2.2.3 — 2026-09-17
+
+### Visual-system hardening
+- Added a public quality-rules module for optical balance, minimum-size readability, directional consistency, 45° tilt consistency, compact palette discipline, shared 3D viewpoint, and flat/3D silhouette parity.
+- Exposed the quality rules from the canonical package root and `families` API.
+- Added the `itundaface/quality` package subpath.
+- Strengthened design tokens with explicit visual-system quality targets.
+- Updated the React quality gate to review complete families rather than isolated glyphs.
+
+### Package
+- Bumped package and token version to `2.2.3`.
+
 ## 2.2.2 — 2026-09-17
 
 ### Canonical package architecture
