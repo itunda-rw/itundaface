@@ -32,7 +32,7 @@ for (const file of walk(svgRoot)) {
     else globalIds.set(id, relative);
   }
 
-  const references = [...source.matchAll(/(?:url\\(#|href=["']#|xlink:href=["']#)([^)"']+)/g)].map((match) => match[1]);
+  const references = [...source.matchAll(/(?:url\(#|href=["']#|xlink:href=["']#)([^)"']+)/g)].map((match) => match[1]);
   for (const ref of references) {
     if (!seen.has(ref)) errors.push(`${relative}: unresolved local reference "#${ref}"`);
   }
