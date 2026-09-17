@@ -26,11 +26,11 @@ export function ItundaFaceConsumerFixture() {
       <ReactionSad size={24} />
       <CommunicationIcon kind="chat" size={24} />
       <PlaceIcon kind="market" size={24} />
-      <IdentityIcon kind="verified" size={24} />
+      <IdentityIcon kind="verification" size={24} />
       <CommerceIcon kind="gift" size={24} />
       <FinanceIcon kind="wallet" size={24} />
       <CultureIcon kind="celebration" size={24} />
-      <StateIcon kind="success" size={24} />
+      <StateIcon state="success" size={24} />
     </div>
   );
 }
