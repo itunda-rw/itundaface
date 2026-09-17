@@ -1,6 +1,6 @@
-# ItundaFace 2.2.2
+# ItundaFace 2.2.3
 
-ItundaFace 2.2.2 makes the canonical React family API the package-level source of truth while preserving the existing legacy surface for compatibility.
+ItundaFace 2.2.3 hardens the visual system so TossFace-level principles are encoded as reusable quality rules rather than remaining only in documentation.
 
 ## Scope
 
@@ -13,24 +13,36 @@ ItundaFace 2.2.2 makes the canonical React family API the package-level source o
 - Rwanda-native culture
 - Product state / status
 - Motion and reduced-motion grammar
+- Public visual quality rules
 
-## Canonical React entrypoint
+## Visual-system rules
 
-The package root now resolves to `react/canonical.tsx`.
+The quality layer codifies:
 
-Canonical family modules are the source of truth for flat glyphs. The previous monolithic implementation remains available through the `./legacy` package subpath, and legacy-only helpers plus the reaction 3D exports remain available from the canonical entrypoint where they do not conflict with the modern family API.
+- simple primitive-first construction
+- silhouette-first drawing
+- 14px minimum readability
+- 24px optical-balance review
+- 68–88% occupied-area target with 78% default target
+- right-facing directional flow
+- 45° clockwise tilt consistency
+- compact system palette across light and dark surfaces
+- semantic color before brand accent
+- repeated-anatomy consistency
+- shared 3D viewing height, camera, light and shadow grammar
+- flat/3D silhouette parity
+- canonical SVG/React parity
+- family-level release review
 
-## Usage guidance
+These rules are inspired by TossFace's published design principles, while ItundaFace artwork remains independently authored.
 
-Use flat glyphs for compact inline UI and 3D glyphs for deliberate prominent moments. Preserve semantic colors and use Itunda indigo selectively as the identity accent.
+## Package
 
-## Quality
-
-Validate new glyphs at 14px and 24px for flat UI, and 32px, 40px, 48px, and 64px for 3D. Check optical balance, light/dark readability, silhouette continuity, accessibility labels, and family-level consistency. Canonical SVG assets and React implementations should describe the same geometry.
+The package root resolves to `react/canonical.tsx`. The quality rules are available from `itundaface/quality`, the canonical root, and the `families` API. The previous monolithic implementation remains available through `itundaface/legacy`.
 
 ## Originality
 
-TossFace is used as a reference for design-system discipline only. ItundaFace artwork is independently authored and must not copy, trace, modify, recolor, or combine TossFace artwork.
+TossFace is a reference for system discipline only. ItundaFace must not copy, trace, modify, recolor, or combine TossFace artwork.
 
 ## License
 
