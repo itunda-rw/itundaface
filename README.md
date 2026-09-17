@@ -1,6 +1,6 @@
 # itundaface
 
-**v2.2.3** — Itunda's independently authored expressive glyph system, built with TossFace-level system discipline but original Itunda artwork.
+**v2.2.4** — Itunda's independently authored expressive glyph system, built with TossFace-level system discipline but original Itunda artwork.
 
 itundaface is a hand-drawn expressive glyph system for [itunda](https://github.com/itunda-rw/itunda), Rwanda's super-app. Core glyphs ship in flat form for small inline UI and 3D form for prominent moments.
 
@@ -70,7 +70,7 @@ The previous monolithic implementation remains available at `itundaface/legacy` 
 
 ## Visual quality rules
 
-The quality layer now codifies the core system rules instead of leaving them only in documentation: optical bounds, 14px minimum readability, 24px balance checks, right-facing directional flow, 45° tilt consistency, shared 3D viewpoint, compact palette, flat/3D silhouette parity, and family-level review.
+The quality layer now codifies the core system rules instead of leaving them only in documentation: optical bounds, 14px minimum readability, 24px balance checks, right-facing directional flow, 45° tilt consistency, shared 3D viewpoint, compact palette, flat/3D silhouette parity, light/dark surface readability, canonical SVG/React parity, accessible metadata, and family-level review.
 
 ## Master Reaction Set
 
@@ -86,7 +86,7 @@ Motion is treated as a semantic layer rather than decoration. Canonical states i
 
 ## Versioning
 
-Current package release: **2.2.3**. The project follows semantic versioning for package metadata and release documentation.
+Current package release: **2.2.4**. The project follows semantic versioning for package metadata and release documentation.
 
 ## License
 
