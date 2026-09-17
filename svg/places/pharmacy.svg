@@ -1,8 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" role="img" aria-label="Pharmacy">
-  <circle cx="30" cy="30" r="28" fill="#8BDECB"/>
-  <g transform="rotate(-40 30 30)">
-    <rect x="11" y="22" width="38" height="16" rx="8" fill="#FFFFFF"/>
-    <path d="M11 30a8 8 0 0 1 8-8h12v16H19a8 8 0 0 1-8-8z" fill="#006455"/>
-    <path d="M30 24v12M24 30h12" stroke="#7472F4" stroke-width="2.2" stroke-linecap="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" role="img" aria-label="ItundaFace pharmacy">
+  <g transform="rotate(-45 40 40)">
+    <rect x="12" y="28" width="56" height="24" rx="12" fill="#FFFFFF"/>
+    <path d="M12 40c0-7 5-12 12-12h16v24H24c-7 0-12-5-12-12Z" fill="#664500"/>
+    <path d="M40 31v18M31 40h18" stroke="#7472F4" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
   </g>
 </svg>
