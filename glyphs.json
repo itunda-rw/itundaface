@@ -1,0 +1,11 @@
+{
+  "schema": "./glyphs.schema.json",
+  "version": 1,
+  "glyphs": [
+    {"id":"itf_reactions_thumbs_up","name":"Thumbs Up","category":"reactions","semanticMeaning":"positive approval","canvas":{"width":80,"height":80},"opticalBounds":{"x":8,"y":7,"width":64,"height":66},"canonicalDirection":"right","canonicalRotation":0,"flatAsset":"svg/flat/thumbs-up.svg","threeDAsset":"svg/3d/thumbs-up.svg"},
+    {"id":"itf_reactions_heart","name":"Heart","category":"reactions","semanticMeaning":"like, love, favorite","canvas":{"width":80,"height":80},"opticalBounds":{"x":8,"y":9,"width":64,"height":62},"canonicalDirection":"none","canonicalRotation":0,"flatAsset":"svg/flat/heart.svg","threeDAsset":"svg/3d/heart.svg"},
+    {"id":"itf_reactions_laughing","name":"Laughing","category":"reactions","semanticMeaning":"joy and laughter","canvas":{"width":80,"height":80},"opticalBounds":{"x":7,"y":7,"width":66,"height":66},"canonicalDirection":"none","canonicalRotation":0,"flatAsset":"svg/flat/laughing.svg","threeDAsset":"svg/3d/laughing.svg"},
+    {"id":"itf_reactions_wow","name":"Wow","category":"reactions","semanticMeaning":"surprise and amazement","canvas":{"width":80,"height":80},"opticalBounds":{"x":7,"y":7,"width":66,"height":66},"canonicalDirection":"none","canonicalRotation":0,"flatAsset":"svg/flat/wow.svg","threeDAsset":"svg/3d/wow.svg"},
+    {"id":"itf_reactions_sad","name":"Sad","category":"reactions","semanticMeaning":"sadness or disappointment","canvas":{"width":80,"height":80},"opticalBounds":{"x":7,"y":7,"width":66,"height":66},"canonicalDirection":"none","canonicalRotation":0,"flatAsset":"svg/flat/sad.svg","threeDAsset":"svg/3d/sad.svg"}
+  ]
+}
