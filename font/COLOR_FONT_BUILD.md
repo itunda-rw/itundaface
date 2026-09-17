@@ -2,16 +2,30 @@
 
 The color-font layer is generated from the canonical SVG masters and `glyphs.json`.
 
+## Current compiler
+
+ItundaFace now produces a real **SVG-in-OpenType TrueType color font** using FontTools. FontTools documents the OpenType `SVG ` table as the table that stores SVG representations for glyphs. citeturn1search0
+
+The current binary artifact is:
+
+```text
+font/dist/ItundaFace-SVG.ttf
+```
+
 ## Build contract
 
 1. Validate the glyph manifest.
 2. Validate every referenced SVG master.
-3. Generate `font/build-manifest.json` from stable `itf_*` IDs.
-4. Feed that manifest into the selected color-font compiler.
-5. Package the resulting font separately from the SVG source package.
+3. Validate the private-use mapping.
+4. Generate `font/build-manifest.json` from stable `itf_*` IDs.
+5. Compile the canonical flat SVG masters into the `SVG ` OpenType table.
+6. Validate the resulting TTF contains `SVG ` and the expected five PUA mappings.
+7. Upload the TTF as a CI artifact.
 
-## Why the compiler is separate
+## Why SVG-in-OpenType first
 
-A color font is a binary distribution artifact. The repository deliberately keeps the artwork and semantic IDs independent from a specific font technology so the same ItundaFace masters can later target COLR/CPAL, SVG-in-OpenType, or platform-specific packaging without changing the source vocabulary.
+The ItundaFace masters already contain vector paths, strokes, gradients, and other SVG-native construction. SVG-in-OpenType preserves those masters directly instead of approximating them through a partial shape-to-COLR converter.
+
+COLR/CPAL remains a future packaging target when the project has a dedicated SVG-to-COLR conversion stage that can preserve the full ItundaFace visual contract.
 
 No generated binary font is considered authoritative; the SVG masters remain authoritative.
