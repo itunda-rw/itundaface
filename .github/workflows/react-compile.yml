@@ -27,3 +27,45 @@ jobs:
         run: node scripts/release-check.mjs
       - name: npm package dry-run validation
         run: npm pack --dry-run --json > /tmp/itundaface-pack.json && node -e "const fs=require('fs'); const p=JSON.parse(fs.readFileSync('/tmp/itundaface-pack.json','utf8'))[0]; if(!p?.filename || !p?.files?.length) process.exit(1); console.log('npm package dry-run passed:', p.filename, 'files:', p.files.length);"
+      - name: Packed tarball consumer smoke test
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf /tmp/itundaface-consumer /tmp/itundaface-pack
+          mkdir -p /tmp/itundaface-consumer /tmp/itundaface-pack
+          npm pack --pack-destination /tmp/itundaface-pack >/dev/null
+          TARBALL=$(find /tmp/itundaface-pack -maxdepth 1 -name '*.tgz' -print -quit)
+          test -n "$TARBALL"
+          cd /tmp/itundaface-consumer
+          npm init -y >/dev/null 2>&1
+          npm install --ignore-scripts react@18.3.1 @types/react@18.3.12 typescript@5.7.3 "$TARBALL" >/dev/null 2>&1
+          cat > consumer.tsx <<'EOF'
+          import React from 'react';
+          import { ReactionThumbsUp, ReactionHeart, ReactionLaughing, ReactionWow, ReactionSad } from 'itundaface';
+          import { CommunicationIcon } from 'itundaface/communication';
+          import { PlaceIcon } from 'itundaface/places';
+          import { IdentityIcon } from 'itundaface/identity';
+          import { CommerceIcon } from 'itundaface/commerce';
+          import { FinanceIcon } from 'itundaface/finance';
+          import { CultureIcon } from 'itundaface/culture';
+          import { StateIcon } from 'itundaface/state';
+
+          export function Consumer() {
+            return <>
+              <ReactionThumbsUp size={14} />
+              <ReactionHeart size={16} />
+              <ReactionLaughing size={18} />
+              <ReactionWow size={20} />
+              <ReactionSad size={24} />
+              <CommunicationIcon kind="chat" size={24} />
+              <PlaceIcon kind="market" size={24} />
+              <IdentityIcon kind="verification" size={24} />
+              <CommerceIcon kind="gift" size={24} />
+              <FinanceIcon kind="wallet" size={24} />
+              <CultureIcon kind="celebration" size={24} />
+              <StateIcon state="success" size={24} />
+            </>;
+          }
+          EOF
+          npx tsc --noEmit --strict --skipLibCheck --module ESNext --moduleResolution Bundler --jsx react-jsx --target ES2020 consumer.tsx
+          echo "Packed tarball consumer smoke test passed"
