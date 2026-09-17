@@ -12,6 +12,7 @@ export * from './finance';
 export * from './culture';
 export * from './state';
 export * from './validation';
+export * from './quality';
 
 // Preserve legacy public exports that do not conflict with canonical family APIs.
 export const {
