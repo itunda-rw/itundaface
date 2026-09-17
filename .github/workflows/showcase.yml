@@ -23,17 +23,16 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Prepare showcase localization
+      - name: Prepare showcase enhancements
         run: |
           python3 - <<'PY'
           from pathlib import Path
           page = Path('showcase/index.html')
           text = page.read_text(encoding='utf-8')
-          for marker in ('<script src="./localization.js"></script>', '<script src="./localization-v2.js"></script>'):
+          for marker in ('<script src="./localization.js"></script>', '<script src="./localization-v2.js"></script>', '<script src="./ux-v2.js"></script>', '<link rel="stylesheet" href="./ux-v2.css">'):
               text = text.replace(marker, '')
-          marker = '<script src="./localization-v2.js"></script>'
-          if marker not in text:
-              text = text.replace('</body>', marker + '</body>')
+          text = text.replace('</head>', '<link rel="stylesheet" href="./ux-v2.css"></head>')
+          text = text.replace('</body>', '<script src="./ux-v2.js"></script><script src="./localization-v2.js"></script></body>')
           page.write_text(text, encoding='utf-8')
           PY
       - name: Configure Pages
