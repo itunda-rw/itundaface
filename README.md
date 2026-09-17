@@ -6,7 +6,7 @@ itundaface is a hand-drawn expressive glyph system for [itunda](https://github.c
 
 ## Why this exists
 
-TossFace demonstrates the value of a disciplined visual system: simple geometry, optical consistency, controlled detail, and a coherent visual language. itundaface applies those system principles while keeping its own artwork, indigo identity, semantic colors, and Rwanda-native product vocabulary.
+TossFace demonstrates the value of a disciplined visual system: simple geometry, optical consistency, controlled detail, coherent visual language, modular construction, and iterative refinement. itundaface applies those system principles while keeping its own artwork, indigo identity, semantic colors, and Rwanda-native product vocabulary.
 
 So: itundaface is drawn from scratch and released under MIT — modify it, ship it, and build on it.
 
@@ -17,6 +17,7 @@ So: itundaface is drawn from scratch and released under MIT — modify it, ship 
 - **Flat for small, 3D for prominent.** Flat glyphs target inline UI; 3D variants are reserved for deliberate key moments.
 - **One palette, both themes.** Glyph meaning remains stable across light and dark surfaces.
 - **System before scale.** Families are designed as systems before the library expands further.
+- **Family-level QA.** Optical balance, repeated geometry, accessibility, and flat/3D continuity are reviewed across a whole family before release.
 
 ### itundaface's own signature
 
@@ -41,12 +42,14 @@ svg/
   culture/       celebration, Umuco, Agaseke, Umuganda, Umuganura
   motion/        canonical product-state motion grammar
   state/         success, verified, pending, warning, error, locked, processing, delivered, completed
-react/            typed family APIs plus legacy-compatible root entrypoint
+react/            canonical family APIs + legacy-compatible helpers
 ```
 
 ## React API
 
-The package provides independently importable typed family entrypoints:
+The package root now resolves to the **canonical React entrypoint** `react/canonical.tsx`. This makes the typed family modules the default source of truth rather than the historical monolithic implementation.
+
+Independently importable family entrypoints:
 
 - `itundaface/reactions`
 - `itundaface/communication`
@@ -59,7 +62,7 @@ The package provides independently importable typed family entrypoints:
 - `itundaface/families`
 - `itundaface/validation`
 
-The family API uses the canonical 80×80 coordinate system, configurable sizes, and accessible labels. Canonical SVG assets under `svg/` remain the visual source of truth.
+The previous monolithic implementation remains available at `itundaface/legacy` for compatibility. The family API uses the canonical 80×80 coordinate system, configurable sizes, and accessible labels. Canonical SVG assets under `svg/` remain the visual source of truth.
 
 ## Master Reaction Set
 
