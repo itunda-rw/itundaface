@@ -23,3 +23,5 @@ jobs:
         run: npm install --no-save --ignore-scripts --package-lock=false react@18.3.1 @types/react@18.3.12 typescript@5.7.3
       - name: TypeScript compile check
         run: npx --no-install tsc --project tsconfig.json
+      - name: Release contract validation
+        run: node scripts/release-check.mjs
