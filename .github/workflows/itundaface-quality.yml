@@ -4,6 +4,10 @@ on:
   push:
   pull_request:
 
+# This workflow only needs to read repository contents and publish its own artifact.
+permissions:
+  contents: read
+
 jobs:
   manifest:
     runs-on: ubuntu-latest
