@@ -30,6 +30,7 @@ export const ITUNDA_FACE_CONSTRUCTION_RULES = {
   semanticColorBeforeBrandAccent: true,
   compactPalette: true,
   lightAndDarkSurfaceReadable: true,
+  namespaced3dSvgIds: true,
 } as const;
 
 export const ITUNDA_FACE_QUALITY_GATES = [
@@ -44,6 +45,7 @@ export const ITUNDA_FACE_QUALITY_GATES = [
   'light-dark-readability',
   'accessibility',
   'canonical-svg-react-parity',
+  '3d-svg-id-uniqueness',
   'original-artwork',
 ] as const;
 
