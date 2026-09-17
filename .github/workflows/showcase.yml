@@ -29,9 +29,9 @@ jobs:
           from pathlib import Path
           page = Path('showcase/index.html')
           text = page.read_text(encoding='utf-8')
-          for marker in ('<script src="./localization.js"></script>', '<script src="./localization-v2.js"></script>', '<script src="./ux-v2.js"></script>', '<script src="./premium-v3.js"></script>', '<link rel="stylesheet" href="./ux-v2.css">', '<link rel="stylesheet" href="./premium-v3.css">'):
+          for marker in ('<script src="./localization.js"></script>', '<script src="./localization-v2.js"></script>', '<script src="./ux-v2.js"></script>', '<script src="./premium-v3.js"></script>', '<link rel="stylesheet" href="./ux-v2.css">', '<link rel="stylesheet" href="./premium-v3.css">', '<link rel="stylesheet" href="./tossface-v4.css">'):
               text = text.replace(marker, '')
-          text = text.replace('</head>', '<link rel="stylesheet" href="./ux-v2.css"><link rel="stylesheet" href="./premium-v3.css"></head>')
+          text = text.replace('</head>', '<link rel="stylesheet" href="./ux-v2.css"><link rel="stylesheet" href="./premium-v3.css"><link rel="stylesheet" href="./tossface-v4.css"></head>')
           text = text.replace('</body>', '<script src="./ux-v2.js"></script><script src="./localization-v2.js"></script><script src="./premium-v3.js"></script></body>')
           page.write_text(text, encoding='utf-8')
           PY
