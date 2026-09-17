@@ -11,7 +11,7 @@
   "keywords": ["emoji", "icons", "svg", "color-font", "react", "reactions", "itunda"],
   "main": "react/index.tsx",
   "types": "react/index.tsx",
-  "files": ["svg", "react", "tokens.json", "glyphs.schema.json", "TOSSFACE_PARITY.md", "LICENSE", "README.md"],
+  "files": ["svg", "react", "font", "tokens.json", "glyphs.schema.json", "glyphs.json", "TOSSFACE_PARITY.md", "LICENSE", "README.md"],
   "peerDependencies": {
     "react": ">=17"
   }
