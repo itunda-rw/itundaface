@@ -1,7 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" role="img" aria-label="Gas station">
-  <circle cx="30" cy="30" r="28" fill="#C0CCDD"/>
-  <rect x="16" y="15" width="20" height="34" rx="3.5" fill="#415676"/>
-  <rect x="20" y="20" width="12" height="9" rx="1.8" fill="#C0CCDD"/>
-  <path d="M36 25.5h3.5a4 4 0 0 1 4 4v9.8c0 1.8 1.1 3 2.5 3s2.5-1.2 2.5-3V31l-3.2-3.1" fill="none" stroke="#415676" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M23 24.5h6" stroke="#7472F4" stroke-width="2.2" stroke-linecap="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" role="img" aria-label="ItundaFace gas station">
+  <rect x="17" y="14" width="29" height="53" rx="4" fill="#664500"/>
+  <rect x="23" y="21" width="17" height="13" rx="2" fill="#FFCC4D"/>
+  <path d="M46 28h5c5 0 8 3 8 8v14c0 3 2 5 4 5s4-2 4-5V39l-6-6" fill="none" stroke="#664500" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M27 28h9" stroke="#7472F4" stroke-width="3" stroke-linecap="round"/>
 </svg>
