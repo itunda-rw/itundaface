@@ -1,5 +1,18 @@
 # Changelog
 
+## 2.2.4 — 2026-09-17
+
+### Visual QA hardening
+- Completed canonical React ↔ SVG parity review across the eight family modules.
+- Completed light/dark surface readability review while preserving semantic colors and Itunda indigo identity accents.
+- Completed the 14px / 16px / 18px / 20px / 24px flat-size review and removed a non-surviving reaction detail.
+- Improved small-size readability of the reaction accent seams without changing canonical silhouettes.
+- Verified canonical flat Places artwork on the shared 80×80 coordinate system.
+- Verified 3D assets retain the shared 80×80 coordinate system and accessibility metadata.
+
+### Package
+- Bumped package and design-token version to `2.2.4`.
+
 ## 2.2.3 — 2026-09-17
 
 ### Visual-system hardening
