@@ -23,6 +23,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Prepare showcase localization
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          page = Path('showcase/index.html')
+          text = page.read_text(encoding='utf-8')
+          marker = '<script src="./localization.js"></script>'
+          if marker not in text:
+              text = text.replace('</body>', marker + '</body>')
+              page.write_text(text, encoding='utf-8')
+          PY
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload Pages artifact
