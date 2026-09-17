@@ -4,12 +4,42 @@
   const heroTitle = document.querySelector('.hero h1');
   const heroCopy = document.querySelector('.hero-copy');
   const heroEyebrow = document.querySelector('.hero .eyebrow');
+  const langButton = document.querySelector('#lang');
 
-  // Give the homepage a product-story voice rather than a template/demo voice.
-  if (heroEyebrow) heroEyebrow.textContent = 'ITUNDA · VISUAL LANGUAGE';
-  if (heroTitle) heroTitle.innerHTML = 'A visual language<br><span>for every moment.</span>';
-  if (heroCopy) heroCopy.textContent = 'ItundaFace turns everyday actions into a visual language that feels clear, human, and unmistakably Itunda — from tiny interface moments to expressive 3D scenes.';
-  document.title = 'ItundaFace — A visual language for every moment';
+  // Premium editorial voice, kept in sync with the existing EN/RW/FR showcase localization.
+  const HERO = {
+    en: {
+      eyebrow: 'ITUNDA · VISUAL LANGUAGE',
+      title: ['A visual language<br><span>for every moment.</span>'],
+      copy: 'ItundaFace turns everyday actions into a visual language that feels clear, human, and unmistakably Itunda — from tiny interface moments to expressive 3D scenes.'
+    },
+    rw: {
+      eyebrow: 'ITUNDA · URURIMI RW’AMASHUSHO',
+      title: ['Ururimi rw’amashusho<br><span>kuri buri mwanya.</span>'],
+      copy: 'ItundaFace ihindura ibikorwa bya buri munsi ururimi rw’amashusho rworoshye, rufite ubumuntu kandi rugaragaza Itunda — kuva ku bimenyetso bito bya porogaramu kugeza ku mashusho ya 3D.'
+    },
+    fr: {
+      eyebrow: 'ITUNDA · LANGAGE VISUEL',
+      title: ['Un langage visuel<br><span>pour chaque instant.</span>'],
+      copy: 'ItundaFace transforme les actions du quotidien en un langage visuel clair, humain et immédiatement Itunda — des petits détails d’interface aux scènes 3D expressives.'
+    }
+  };
+
+  const applyHero = () => {
+    const lang = root.lang || localStorage.getItem('itundaface-lang') || 'en';
+    const t = HERO[lang] || HERO.en;
+    if (heroEyebrow) heroEyebrow.textContent = t.eyebrow;
+    if (heroTitle) heroTitle.innerHTML = t.title[0];
+    if (heroCopy) heroCopy.textContent = t.copy;
+    document.title = lang === 'rw'
+      ? 'ItundaFace — Ururimi rw’amashusho kuri buri mwanya'
+      : lang === 'fr'
+        ? 'ItundaFace — Un langage visuel pour chaque instant'
+        : 'ItundaFace — A visual language for every moment';
+  };
+
+  applyHero();
+  langButton?.addEventListener('click', () => setTimeout(applyHero, 0));
 
   const revealTargets = [
     ...document.querySelectorAll('section .title, section .copy, .principle, .stage, .phone, .phone-copy, .agent-visual, .agent-step, .glyph')
