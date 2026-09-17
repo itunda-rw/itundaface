@@ -9,6 +9,16 @@
 - Expanded the Finance React family from the interaction layer to the complete 16-glyph canonical inventory, including Rwanda-native product and payment vocabulary.
 - Preserved accessible `aria-label` behavior and the existing typed family entrypoints.
 
+### Canonical package entrypoint
+- Added `react/canonical.tsx` as the package's source-of-truth React entrypoint.
+- The package root now resolves to the canonical family modules instead of the legacy monolithic entrypoint.
+- Preserved legacy-only helpers and 3D reaction exports for compatibility.
+- Added the `./legacy` package subpath for consumers that intentionally need the previous monolithic implementation.
+
+### Design-system QA
+- Added a family-level release gate covering optical balance, repeated geometry, flat/3D silhouette parity, accessibility, canonical SVG/React parity, and minimum-size readability.
+- Updated the roadmap to reflect the current culture and state families.
+
 ### Package
 - Bumped package version to `2.2.1`.
 
