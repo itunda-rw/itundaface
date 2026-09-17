@@ -1,0 +1,25 @@
+name: React API Compile Check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  typecheck:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install pinned compile dependencies
+        run: npm install --no-save --ignore-scripts --package-lock=false react@18.3.1 @types/react@18.3.12 typescript@5.7.3
+      - name: TypeScript compile check
+        run: npx --no-install tsc --project tsconfig.json
