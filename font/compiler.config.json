@@ -1,7 +1,7 @@
 {
   "format": "itundaface-color-font-compiler-config-v1",
   "sourceManifest": "./build-manifest.json",
-  "target": "COLR/CPAL",
+  "target": "SVG-in-OpenType",
   "version": 1,
   "unitsPerEm": 1000,
   "glyphCanvas": {"width": 80, "height": 80},
@@ -9,15 +9,15 @@
     "sourceOrigin": "top-left",
     "fontOrigin": "baseline",
     "scale": 12.5,
-    "baseline": 750
+    "baseline": 0
   },
   "layers": {
     "flatAsset": "source",
-    "threeDAsset": "source"
+    "threeDAsset": "future-secondary-source"
   },
   "output": {
     "fontFamily": "ItundaFace",
-    "file": "dist/ItundaFace-COLR.ttf",
+    "file": "dist/ItundaFace-SVG.ttf",
     "format": "truetype"
   },
   "unicodePolicy": "private-use-distribution-only",
