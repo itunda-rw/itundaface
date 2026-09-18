@@ -121,7 +121,7 @@ async function buildRoundedFaceVolume(master){
   const scale=4.05/(radius*2);
   root.scale.setScalar(scale);
   root.rotation.x=Math.PI;
-  root.rotation.y=0.13;
+  root.rotation.y=0.18;
   root.rotation.z=meta.tilt ?? 0;
   root.position.y+=meta.lift ?? 0;
   root.userData.canonicalScale=scale;
@@ -188,7 +188,7 @@ async function buildMaster(master){
         const raw=subPath.getPoints(96);
         if(raw.length>1){
           const curve=new THREE.CatmullRomCurve3(
-            raw.map(p=>new THREE.Vector3(p.x,p.y,0.64+layerZ)),
+            raw.map(p=>new THREE.Vector3(p.x,p.y,(materialProfile.depth ?? meta.depth ?? 7.5)+0.08+layerZ)),
             false,
             "centripetal",
             0.15
@@ -256,13 +256,13 @@ function setupScene(canvas){
   renderer.shadowMap.type=THREE.PCFSoftShadowMap;
   scene.add(new THREE.HemisphereLight(0xffffff,0x9fa5b8,1.9));
   const lighting=masterManifest?.lighting ?? {keyDirection:[-6.5,9.5,10.5],rimColor:"#7472F4"};
-  const key=new THREE.DirectionalLight(0xffffff,4.2);
+  const key=new THREE.DirectionalLight(0xffffff,5.6);
   key.position.fromArray(lighting.keyDirection ?? [-6.5,9.5,10.5]);
   key.castShadow=true;
   key.shadow.mapSize.set(2048,2048);
   scene.add(key);
-  const rim=new THREE.DirectionalLight(hexColor(lighting.rimColor) ?? 0x7472f4,1.25);
-  rim.position.set(7,4,-8);
+  const rim=new THREE.DirectionalLight(hexColor(lighting.rimColor) ?? 0x7472f4,2.2);
+  rim.position.set(8,6,-10);
   scene.add(rim);
 
   const floor=new THREE.Mesh(
@@ -443,9 +443,9 @@ async function populate(canvas,layout){
   root.userData.sharedCameraHeight=sharedCameraHeight;
   function loop(){
     t+=.006;
-    if(!drag) target=Math.sin(t*.42)*.08;
+    if(!drag) target=Math.sin(t*.42)*.16;
     root.rotation.y+=(target-root.rotation.y)*.045;
-    root.rotation.x=Math.sin(t*.31)*.012;
+    root.rotation.x=Math.sin(t*.31)*.018;
     root.children.filter(item=>item.userData.flatReference).forEach(reference=>{
       reference.lookAt(camera.position);
     });
