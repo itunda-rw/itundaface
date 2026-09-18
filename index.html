@@ -1,23 +1,78 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#7472F4"><meta name="description" content="ItundaFace — Itunda's expressive glyph system.">
-<title>ItundaFace — Expressive glyphs for Itunda</title><link rel="stylesheet" href="site.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+<meta name="description" content="ItundaFace — an original expressive glyph font and visual language for Itunda.">
+<title>ItundaFace — An expressive language for everyone</title>
+<link rel="stylesheet" href="site.css">
 </head>
 <body>
-<header class="nav"><a class="brand" href="./"><b>i</b><span>ItundaFace</span></a><nav><a href="#glyphs">Glyphs</a><a href="#system">System</a><a href="#font">Font</a><a href="https://github.com/itunda-rw/itundaface" target="_blank" rel="noreferrer">GitHub ↗</a></nav></header>
+<header class="topbar">
+  <a class="wordmark" href="./" aria-label="ItundaFace home"><span class="mark">i</span><span>itundaface</span></a>
+  <nav><a href="#about">About</a><a href="#glyphs">Glyphs</a><a href="#font">Font</a><a href="https://github.com/itunda-rw/itundaface" target="_blank" rel="noreferrer">GitHub ↗</a></nav>
+</header>
+
 <main>
-<section class="hero"><div><p class="eyebrow">ITUNDA EXPRESSIVE LANGUAGE</p><h1>Small shapes.<br><em>Big expression.</em></h1><p class="lede">An original emoji and glyph system for Itunda — simple, balanced, expressive and consistent from tiny UI moments to large 3D moments.</p><div class="actions"><a class="button primary" href="#glyphs">Explore glyphs</a><a class="button secondary" href="https://github.com/itunda-rw/itundaface" target="_blank" rel="noreferrer">View source</a></div></div><div class="hero-art"><i></i><i></i><img class="h1" src="svg/3d/heart.svg" alt=""><img class="h2" src="svg/3d/wow.svg" alt=""><img class="h3" src="svg/3d/laughing.svg" alt=""></div></section>
-<section class="principles" id="system"><div><small>01</small><h2>Simple geometry</h2><p>Strong silhouettes from a small vocabulary of shapes. Detail never gets in the way of recognition.</p></div><div><small>02</small><h2>Optical balance</h2><p>Glyphs are tuned to feel equally present, not merely placed inside the same box.</p></div><div><small>03</small><h2>One visual language</h2><p>Shared proportions, direction, color, light and depth keep the library coherent.</p></div></section>
-<section class="glyphs" id="glyphs"><div class="head"><div><p class="eyebrow">THE MASTER SET</p><h2>Five reactions.<br>One family.</h2></div><div class="switch"><button class="active" data-mode="flat">Flat</button><button data-mode="3d">3D</button></div></div><div class="grid">
-<article data-name="thumbs-up"><div class="stage"><img src="svg/flat/thumbs-up.svg" alt="Thumbs Up"></div><h3>Thumbs Up</h3><p>positive approval</p></article><article data-name="heart"><div class="stage"><img src="svg/flat/heart.svg" alt="Heart"></div><h3>Heart</h3><p>like · love · favorite</p></article><article data-name="laughing"><div class="stage"><img src="svg/flat/laughing.svg" alt="Laughing"></div><h3>Laughing</h3><p>joy and laughter</p></article><article data-name="wow"><div class="stage"><img src="svg/flat/wow.svg" alt="Wow"></div><h3>Wow</h3><p>surprise and amazement</p></article><article data-name="sad"><div class="stage"><img src="svg/flat/sad.svg" alt="Sad"></div><h3>Sad</h3><p>sadness or disappointment</p></article>
-</div></section>
-<section class="dark"><div><p class="eyebrow">BUILT AS A SYSTEM</p><h2>From one tiny glyph<br>to a whole vocabulary.</h2><p>Canonical 80×80 masters, stable IDs, optical bounds, semantic color, flat/3D parity and an automated color-font pipeline make every new glyph a member of the same language.</p></div><div class="stats"><div><b>80</b><span>master canvas</span></div><div><b>14px</b><span>recognition gate</span></div><div><b>45°</b><span>canonical tilt</span></div><div><b>PUA</b><span>distribution mapping</span></div></div></section>
-<section class="font" id="font"><div><p class="eyebrow">COLOR FONT</p><h2>Designed once.<br>Used everywhere.</h2><p>ItundaFace masters compile into an SVG-in-OpenType color font while canonical SVG remains the source of truth.</p></div><div class="fontbox"><span>itunda</span><b>♥</b><strong>✦</strong></div></section>
-<section class="closing"><p class="eyebrow">ORIGINAL BY DESIGN</p><h2>Inspired by system thinking.<br>Authored for Itunda.</h2><p>ItundaFace targets the same level of consistency and completeness as leading emoji systems without copying their artwork.</p><a class="button primary" href="https://github.com/itunda-rw/itundaface" target="_blank" rel="noreferrer">Explore on GitHub ↗</a></section>
-</main><footer><span>© ItundaFace</span><span>Original Itunda glyph system</span></footer>
-<script>
-const buttons=[...document.querySelectorAll('.switch button')],cards=[...document.querySelectorAll('.grid article')];
-buttons.forEach(btn=>btn.onclick=()=>{buttons.forEach(b=>b.classList.toggle('active',b===btn));cards.forEach(c=>c.querySelector('img').src='svg/'+btn.dataset.mode+'/'+c.dataset.name+'.svg')});
-</script></body></html>
+<section class="hero">
+  <div class="hero-copy">
+    <p class="kicker">ITUNDAFACE</p>
+    <h1>Express yourself,<br><span>without words.</span></h1>
+    <p class="intro">A colorful expressive glyph font and visual language made for Itunda — simple enough to understand at a glance, expressive enough to make digital moments feel human.</p>
+    <a class="download" href="#font">Explore ItundaFace <span>↓</span></a>
+  </div>
+  <div class="emoji-wall hero-wall" aria-label="ItundaFace glyph showcase">
+    <div class="wall-row r1"><img src="svg/flat/laughing.svg" alt=""><img src="svg/flat/heart.svg" alt=""><img src="svg/flat/wow.svg" alt=""><img src="svg/flat/thumbs-up.svg" alt=""><img src="svg/flat/sad.svg" alt=""></div>
+    <div class="wall-row r2"><img src="svg/3d/heart.svg" alt=""><img src="svg/3d/wow.svg" alt=""><img src="svg/3d/laughing.svg" alt=""><img src="svg/3d/thumbs-up.svg" alt=""><img src="svg/3d/sad.svg" alt=""></div>
+  </div>
+</section>
+
+<section class="glyph-stream" id="glyphs">
+  <div class="stream-label"><span>THE GLYPHS</span><span>5 MASTER REACTIONS · FLAT + 3D</span></div>
+  <div class="big-glyph-grid">
+    <div><img src="svg/flat/thumbs-up.svg" alt="Thumbs Up"></div>
+    <div><img src="svg/flat/heart.svg" alt="Heart"></div>
+    <div><img src="svg/flat/laughing.svg" alt="Laughing"></div>
+    <div><img src="svg/flat/wow.svg" alt="Wow"></div>
+    <div><img src="svg/flat/sad.svg" alt="Sad"></div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="section-title"><p class="kicker">MADE AS A SYSTEM</p><h2>Simple shapes.<br>Consistent rules.</h2></div>
+  <div class="principle-list">
+    <article><div class="principle-art"><img src="svg/flat/heart.svg" alt=""></div><div><b>01</b><h3>The simplest form</h3><p>Basic geometry and minimal detail keep every glyph clear, even when it is small.</p></div></article>
+    <article><div class="principle-art"><img src="svg/flat/thumbs-up.svg" alt=""></div><div><b>02</b><h3>The same visual size</h3><p>Optical bounds are tuned so different meanings feel equally present in the same interface.</p></div></article>
+    <article><div class="principle-art"><img src="svg/flat/wow.svg" alt=""></div><div><b>03</b><h3>One visual language</h3><p>Direction, color, curves, proportions and depth follow shared rules across the library.</p></div></article>
+    <article><div class="principle-art"><img src="svg/3d/laughing.svg" alt=""></div><div><b>04</b><h3>One Itunda identity</h3><p>Semantic color stays meaningful while Itunda indigo appears as a restrained signature accent.</p></div></article>
+  </div>
+</section>
+
+<section class="dark-system">
+  <div class="dark-copy"><p class="kicker">THE ITUNDAFACE SYSTEM</p><h2>One canvas.<br>One language.</h2><p>Every master starts from the same 80×80 coordinate system. Flat and 3D versions share the same silhouette, so a glyph can move from a tiny interface to a larger expressive moment without losing its identity.</p></div>
+  <div class="system-numbers">
+    <div><strong>80×80</strong><span>canonical master</span></div>
+    <div><strong>14px</strong><span>recognition gate</span></div>
+    <div><strong>45°</strong><span>canonical tilt</span></div>
+    <div><strong>PUA</strong><span>font distribution</span></div>
+  </div>
+</section>
+
+<section class="font-section" id="font">
+  <div class="font-preview"><span class="preview-glyph">♥</span><span>ItundaFace</span><span class="preview-glyph indigo">✦</span></div>
+  <div class="font-copy"><p class="kicker">COLOR FONT</p><h2>Designed once.<br>Ready to ship.</h2><p>Canonical SVG masters compile into an SVG-in-OpenType color font. The artwork stays in one source of truth while the system is prepared for web, mobile and product packages.</p><a class="download dark-button" href="https://github.com/itunda-rw/itundaface" target="_blank" rel="noreferrer">View the source ↗</a></div>
+</section>
+
+<section class="final">
+  <div class="final-glyphs"><img src="svg/3d/heart.svg" alt=""><img src="svg/3d/wow.svg" alt=""><img src="svg/3d/laughing.svg" alt=""></div>
+  <p class="kicker">ORIGINAL BY DESIGN</p>
+  <h2>A visual language<br><span>for Itunda.</span></h2>
+  <p>Inspired by the discipline of modern emoji systems, authored from scratch for Itunda.</p>
+  <a class="download" href="https://github.com/itunda-rw/itundaface" target="_blank" rel="noreferrer">Explore on GitHub ↗</a>
+</section>
+</main>
+
+<footer><span>© ItundaFace</span><span>Original Itunda glyph system · MIT</span></footer>
+</body>
+</html>
