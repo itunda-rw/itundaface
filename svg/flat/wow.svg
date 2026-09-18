@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" role="img" aria-label="ItundaFace wow">
   <circle cx="40" cy="40" r="33.5" fill="#FFCC4D"/>
-  <circle cx="25.5" cy="33.5" r="5.4" fill="#664500"/>
-  <circle cx="54.5" cy="33.5" r="5.4" fill="#664500"/>
-  <ellipse cx="40" cy="55.5" rx="8.8" ry="11.5" fill="#66471B"/>
+  <ellipse cx="25.5" cy="33.5" rx="5.5" ry="6.2" fill="#664500"/>
+  <ellipse cx="54.5" cy="33.5" rx="5.5" ry="6.2" fill="#664500"/>
+  <ellipse cx="40" cy="55.5" rx="8.8" ry="11.8" fill="#66471B"/>
 </svg>
