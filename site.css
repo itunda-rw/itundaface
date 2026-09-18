@@ -10,3 +10,36 @@
 @media(max-width:850px){.topbar nav a:nth-child(-n+2){display:none}.hero{min-height:520px;padding-top:65px}.emoji-marquee{height:330px}.marquee-row img{width:82px;height:82px}.marquee-row:nth-child(2) img{width:94px;height:94px}.marquee-row:nth-child(3) img{width:78px;height:78px}.big-glyph-grid{grid-template-columns:repeat(2,1fr)}.big-glyph-grid div{height:220px}.big-glyph-grid div:last-child{grid-column:1/-1;border-top:1px solid var(--line)}.about{padding:90px 28px}.principle-list article{grid-template-columns:100px 1fr;gap:25px}.principle-art{height:100px}.principle-art img{width:60px;height:60px}.dark-system,.font-section{grid-template-columns:1fr;gap:55px;padding-top:90px;padding-bottom:90px}.final-glyphs img{width:110px;height:110px}.final-glyphs img:nth-child(2){width:135px;height:135px}}
 @media(max-width:520px){.topbar{padding:0 20px}.hero{padding-left:20px;padding-right:20px}.hero h1{font-size:clamp(49px,14vw,72px)}.emoji-marquee{height:275px}.marquee-row img{width:62px;height:62px}.marquee-row:nth-child(2) img{width:72px;height:72px}.marquee-row:nth-child(3) img{width:58px;height:58px}.stream-label{padding-left:20px;padding-right:20px;gap:15px}.big-glyph-grid div{height:180px}.big-glyph-grid img{width:105px;height:105px}.about{padding-left:20px;padding-right:20px}.principle-list article{grid-template-columns:1fr;gap:18px}.principle-art{height:120px}.font-preview{min-height:230px;font-size:36px}.preview-glyph{font-size:50px}.final-glyphs{height:130px}.final-glyphs img{width:78px;height:78px}.final-glyphs img:nth-child(2){width:100px;height:100px}footer{margin:0 20px;padding-left:0;padding-right:0;gap:20px}}
 @media(prefers-reduced-motion:reduce){.marquee-row{animation:none}.big-glyph-grid img{transition:none}}
+/* TossFace-level editorial presentation: glyphs are the page, not cards. */
+.hero{min-height:720px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding-top:110px}
+.hero h1{font-size:clamp(64px,9vw,132px);line-height:.96;letter-spacing:-.065em;max-width:1100px}
+.hero .intro{font-size:clamp(18px,2vw,24px);line-height:1.55;max-width:680px;margin-top:38px}
+.emoji-marquee{height:520px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.marquee-row img{width:clamp(74px,8vw,120px);height:clamp(74px,8vw,120px)}
+.glyph-stream{padding:180px 28px}
+.big-glyph-grid{grid-template-columns:repeat(5,1fr);gap:0;max-width:1280px;margin:70px auto 0}
+.big-glyph-grid>div{aspect-ratio:1;display:grid;place-items:center;border:0;background:transparent}
+.big-glyph-grid img{width:72%;height:72%;object-fit:contain;transition:transform .35s ease}
+.big-glyph-grid>div:hover img{transform:scale(1.08) rotate(-2deg)}
+.about{padding:190px 28px}
+.section-title h2,.dark-copy h2,.font-copy h2,.final h2{font-size:clamp(54px,7vw,100px);line-height:1;letter-spacing:-.055em}
+.principle-list{max-width:1100px;margin:100px auto 0}
+.principle-list article{min-height:260px;border-top:1px solid var(--line);display:grid;grid-template-columns:260px 1fr;align-items:center;gap:70px}
+.principle-art{height:220px;display:grid;place-items:center}
+.principle-art img{width:170px;height:170px;object-fit:contain}
+.dark-system{padding:180px 28px}
+.font-section{padding:180px 28px}
+.font-preview{min-height:520px}
+.preview-glyph{font-size:clamp(150px,22vw,320px)}
+.final{min-height:900px;padding:180px 28px 220px;display:flex;flex-direction:column;align-items:center;text-align:center;justify-content:center}
+.final-glyphs{gap:clamp(18px,4vw,60px);margin-bottom:80px}
+.final-glyphs img{width:clamp(90px,13vw,180px);height:clamp(90px,13vw,180px)}
+@media(max-width:700px){
+ .hero{min-height:650px;padding-top:90px}.hero h1{font-size:clamp(52px,15vw,82px)}
+ .emoji-marquee{height:390px}.marquee-row img{width:70px;height:70px}
+ .glyph-stream,.about,.dark-system,.font-section{padding:120px 20px}
+ .big-glyph-grid{grid-template-columns:repeat(2,1fr);margin-top:55px}
+ .big-glyph-grid>div:last-child{grid-column:1/-1}
+ .principle-list{margin-top:65px}.principle-list article{grid-template-columns:110px 1fr;gap:20px;min-height:210px}
+ .principle-art{height:120px}.principle-art img{width:90px;height:90px}
+}
