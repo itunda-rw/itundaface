@@ -31,6 +31,11 @@ for(const master of manifest.masters ?? []){
   if(typeof master.tilt!=="number" || typeof master.lift!=="number") throw new Error("Missing optical calibration for "+master.id);
   const svg=fs.readFileSync(file,"utf8");
   if(svg.match(/viewBox="([^"]+)"/)?.[1]!=="0 0 80 80") throw new Error(master.id+" must use canonical 80x80 viewBox");
+  const colors=[...svg.matchAll(/(?:fill|stroke)="(#[0-9A-Fa-f]{6})"/g)].map(match=>match[1].toUpperCase());
+  const declared=new Set(master.palette.map(color=>color.toUpperCase()));
+  for(const color of colors){
+    if(!declared.has(color)) throw new Error(master.id+" uses undeclared palette color "+color);
+  }
   const pathCount=(svg.match(/<path\b/g)||[]).length+(svg.match(/<circle\b/g)||[]).length+(svg.match(/<ellipse\b/g)||[]).length;
   if(master.sourcePathCount!==pathCount) throw new Error(master.id+" source path count mismatch: manifest="+master.sourcePathCount+" actual="+pathCount);
 }
