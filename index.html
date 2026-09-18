@@ -66,6 +66,21 @@ function hexColor(value){
   try { return new THREE.Color(value).getHex(); } catch { return null; }
 }
 
+function disposeObject3D(object){
+  object.traverse(node=>{
+    if(node.geometry) node.geometry.dispose();
+    if(node.material){
+      const materials=Array.isArray(node.material)?node.material:[node.material];
+      materials.forEach(material=>{
+        for(const key of ["map","normalMap","roughnessMap","metalnessMap","aoMap"]){
+          if(material[key]) material[key].dispose();
+        }
+        material.dispose();
+      });
+    }
+  });
+}
+
 async function buildMaster(master){
   if(cache.has(master.id)) return cache.get(master.id);
   const meta=masterMeta(master.id);
@@ -244,7 +259,10 @@ async function populate(canvas,layout){
     if(picker){
       const select=(id)=>{
         selectedMaster=id;
-        root.clear();
+        root.children.slice().forEach(child=>{
+          root.remove(child);
+          disposeObject3D(child);
+        });
         const master=loaded.find(item=>item.userData.masterId===id) || loaded[0];
         const item=master.clone(true);
         item.scale.setScalar(1.12);
