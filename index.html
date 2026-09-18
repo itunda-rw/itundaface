@@ -231,6 +231,22 @@ async function populate(canvas,layout){
   scene.add(root);
 
   const loaded=await Promise.all(masters.map(buildMaster));
+  const flatPlane=new THREE.PlaneGeometry(8,8);
+  const flatTextureCache=new Map();
+  async function buildFlatReference(master){
+    if(flatTextureCache.has(master.id)) return flatTextureCache.get(master.id);
+    const texture=new THREE.TextureLoader().load(master.url);
+    texture.colorSpace=THREE.SRGBColorSpace;
+    texture.anisotropy=renderer.capabilities.getMaxAnisotropy();
+    const material=new THREE.MeshBasicMaterial({map:texture,transparent:true,depthWrite:false});
+    const mesh=new THREE.Mesh(flatPlane,material);
+    mesh.position.set(4.6,2.6,0);
+    mesh.scale.setScalar(.68);
+    mesh.userData.flatReference=true;
+    mesh.userData.flatSource=master.url;
+    flatTextureCache.set(master.id,mesh);
+    return mesh;
+  }
   let selectedMaster=null;
 
   if(layout==="hero"){
@@ -267,6 +283,8 @@ async function populate(canvas,layout){
         const item=master.clone(true);
         item.scale.setScalar(1.12);
         root.add(item);
+        const reference=await buildFlatReference(master);
+        root.add(reference);
         picker.querySelectorAll("button").forEach(btn=>btn.classList.toggle("active",btn.dataset.master===master.userData.masterId));
         const reference=masterManifest.masters.find(entry=>entry.id===master.userData.masterId);
         const referenceImage=document.querySelector("#flat-reference-image");
@@ -301,6 +319,9 @@ async function populate(canvas,layout){
     if(!drag) target=Math.sin(t*.42)*.08;
     root.rotation.y+=(target-root.rotation.y)*.045;
     root.rotation.x=Math.sin(t*.31)*.012;
+    root.children.filter(item=>item.userData.flatReference).forEach(reference=>{
+      reference.lookAt(camera.position);
+    });
     root.children.forEach((item,i)=>{
       const base=item.userData.baseY ?? item.position.y;
       if(item.userData.baseY===undefined) item.userData.baseY=base;
