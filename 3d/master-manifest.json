@@ -32,7 +32,8 @@
       "flatAsset": "svg/flat/thumbs-up.svg",
       "depth": 0.48,
       "tilt": -0.18,
-      "lift": 0.04
+      "lift": 0.04,
+      "sourcePathCount": 4
     },
     {
       "id": "heart",
@@ -40,7 +41,8 @@
       "flatAsset": "svg/flat/heart.svg",
       "depth": 0.44,
       "tilt": 0.02,
-      "lift": 0
+      "lift": 0,
+      "sourcePathCount": 3
     },
     {
       "id": "laughing",
@@ -48,7 +50,8 @@
       "flatAsset": "svg/flat/laughing.svg",
       "depth": 0.46,
       "tilt": 0.01,
-      "lift": 0.02
+      "lift": 0.02,
+      "sourcePathCount": 5
     },
     {
       "id": "wow",
@@ -56,7 +59,8 @@
       "flatAsset": "svg/flat/wow.svg",
       "depth": 0.46,
       "tilt": 0,
-      "lift": 0.01
+      "lift": 0.01,
+      "sourcePathCount": 4
     },
     {
       "id": "sad",
@@ -64,7 +68,8 @@
       "flatAsset": "svg/flat/sad.svg",
       "depth": 0.46,
       "tilt": -0.015,
-      "lift": 0.01
+      "lift": 0.01,
+      "sourcePathCount": 5
     }
   ]
 }
