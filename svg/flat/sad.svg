@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" role="img" aria-label="ItundaFace sad">
-  <circle cx="40" cy="40" r="34" fill="#FFCC4D"/>
-  <path d="M18.5 31.5c3.2 4.5 8.5 4.6 12.4.4" fill="none" stroke="#664500" stroke-width="4.2" stroke-linecap="round"/>
-  <path d="M49.1 31.9c3.9 4.2 9.2 4.1 12.4-.4" fill="none" stroke="#664500" stroke-width="4.2" stroke-linecap="round"/>
-  <path d="M26.8 61.2c3.1-6.2 7.6-9 13.2-9s10.1 2.8 13.2 9" fill="none" stroke="#66471B" stroke-width="4.2" stroke-linecap="round"/>
-  <path d="M49 40.8c3 3.5 4.8 7.1 4.8 10.5 0 4-2.5 6.6-5.6 6.6s-5.6-2.6-5.6-6.6c0-3.4 1.9-7 6.4-10.5Z" fill="#7472F4"/>
-  <path d="M46.8 44c.7-.8 1.4-1.4 2.1-2" fill="none" stroke="#A9A8FF" stroke-width="1.7" stroke-linecap="round"/>
+  <circle cx="40" cy="40" r="33.5" fill="#FFCC4D"/>
+  <path d="M18.8 31.8c3.5 3.6 7.8 3.6 11.3 0" fill="none" stroke="#664500" stroke-width="4" stroke-linecap="round"/>
+  <path d="M49.9 31.8c3.5 3.6 7.8 3.6 11.3 0" fill="none" stroke="#664500" stroke-width="4" stroke-linecap="round"/>
+  <path d="M27 61c3.2-5.9 7.5-8.7 13-8.7S49.8 55.1 53 61" fill="none" stroke="#66471B" stroke-width="4.2" stroke-linecap="round"/>
+  <path d="M51 41c2.8 3.5 4.4 6.6 4.4 9.7 0 3.8-2.3 6.2-5.2 6.2S45 54.5 45 50.7c0-3.1 1.7-6.3 6-9.7Z" fill="#7472F4"/>
+  <path d="M48.8 44.1c.6-.7 1.2-1.2 1.9-1.7" fill="none" stroke="#A9A8FF" stroke-width="1.7" stroke-linecap="round"/>
 </svg>
