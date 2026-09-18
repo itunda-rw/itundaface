@@ -78,7 +78,8 @@
       "palette": [
         "#EF4A63",
         "#C72E4C",
-        "#7472F4"
+        "#7472F4",
+        "#FF8797"
       ],
       "flatAsset": "svg/flat/heart.svg",
       "depth": 0.44,
