@@ -1,17 +1,37 @@
 {
   "version": 2,
   "sourceOfTruth": "svg/flat",
-  "canvas": [80, 80],
-  "safeArea": [4, 4, 72, 72],
+  "canvas": [
+    80,
+    80
+  ],
+  "safeArea": [
+    4,
+    4,
+    72,
+    72
+  ],
   "pipeline": "canonical-flat-svg -> silhouette-classified-volume -> rounded-face-or-beveled-object -> shared-camera-render",
   "camera": {
     "projection": "perspective",
-    "position": [6.9, 4.6, 15.4],
-    "lookAt": [0, 0.15, 0],
+    "position": [
+      7.8,
+      4.9,
+      13.6
+    ],
+    "lookAt": [
+      0,
+      0.1,
+      0
+    ],
     "fov": 30
   },
   "lighting": {
-    "keyDirection": [-6.5, 9.5, 10.5],
+    "keyDirection": [
+      -6.5,
+      9.5,
+      10.5
+    ],
     "rimColor": "#7472F4",
     "shared": true
   },
@@ -24,8 +44,17 @@
       "anchor": "center",
       "canonicalDirection": "right",
       "canonicalRotation": -45,
-      "opticalBounds": [10, 11, 58, 66],
-      "palette": ["#E7A45F", "#FFD39A", "#7472F4"],
+      "opticalBounds": [
+        10,
+        11,
+        58,
+        66
+      ],
+      "palette": [
+        "#E7A45F",
+        "#FFD39A",
+        "#7472F4"
+      ],
       "flatAsset": "svg/flat/thumbs-up.svg",
       "depth": 0.48,
       "tilt": -0.18,
@@ -40,8 +69,18 @@
       "anchor": "center",
       "canonicalDirection": "neutral",
       "canonicalRotation": 0,
-      "opticalBounds": [10, 10, 60, 59],
-      "palette": ["#EF4A63", "#C72E4C", "#7472F4", "#FF8797"],
+      "opticalBounds": [
+        10,
+        10,
+        60,
+        59
+      ],
+      "palette": [
+        "#EF4A63",
+        "#C72E4C",
+        "#7472F4",
+        "#FF8797"
+      ],
       "flatAsset": "svg/flat/heart.svg",
       "depth": 0.44,
       "tilt": 0.02,
@@ -56,8 +95,19 @@
       "anchor": "center",
       "canonicalDirection": "neutral",
       "canonicalRotation": 0,
-      "opticalBounds": [6, 6, 68, 68],
-      "palette": ["#FFCC4D", "#664500", "#66471B", "#FFF4C9", "#7472F4"],
+      "opticalBounds": [
+        6,
+        6,
+        68,
+        68
+      ],
+      "palette": [
+        "#FFCC4D",
+        "#664500",
+        "#66471B",
+        "#FFF4C9",
+        "#7472F4"
+      ],
       "flatAsset": "svg/flat/laughing.svg",
       "depth": 0.46,
       "tilt": 0.01,
@@ -72,8 +122,18 @@
       "anchor": "center",
       "canonicalDirection": "neutral",
       "canonicalRotation": 0,
-      "opticalBounds": [6, 6, 68, 68],
-      "palette": ["#FFCC4D", "#664500", "#66471B", "#7472F4"],
+      "opticalBounds": [
+        6,
+        6,
+        68,
+        68
+      ],
+      "palette": [
+        "#FFCC4D",
+        "#664500",
+        "#66471B",
+        "#7472F4"
+      ],
       "flatAsset": "svg/flat/wow.svg",
       "depth": 0.46,
       "tilt": 0,
@@ -88,8 +148,19 @@
       "anchor": "center",
       "canonicalDirection": "neutral",
       "canonicalRotation": 0,
-      "opticalBounds": [6, 6, 68, 68],
-      "palette": ["#FFCC4D", "#664500", "#66471B", "#7472F4", "#A9A8FF"],
+      "opticalBounds": [
+        6,
+        6,
+        68,
+        68
+      ],
+      "palette": [
+        "#FFCC4D",
+        "#664500",
+        "#66471B",
+        "#7472F4",
+        "#A9A8FF"
+      ],
       "flatAsset": "svg/flat/sad.svg",
       "depth": 0.46,
       "tilt": -0.015,
@@ -103,15 +174,15 @@
     "sideStop": "deeper-underside",
     "highlight": "broad-soft",
     "metalness": 0.01,
-    "roughness": 0.28,
-    "clearcoat": 0.3,
+    "roughness": 0.22,
+    "clearcoat": 0.5,
     "clearcoatRoughness": 0.2,
-    "sideBrightness": 0.62,
+    "sideBrightness": 0.48,
     "sideRoughness": 0.38,
-    "depth": 0.82,
-    "bevelSize": 0.18,
-    "bevelThickness": 0.16,
-    "bevelSegments": 6,
+    "depth": 7.5,
+    "bevelSize": 0.72,
+    "bevelThickness": 0.58,
+    "bevelSegments": 8,
     "layerSeparation": 0.025,
     "skinPalette": {
       "light": "#FFD39A",
@@ -122,9 +193,9 @@
     },
     "faceVolume": {
       "radius": 2.025,
-      "depthScale": 0.62,
-      "segments": 64,
-      "segmentsY": 48,
+      "depthScale": 0.95,
+      "segments": 96,
+      "segmentsY": 64,
       "surfaceArtwork": "canonical-svg-texture"
     }
   }
