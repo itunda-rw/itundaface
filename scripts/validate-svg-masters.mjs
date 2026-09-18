@@ -32,10 +32,29 @@ function validateSvg(relative, svg, id, kind) {
   }
 }
 
+function normalize(svg) {
+  return svg
+    .replace(/<!--[\s\S]*?-->/g, '')
+    .replace(/\s+/g, ' ')
+    .replace(/\s*([<>=,])\s*/g, '$1')
+    .trim();
+}
+
 for (const glyph of manifest.glyphs) {
-  validateSvg(glyph.flatAsset, readAsset(glyph.flatAsset), glyph.id, 'flat');
-  if (glyph.threeDAsset) {
-    validateSvg(glyph.threeDAsset, readAsset(glyph.threeDAsset), glyph.id, '3D');
+  const flat = readAsset(glyph.flatAsset);
+  const threeD = glyph.threeDAsset ? readAsset(glyph.threeDAsset) : null;
+
+  validateSvg(glyph.flatAsset, flat, glyph.id, 'flat');
+  if (threeD) {
+    validateSvg(glyph.threeDAsset, threeD, glyph.id, '3D');
+
+    if (flat && normalize(flat) === normalize(threeD)) {
+      failures.push(`${glyph.id}: 3D master must not be identical to flat master`);
+    }
+
+    if (!/<(?:linearGradient|radialGradient|filter|feDropShadow)\b/i.test(threeD)) {
+      failures.push(`${glyph.id}: 3D master must define dimensional lighting or shadow treatment`);
+    }
   }
 }
 
