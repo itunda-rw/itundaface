@@ -118,3 +118,13 @@ footer a{color:#555!important}
   .hero-globe{width:84px!important;height:84px!important}
   .glyph{border-radius:20px!important}
 }
+
+
+/* Real 3D icon field + physics-ready interaction layer. */
+.hero-orbit{perspective:1200px!important;transform-style:preserve-3d!important;touch-action:none!important;pointer-events:auto!important}
+.hero-cloud{perspective:1050px!important;transform-style:preserve-3d!important;will-change:transform!important}
+.hero-cloud img{--z:0px;--tilt-x:0deg;--tilt-y:0deg;transform:translateZ(var(--z)) rotateX(var(--tilt-x)) rotateY(var(--tilt-y))!important;transform-style:preserve-3d!important;backface-visibility:visible!important;will-change:transform!important;animation:none!important}
+.hero-face{transform-style:preserve-3d!important;backface-visibility:visible!important;will-change:transform!important}
+.hero-globe{z-index:8!important;pointer-events:auto!important;touch-action:manipulation!important}
+.hero-globe.motion-enabled{box-shadow:0 0 0 10px rgba(255,224,100,.2),0 16px 40px rgba(0,0,0,.42)!important}
+@media(max-width:760px){.hero-orbit{touch-action:none!important}.hero-cloud img{filter:drop-shadow(0 16px 20px rgba(0,0,0,.66))!important}}
