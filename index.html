@@ -92,15 +92,40 @@ async function buildMaster(master){
 
     const stroke=node?.getAttribute?.("stroke");
     const strokeColor=hexColor(stroke);
-    if(strokeColor){
+    const strokeWidth=parseFloat(node?.getAttribute?.("stroke-width") || "0");
+    if(strokeColor && strokeWidth>0){
+      // SVG strokes become shallow round 3D tubes. This keeps facial marks,
+      // outlines and signature indigo details physically attached to the
+      // canonical flat master instead of leaving them as camera-facing lines.
       for(const subPath of path.subPaths || []){
-        const points=subPath.getPoints(64).map(p=>new THREE.Vector3(p.x,p.y,0.61+layerZ));
-        if(points.length>1){
-          const line=new THREE.Line(
-            new THREE.BufferGeometry().setFromPoints(points),
-            new THREE.LineBasicMaterial({color:strokeColor,transparent:true,opacity:.95})
+        const raw=subPath.getPoints(96);
+        if(raw.length>1){
+          const curve=new THREE.CatmullRomCurve3(
+            raw.map(p=>new THREE.Vector3(p.x,p.y,0.64+layerZ)),
+            false,
+            "centripetal",
+            0.15
           );
-          root.add(line);
+          const tube=new THREE.TubeGeometry(
+            curve,
+            Math.max(12,raw.length-1),
+            Math.max(0.045,strokeWidth*.018),
+            8,
+            false
+          );
+          const mesh=new THREE.Mesh(
+            tube,
+            new THREE.MeshPhysicalMaterial({
+              color:strokeColor,
+              roughness:.25,
+              metalness:.01,
+              clearcoat:.42,
+              clearcoatRoughness:.18
+            })
+          );
+          mesh.castShadow=true;
+          mesh.receiveShadow=true;
+          root.add(mesh);
         }
       }
     }
