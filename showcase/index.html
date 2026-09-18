@@ -45,7 +45,8 @@ const translations={en:{'nav.system':'System','nav.experience':'3D','nav.app':'A
 let lang=localStorage.getItem('itundaface-lang')||'en',theme=localStorage.getItem('itundaface-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
 function applyLang(){document.documentElement.lang=lang;document.querySelector('#lang').textContent=lang.toUpperCase();document.querySelectorAll('[data-i18n]').forEach(el=>{const v=translations[lang][el.dataset.i18n];if(v)el.textContent=v})}function applyTheme(){document.documentElement.dataset.theme=theme;document.querySelector('#theme').textContent=theme==='dark'?'☀':'☾';document.querySelector('meta[name=theme-color]').content=theme==='dark'?'#0b0b0f':'#7472F4'}applyLang();applyTheme();document.querySelector('#lang').onclick=()=>{lang=lang==='en'?'rw':lang==='rw'?'fr':'en';localStorage.setItem('itundaface-lang',lang);applyLang()};document.querySelector('#theme').onclick=()=>{theme=theme==='dark'?'light':'dark';localStorage.setItem('itundaface-theme',theme);applyTheme()};
 </script>
-<script>/* Hero 360 interaction */
+<script>
+/* Hero 360 interaction */
 (()=>{
   const orbit=document.querySelector('.hero-orbit');
   const cloud=document.querySelector('.hero-cloud');
@@ -53,23 +54,77 @@ function applyLang(){document.documentElement.lang=lang;document.querySelector('
   const globe=document.querySelector('#hero360');
   const hint=document.querySelector('#vrHint');
   if(!orbit||!cloud||!face||!globe)return;
-  let yaw=0,pitch=0,dragging=false,moved=false,motion=false,lastX=0,lastY=0;
+  const icons=[...cloud.querySelectorAll('img')];
+  let yaw=0,pitch=0,velocityYaw=0,velocityPitch=0;
+  let dragging=false,moved=false,motion=false,lastX=0,lastY=0;
+  let sensorLastAlpha=null,sensorYaw=0,sensorBaseBeta=null,sensorLastEvent=0;
   const clamp=(v,min,max)=>Math.max(min,Math.min(max,v));
+  const angleDelta=(a,b)=>{let d=(a-b+540)%360-180;return d===-180?180:d};
+  const screenAngle=()=>Number(window.screen?.orientation?.angle||window.orientation||0);
   const render=()=>{
-    cloud.style.transform=`translate3d(${yaw*.42}px,${pitch*.3}px,0) rotateX(${pitch*.18}deg) rotateY(${yaw*.18}deg)`;
-    face.style.transform=`translate(-50%,-50%) rotateX(${pitch*.2}deg) rotateY(${yaw*.3}deg)`;
+    if(!dragging&&!motion){
+      yaw+=velocityYaw; pitch+=velocityPitch;
+      velocityYaw*=.93; velocityPitch*=.93;
+      if(Math.abs(velocityYaw)<.001)velocityYaw=0;
+      if(Math.abs(velocityPitch)<.001)velocityPitch=0;
+    }
+    pitch=clamp(pitch,-42,42);
+    cloud.style.transform='translate3d('+yaw*.42+'px,'+pitch*.32+'px,0) rotateX('+pitch*.22+'deg) rotateY('+yaw*.28+'deg)';
+    face.style.transform='translate(-50%,-50%) rotateX('+pitch*.28+'deg) rotateY('+yaw*.42+'deg)';
+    requestAnimationFrame(render);
   };
-  const down=e=>{dragging=true;moved=false;lastX=e.clientX;lastY=e.clientY;orbit.setPointerCapture?.(e.pointerId);globe.classList.add('dragging')};
-  const move=e=>{if(!dragging)return;const dx=e.clientX-lastX,dy=e.clientY-lastY;if(Math.abs(dx)+Math.abs(dy)>3)moved=true;yaw=clamp(yaw+dx*.55,-42,42);pitch=clamp(pitch-dy*.4,-26,26);lastX=e.clientX;lastY=e.clientY;render()};
+  icons.forEach((icon,index)=>{
+    const depth=((index*47)%220)-110;
+    const tiltX=((index*19)%14)-7;
+    const tiltY=((index*31)%18)-9;
+    icon.style.setProperty('--z',depth+'px');
+    icon.style.setProperty('--tilt-x',tiltX+'deg');
+    icon.style.setProperty('--tilt-y',tiltY+'deg');
+  });
+  const down=e=>{dragging=true;moved=false;lastX=e.clientX;lastY=e.clientY;velocityYaw=0;velocityPitch=0;orbit.setPointerCapture?.(e.pointerId);globe.classList.add('dragging')};
+  const move=e=>{
+    if(!dragging)return;
+    const dx=e.clientX-lastX,dy=e.clientY-lastY;
+    if(Math.abs(dx)+Math.abs(dy)>3)moved=true;
+    yaw+=dx*.7;pitch=clamp(pitch-dy*.52,-42,42);
+    velocityYaw=dx*.12;velocityPitch=-dy*.08;
+    lastX=e.clientX;lastY=e.clientY;
+  };
   const up=e=>{dragging=false;orbit.releasePointerCapture?.(e.pointerId);globe.classList.remove('dragging')};
-  orbit.addEventListener('pointerdown',down);orbit.addEventListener('pointermove',move);orbit.addEventListener('pointerup',up);orbit.addEventListener('pointercancel',up);
-  const onOrientation=e=>{if(!motion)return;const gamma=e.gamma||0,beta=e.beta||45;yaw=clamp(gamma*.8,-42,42);pitch=clamp((beta-45)*.45,-26,26);render()};
+  orbit.addEventListener('pointerdown',down,{passive:true});
+  orbit.addEventListener('pointermove',move,{passive:true});
+  orbit.addEventListener('pointerup',up,{passive:true});
+  orbit.addEventListener('pointercancel',up,{passive:true});
+  orbit.addEventListener('wheel',e=>{e.preventDefault();yaw+=e.deltaY*.18;velocityYaw=e.deltaY*.01},{passive:false});
+  const onOrientation=e=>{
+    if(!motion||!e||typeof e.alpha!=='number')return;
+    const now=performance.now();
+    if(now-sensorLastEvent<5)return;
+    sensorLastEvent=now;
+    const alpha=(e.alpha+screenAngle()+360)%360;
+    if(sensorLastAlpha===null){sensorLastAlpha=alpha;sensorBaseBeta=typeof e.beta==='number'?e.beta:45;return}
+    sensorYaw+=angleDelta(alpha,sensorLastAlpha);
+    sensorLastAlpha=alpha;
+    yaw=sensorYaw;
+    if(typeof e.beta==='number')pitch=clamp((e.beta-sensorBaseBeta)*.9,-42,42);
+  };
   const enableMotion=async()=>{
     try{
-      if(typeof DeviceOrientationEvent!=='undefined'&&typeof DeviceOrientationEvent.requestPermission==='function'){const permission=await DeviceOrientationEvent.requestPermission();if(permission!=='granted')throw new Error('permission denied')}
       if(typeof DeviceOrientationEvent==='undefined')throw new Error('motion unavailable');
-      window.addEventListener('deviceorientation',onOrientation,true);motion=true;hint.textContent='Move your phone · Drag to explore';globe.setAttribute('aria-label','360 motion controls enabled');
-    }catch(error){hint.textContent='Drag to explore';}
+      if(typeof DeviceOrientationEvent.requestPermission==='function'){
+        const permission=await DeviceOrientationEvent.requestPermission();
+        if(permission!=='granted')throw new Error('permission denied');
+      }
+      sensorLastAlpha=null;sensorBaseBeta=null;sensorYaw=yaw;
+      window.addEventListener('deviceorientation',onOrientation,{passive:true});
+      window.addEventListener('deviceorientationabsolute',onOrientation,{passive:true});
+      motion=true;
+      hint.textContent='Move your phone · Drag to explore';
+      globe.setAttribute('aria-label','360 motion controls enabled');
+      globe.classList.add('motion-enabled');
+    }catch(error){
+      hint.textContent='Motion unavailable · Drag to explore';
+    }
   };
   globe.addEventListener('click',()=>{if(!moved)enableMotion()});
   render();
