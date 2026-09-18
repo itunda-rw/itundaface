@@ -9,6 +9,9 @@ if(manifest.canvas?.join("x")!=="80x80") throw new Error("Canonical canvas must 
 if(manifest.safeArea?.join(",")!=="4,4,72,72") throw new Error("Unexpected canonical safe area");
 if(manifest.camera?.projection!=="perspective" || manifest.camera?.fov!==30) throw new Error("Unexpected shared 3D camera profile");
 if(manifest.lighting?.shared!==true) throw new Error("3D lighting must be shared");
+if(manifest.material?.volume!=="restrained" || manifest.material?.frontStop!=="canonical-color" || manifest.material?.sideStop!=="deeper-underside") throw new Error("Unexpected shared 3D material grammar");
+if(!(manifest.material?.metalness>=0 && manifest.material?.metalness<=0.1)) throw new Error("3D metalness must remain restrained");
+if(!(manifest.material?.roughness>=0.2 && manifest.material?.roughness<=0.6)) throw new Error("3D roughness outside shared material range");
 
 const seen=new Set();
 const categories=new Set();
