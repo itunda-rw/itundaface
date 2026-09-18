@@ -260,33 +260,40 @@ async function populate(canvas,layout){
   let splitEnabled=false;
   const overlayToggle=document.querySelector("#flat-overlay-toggle");
   const splitToggle=document.querySelector("#flat-split-toggle");
-  function setFlatOverlay(mesh,enabled){
-    overlayEnabled=enabled;
-    if(!mesh) return;
-    mesh.visible=true;
-    mesh.position.set(enabled ? 0 : 4.6, enabled ? 0 : 2.6, enabled ? .72 : 0);
-    mesh.scale.setScalar(mesh.userData.canonicalScale ? mesh.userData.canonicalScale*10 : .68);
-    mesh.material.opacity=enabled ? .34 : 1;
-    if(overlayToggle){
-      overlayToggle.setAttribute("aria-pressed",String(enabled));
-      overlayToggle.textContent=enabled ? "2D OVERLAY ON" : "2D OVERLAY";
-    }
-  }
-  overlayToggle?.addEventListener("click",()=>{
-    const reference=root.children.find(child=>child.userData?.flatReference);
-    setFlatOverlay(reference,!overlayEnabled);
-  });
-  splitToggle?.addEventListener("click",()=>{
-    splitEnabled=!splitEnabled;
+
+  function applyCompareState(){
     const reference=root.children.find(child=>child.userData?.flatReference);
     const active3d=root.children.find(child=>!child.userData?.flatReference);
-    if(reference){
-      reference.position.set(splitEnabled ? -3.2 : (overlayEnabled ? 0 : 4.6),splitEnabled ? 0 : (overlayEnabled ? 0 : 2.6),splitEnabled ? .72 : (overlayEnabled ? .72 : 0));
-      reference.material.opacity=splitEnabled ? 1 : (overlayEnabled ? .34 : 1);
+    if(!reference || !active3d) return;
+    if(splitEnabled){
+      reference.position.set(-3.2,0,.72);
+      reference.material.opacity=1;
+      active3d.position.x=3.2;
+    }else if(overlayEnabled){
+      reference.position.set(0,0,.72);
+      reference.material.opacity=.34;
+      active3d.position.x=0;
+    }else{
+      reference.position.set(4.6,2.6,0);
+      reference.material.opacity=1;
+      active3d.position.x=0;
     }
-    if(active3d) active3d.position.x=splitEnabled ? 3.2 : 0;
-    splitToggle.setAttribute("aria-pressed",String(splitEnabled));
-    splitToggle.textContent=splitEnabled ? "SPLIT VIEW ON" : "SPLIT VIEW";
+    overlayToggle?.setAttribute("aria-pressed",String(overlayEnabled));
+    splitToggle?.setAttribute("aria-pressed",String(splitEnabled));
+    if(overlayToggle) overlayToggle.textContent=overlayEnabled ? "2D OVERLAY ON" : "2D OVERLAY";
+    if(splitToggle) splitToggle.textContent=splitEnabled ? "SPLIT VIEW ON" : "SPLIT VIEW";
+  }
+
+  overlayToggle?.addEventListener("click",()=>{
+    overlayEnabled=!overlayEnabled;
+    if(overlayEnabled) splitEnabled=false;
+    applyCompareState();
+  });
+
+  splitToggle?.addEventListener("click",()=>{
+    splitEnabled=!splitEnabled;
+    if(splitEnabled) overlayEnabled=false;
+    applyCompareState();
   });
 
   if(layout==="hero"){
@@ -318,11 +325,11 @@ async function populate(canvas,layout){
         const master=loaded.find(item=>item.userData.masterId===id) || loaded[0];
         const item=master.clone(true);
         item.scale.setScalar(1.12);
-        item.position.x=splitEnabled ? 3.2 : 0;
+        item.position.x=0;
         root.add(item);
         const flatReference=await buildFlatReference(master);
         root.add(flatReference);
-        setFlatOverlay(flatReference,overlayEnabled);
+        applyCompareState();
         picker.querySelectorAll("button").forEach(btn=>{
           const active=btn.dataset.master===master.userData.masterId;
           btn.classList.toggle("active",active);
