@@ -54,3 +54,15 @@
 .glyph-stream h2{font-size:clamp(54px,7vw,104px);line-height:1;letter-spacing:-.06em;margin:50px 0 0}
 .glyph-stream h2 span{color:var(--indigo)}
 @media(max-width:700px){.tossface-wall{padding:42px 0 70px}.wall-row{gap:18px;margin-bottom:14px}.wall-row img{width:64px;height:64px}.glyph-stream h2{font-size:54px}}
+
+.three-d-wall{background:#f7f7f8;padding-top:90px;padding-bottom:120px}
+.three-d-wall .wall-row img{width:clamp(84px,9vw,148px);height:clamp(84px,9vw,148px);filter:drop-shadow(0 14px 18px rgba(0,0,0,.10))}
+.three-d-showcase{padding:190px 28px;background:#fff}
+.three-d-showcase>h2{font-size:clamp(58px,8vw,112px);line-height:.98;letter-spacing:-.06em;max-width:900px;margin:55px auto 100px}
+.three-d-showcase>h2 span{color:var(--indigo)}
+.three-d-grid{max-width:1280px;margin:auto;display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
+.three-d-grid>div{aspect-ratio:1;display:grid;place-items:center}
+.three-d-grid img{width:82%;height:82%;object-fit:contain;filter:drop-shadow(0 16px 18px rgba(0,0,0,.09));transition:transform .35s ease}
+.three-d-grid div:hover img{transform:translateY(-8px) scale(1.05)}
+@media(max-width:900px){.three-d-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:600px){.three-d-showcase{padding:120px 20px}.three-d-grid{grid-template-columns:repeat(2,1fr);gap:8px}.three-d-wall{padding-top:50px;padding-bottom:70px}}
