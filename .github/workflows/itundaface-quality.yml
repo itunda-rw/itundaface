@@ -5,7 +5,6 @@ on:
   pull_request:
   workflow_dispatch:
 
-# This workflow only needs to read repository contents and publish its own artifact.
 permissions:
   contents: read
 
@@ -35,14 +34,15 @@ jobs:
       - name: Compile SVG-in-OpenType font
         run: node font/compile-color-font.mjs
       - name: Validate generated font tables
-        run: python - <<'PY'
+        shell: python
+        run: |
           from fontTools.ttLib import TTFont
-          font = TTFont('font/dist/ItundaFace-SVG.ttf')
-          assert 'SVG ' in font, 'SVG table missing'
-          assert 'cmap' in font, 'cmap table missing'
-          assert len(font.getBestCmap()) == 5, 'unexpected glyph mapping count'
-          print('ItundaFace font validation OK')
-          PY
+
+          font = TTFont("font/dist/ItundaFace-SVG.ttf")
+          assert "SVG " in font, "SVG table missing"
+          assert "cmap" in font, "cmap table missing"
+          assert len(font.getBestCmap()) == 5, "unexpected glyph mapping count"
+          print("ItundaFace font validation OK")
       - name: Upload color font artifact
         uses: actions/upload-artifact@v4
         with:
