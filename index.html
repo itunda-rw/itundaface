@@ -84,9 +84,61 @@ function hexColor(value){
   try { return new THREE.Color(value).getHex(); } catch { return null; }
 }
 
+async function buildRoundedFaceVolume(master){
+  const meta=masterMeta(master.id);
+  const profile=masterManifest?.material?.faceVolume ?? {};
+  const texture=new THREE.TextureLoader().load(master.url);
+  texture.colorSpace=THREE.SRGBColorSpace;
+  texture.wrapS=THREE.ClampToEdgeWrapping;
+  texture.wrapT=THREE.ClampToEdgeWrapping;
+  texture.anisotropy=4;
+
+  const radius=profile.radius ?? 2.025;
+  const geometry=new THREE.SphereGeometry(radius,profile.segments ?? 64,profile.segmentsY ?? 48);
+  geometry.scale(1,1,profile.depthScale ?? .62);
+
+  const material=new THREE.MeshPhysicalMaterial({
+    color:new THREE.Color(meta.palette?.[0] ?? "#FFCC4D"),
+    map:texture,
+    transparent:true,
+    roughness:masterManifest?.material?.roughness ?? .28,
+    metalness:masterManifest?.material?.metalness ?? .01,
+    clearcoat:masterManifest?.material?.clearcoat ?? .3,
+    clearcoatRoughness:masterManifest?.material?.clearcoatRoughness ?? .2,
+    side:THREE.FrontSide
+  });
+
+  const mesh=new THREE.Mesh(geometry,material);
+  mesh.castShadow=true;
+  mesh.receiveShadow=true;
+  mesh.userData.faceVolume=true;
+
+  const root=new THREE.Group();
+  root.add(mesh);
+  const scale=4.05/(radius*2);
+  root.scale.setScalar(scale);
+  root.rotation.x=Math.PI;
+  root.rotation.y=0.13;
+  root.rotation.z=meta.tilt ?? 0;
+  root.position.y+=meta.lift ?? 0;
+  root.userData.canonicalScale=scale;
+  root.userData.flatSource=master.url;
+  root.userData.layerCount=1;
+  root.userData.masterId=master.id;
+  root.userData.label=master.label;
+  root.userData.volumeType="rounded-face";
+  return root;
+}
+
 async function buildMaster(master){
   if(cache.has(master.id)) return cache.get(master.id);
   const meta=masterMeta(master.id);
+
+  if(["laughing","wow","sad"].includes(master.id)){
+    const face=await buildRoundedFaceVolume(master);
+    cache.set(master.id,face);
+    return face;
+  }
 
   const data=await loader.loadAsync(master.url);
   const root=new THREE.Group();
