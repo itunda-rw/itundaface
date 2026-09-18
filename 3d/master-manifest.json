@@ -15,13 +15,13 @@
   "camera": {
     "projection": "perspective",
     "position": [
-      5.8,
-      3.25,
-      17.2
+      6.9,
+      4.6,
+      15.4
     ],
     "lookAt": [
       0,
-      0.1,
+      0.15,
       0
     ],
     "fov": 30
@@ -169,15 +169,20 @@
     }
   ],
   "material": {
-    "volume": "restrained",
+    "volume": "true-engine-3d",
     "frontStop": "canonical-color",
     "sideStop": "deeper-underside",
     "highlight": "broad-soft",
     "metalness": 0.01,
-    "roughness": 0.25,
-    "clearcoat": 0.42,
-    "clearcoatRoughness": 0.18,
-    "sideBrightness": 0.78,
-    "sideRoughness": 0.34
+    "roughness": 0.28,
+    "clearcoat": 0.3,
+    "clearcoatRoughness": 0.2,
+    "sideBrightness": 0.62,
+    "sideRoughness": 0.38,
+    "depth": 0.82,
+    "bevelSize": 0.18,
+    "bevelThickness": 0.16,
+    "bevelSegments": 6,
+    "layerSeparation": 0.025
   }
 }
