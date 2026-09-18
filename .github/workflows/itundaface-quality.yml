@@ -23,6 +23,8 @@ jobs:
         run: node scripts/validate-glyph-manifest.mjs
       - name: Validate SVG masters
         run: node scripts/validate-svg-masters.mjs
+      - name: Validate 2D → 3D master manifest
+        run: node scripts/validate-3d-master-manifest.mjs
       - name: Validate font mapping
         run: node scripts/validate-font-mapping.mjs
       - name: Generate color-font manifest
