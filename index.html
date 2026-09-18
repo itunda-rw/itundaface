@@ -305,6 +305,7 @@ async function populate(canvas,layout){
       reference.lookAt(camera.position);
     });
     root.children.forEach((item,i)=>{
+      if(item.userData.flatReference) return;
       const base=item.userData.baseY ?? item.position.y;
       if(item.userData.baseY===undefined) item.userData.baseY=base;
       item.position.y += (base+Math.sin(t*.75+i*.55)*.025-item.position.y)*.03;
