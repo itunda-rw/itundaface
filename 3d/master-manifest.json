@@ -175,6 +175,8 @@
     "metalness": 0.01,
     "roughness": 0.25,
     "clearcoat": 0.42,
-    "clearcoatRoughness": 0.18
+    "clearcoatRoughness": 0.18,
+    "sideBrightness": 0.78,
+    "sideRoughness": 0.34
   }
 }
