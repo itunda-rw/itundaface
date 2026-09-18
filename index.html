@@ -11,10 +11,10 @@
 <main>
 <section class="hero"><p class="kicker">ITUNDAFACE</p><h1>함께 만들어가는,<br><span>이툰다페이스.</span></h1><p class="intro">ItundaFace는 감정과 행동, 일상의 순간을 말없이 표현할 수 있도록 만든 Itunda의 오리지널 이모지 폰트예요.</p><a class="download" href="#font">다운로드 <span>↓</span></a></section>
 <section class="tossface-wall three-d-wall" aria-label="ItundaFace 3D icon library">
-<div class="three-wall-stage"><canvas id="itunda-3d-wall" aria-label="Interactive ItundaFace 3D icon wall"></canvas><div class="three-wall-caption"><span>ITUNDAFACE 3D LIBRARY</span><span>REAL VOLUME · COMMON VIEW · DRAG</span></div></div>
+<div class="three-wall-stage"><canvas id="itunda-3d-wall" aria-label="Interactive ItundaFace 3D icon wall"></canvas><div class="three-wall-caption"><span>ITUNDAFACE 3D LIBRARY</span><span>FLAT MASTER → TRUE VOLUME · COMMON VIEW · DRAG</span></div></div>
 </section>
 <section class="glyph-stream" id="glyphs"><div class="stream-label"><span>ITUNDAFACE</span><span>5 CANONICAL MASTERS · FLAT + 3D</span></div><h2>표현을 위한<br><span>작은 언어.</span></h2><div class="big-glyph-grid"><div><img src="svg/flat/thumbs-up.svg" alt="Thumbs Up"></div><div><img src="svg/flat/heart.svg" alt="Heart"></div><div><img src="svg/flat/laughing.svg" alt="Laughing"></div><div><img src="svg/flat/wow.svg" alt="Wow"></div><div><img src="svg/flat/sad.svg" alt="Sad"></div></div></section>
-<section class="true-3d" id="three-d"><div class="stream-label"><span>TRUE 3D ICONS</span><span>REAL DEPTH · SHARED CAMERA · SHARED LIGHT</span></div><div class="three-stage"><canvas id="itunda-3d" aria-label="Interactive ItundaFace 3D icon showcase"></canvas><div class="three-d-labels" aria-hidden="true"></div><div class="three-copy"><p class="kicker">ITUNDAFACE 3D</p><h2>입체적인<br><span>시각 언어.</span></h2><p>2D SVG에 그림자를 더한 것이 아니라, 실제 깊이와 볼륨을 가진 3D 마스터를 같은 카메라와 빛 아래에서 보여줘요.</p></div></div></section><section class="three-d-showcase"><div class="stream-label"><span>3D ICON SYSTEM</span><span>FLAT MASTER → TRUE VOLUME · ONE CAMERA · ONE LIGHT</span></div><h2>입체적으로도<br><span>같은 언어.</span></h2><div class="three-d-grid" data-webgl-grid aria-label="Interactive ItundaFace 3D icon family"><canvas id="itunda-3d-grid" aria-label="Interactive 3D ItundaFace icon family"></canvas><div class="three-d-grid-ui"><span>DRAG TO ROTATE</span><span>5 FLAT → 3D MASTERS</span></div></div></section><section class="about" id="about"><div class="section-title"><p class="kicker">DESIGN PRINCIPLES</p><h2>단순하게.<br>일관되게.</h2></div><div class="principle-list">
+<section class="true-3d" id="three-d"><div class="stream-label"><span>TRUE 3D ICONS</span><span>SAME SILHOUETTE · SHARED CAMERA · SHARED LIGHT</span></div><div class="three-stage"><canvas id="itunda-3d" aria-label="Interactive ItundaFace 3D icon showcase"></canvas><div class="three-d-labels" aria-hidden="true"></div><div class="three-copy"><p class="kicker">ITUNDAFACE 3D</p><h2>입체적인<br><span>시각 언어.</span></h2><p>2D SVG에 그림자를 더한 것이 아니라, 실제 깊이와 볼륨을 가진 3D 마스터를 같은 카메라와 빛 아래에서 보여줘요.</p></div></div></section><section class="three-d-showcase"><div class="stream-label"><span>3D ICON SYSTEM</span><span>2D SOURCE OF TRUTH · TRUE VOLUME · ONE CAMERA · ONE LIGHT</span></div><h2>입체적으로도<br><span>같은 언어.</span></h2><div class="three-d-grid" data-webgl-grid aria-label="Interactive ItundaFace 3D icon family"><canvas id="itunda-3d-grid" aria-label="Interactive 3D ItundaFace icon family"></canvas><div class="three-d-grid-ui"><span>DRAG TO ROTATE</span><span>5 FLAT → 3D MASTERS</span></div></div></section><section class="about" id="about"><div class="section-title"><p class="kicker">DESIGN PRINCIPLES</p><h2>단순하게.<br>일관되게.</h2></div><div class="principle-list">
 <article><div class="principle-art"><img src="svg/flat/heart.svg" alt=""></div><div><b>01</b><h3>가장 단순한 형태</h3><p>기본 도형과 절제된 디테일로 작게 보아도 의미가 바로 전달되도록 만들어요.</p></div></article>
 <article><div class="principle-art"><img src="svg/flat/thumbs-up.svg" alt=""></div><div><b>02</b><h3>모두 같은 시각적 크기</h3><p>서로 다른 모양이어도 같은 공간에서 균형 있게 보이도록 광학 크기를 맞춰요.</p></div></article>
 <article><div class="principle-art"><img src="svg/flat/wow.svg" alt=""></div><div><b>03</b><h3>하나의 컬러 언어</h3><p>의미를 우선한 색과 Itunda의 인디고를 함께 사용해 밝은 화면과 어두운 화면 모두에서 일관되게 보여요.</p></div></article>
@@ -40,14 +40,13 @@ const masters = [
 const loader = new SVGLoader();
 const cache = new Map();
 
-function material(hex){
-  return new THREE.MeshPhysicalMaterial({
-    color: hex || 0x7472f4,
-    roughness:.28,
-    metalness:.02,
-    clearcoat:.38,
-    clearcoatRoughness:.2
-  });
+function materialPair(hex){
+  const color=new THREE.Color(hex || 0x7472f4);
+  const side=color.clone().multiplyScalar(.78);
+  return [
+    new THREE.MeshPhysicalMaterial({color:side,roughness:.34,metalness:.015,clearcoat:.28,clearcoatRoughness:.24}),
+    new THREE.MeshPhysicalMaterial({color,roughness:.24,metalness:.01,clearcoat:.5,clearcoatRoughness:.16})
+  ];
 }
 
 function hexColor(value){
@@ -79,7 +78,7 @@ async function buildMaster(master){
         curveSegments:28
       });
 
-      const mesh=new THREE.Mesh(geometry,material(fill ?? 0x7472f4));
+      const mesh=new THREE.Mesh(geometry,materialPair(fill ?? 0x7472f4));
       mesh.castShadow=true;
       mesh.receiveShadow=true;
       root.add(mesh);
@@ -121,20 +120,21 @@ async function buildMaster(master){
 function setupScene(canvas){
   if(!canvas) return null;
   const scene=new THREE.Scene();
-  const camera=new THREE.PerspectiveCamera(32,2,.1,100);
-  camera.position.set(0,0.9,16);
+  const camera=new THREE.PerspectiveCamera(30,2,.1,100);
+  camera.position.set(5.8,3.25,17.2);
+  camera.lookAt(0,0.1,0);
   const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true});
   renderer.setPixelRatio(Math.min(devicePixelRatio,2));
   renderer.outputColorSpace=THREE.SRGBColorSpace;
   renderer.shadowMap.enabled=true;
   renderer.shadowMap.type=THREE.PCFSoftShadowMap;
-  scene.add(new THREE.HemisphereLight(0xffffff,0xb9bdcc,2.25));
-  const key=new THREE.DirectionalLight(0xffffff,4.8);
-  key.position.set(-7,10,11);
+  scene.add(new THREE.HemisphereLight(0xffffff,0x9fa5b8,1.9));
+  const key=new THREE.DirectionalLight(0xffffff,4.2);
+  key.position.set(-6.5,9.5,10.5);
   key.castShadow=true;
   key.shadow.mapSize.set(2048,2048);
   scene.add(key);
-  const rim=new THREE.DirectionalLight(0x7472f4,1.7);
+  const rim=new THREE.DirectionalLight(0x7472f4,1.25);
   rim.position.set(7,4,-8);
   scene.add(rim);
 
@@ -171,14 +171,12 @@ async function populate(canvas,layout){
     loaded.forEach((master,i)=>{
       const item=master.clone(true);
       item.position.set((i-2)*2.25, i%2 ? .12 : 0, (i%3)*-.18);
-      item.rotation.y=(i%2 ? -.16 : .16);
       root.add(item);
     });
   } else if(layout==="grid"){
     loaded.forEach((master,i)=>{
       const item=master.clone(true);
       item.position.set((i-2)*2.65,0,0);
-      item.rotation.y=(i%2 ? -.14 : .14);
       root.add(item);
     });
   } else {
@@ -206,6 +204,7 @@ async function populate(canvas,layout){
     t+=.006;
     if(!drag) target=Math.sin(t*.42)*.08;
     root.rotation.y+=(target-root.rotation.y)*.045;
+    root.rotation.x=Math.sin(t*.31)*.012;
     root.children.forEach((item,i)=>{
       const base=item.userData.baseY ?? item.position.y;
       if(item.userData.baseY===undefined) item.userData.baseY=base;
