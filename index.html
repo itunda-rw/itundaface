@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#7472F4"><meta name="description" content="ItundaFace — Itunda's expressive glyph system.">
+<title>ItundaFace — Expressive glyphs for Itunda</title><link rel="stylesheet" href="site.css">
+</head>
+<body>
+<header class="nav"><a class="brand" href="./"><b>i</b><span>ItundaFace</span></a><nav><a href="#glyphs">Glyphs</a><a href="#system">System</a><a href="#font">Font</a><a href="https://github.com/itunda-rw/itundaface" target="_blank" rel="noreferrer">GitHub ↗</a></nav></header>
+<main>
+<section class="hero"><div><p class="eyebrow">ITUNDA EXPRESSIVE LANGUAGE</p><h1>Small shapes.<br><em>Big expression.</em></h1><p class="lede">An original emoji and glyph system for Itunda — simple, balanced, expressive and consistent from tiny UI moments to large 3D moments.</p><div class="actions"><a class="button primary" href="#glyphs">Explore glyphs</a><a class="button secondary" href="https://github.com/itunda-rw/itundaface" target="_blank" rel="noreferrer">View source</a></div></div><div class="hero-art"><i></i><i></i><img class="h1" src="svg/3d/heart.svg" alt=""><img class="h2" src="svg/3d/wow.svg" alt=""><img class="h3" src="svg/3d/laughing.svg" alt=""></div></section>
+<section class="principles" id="system"><div><small>01</small><h2>Simple geometry</h2><p>Strong silhouettes from a small vocabulary of shapes. Detail never gets in the way of recognition.</p></div><div><small>02</small><h2>Optical balance</h2><p>Glyphs are tuned to feel equally present, not merely placed inside the same box.</p></div><div><small>03</small><h2>One visual language</h2><p>Shared proportions, direction, color, light and depth keep the library coherent.</p></div></section>
+<section class="glyphs" id="glyphs"><div class="head"><div><p class="eyebrow">THE MASTER SET</p><h2>Five reactions.<br>One family.</h2></div><div class="switch"><button class="active" data-mode="flat">Flat</button><button data-mode="3d">3D</button></div></div><div class="grid">
+<article data-name="thumbs-up"><div class="stage"><img src="svg/flat/thumbs-up.svg" alt="Thumbs Up"></div><h3>Thumbs Up</h3><p>positive approval</p></article><article data-name="heart"><div class="stage"><img src="svg/flat/heart.svg" alt="Heart"></div><h3>Heart</h3><p>like · love · favorite</p></article><article data-name="laughing"><div class="stage"><img src="svg/flat/laughing.svg" alt="Laughing"></div><h3>Laughing</h3><p>joy and laughter</p></article><article data-name="wow"><div class="stage"><img src="svg/flat/wow.svg" alt="Wow"></div><h3>Wow</h3><p>surprise and amazement</p></article><article data-name="sad"><div class="stage"><img src="svg/flat/sad.svg" alt="Sad"></div><h3>Sad</h3><p>sadness or disappointment</p></article>
+</div></section>
+<section class="dark"><div><p class="eyebrow">BUILT AS A SYSTEM</p><h2>From one tiny glyph<br>to a whole vocabulary.</h2><p>Canonical 80×80 masters, stable IDs, optical bounds, semantic color, flat/3D parity and an automated color-font pipeline make every new glyph a member of the same language.</p></div><div class="stats"><div><b>80</b><span>master canvas</span></div><div><b>14px</b><span>recognition gate</span></div><div><b>45°</b><span>canonical tilt</span></div><div><b>PUA</b><span>distribution mapping</span></div></div></section>
+<section class="font" id="font"><div><p class="eyebrow">COLOR FONT</p><h2>Designed once.<br>Used everywhere.</h2><p>ItundaFace masters compile into an SVG-in-OpenType color font while canonical SVG remains the source of truth.</p></div><div class="fontbox"><span>itunda</span><b>♥</b><strong>✦</strong></div></section>
+<section class="closing"><p class="eyebrow">ORIGINAL BY DESIGN</p><h2>Inspired by system thinking.<br>Authored for Itunda.</h2><p>ItundaFace targets the same level of consistency and completeness as leading emoji systems without copying their artwork.</p><a class="button primary" href="https://github.com/itunda-rw/itundaface" target="_blank" rel="noreferrer">Explore on GitHub ↗</a></section>
+</main><footer><span>© ItundaFace</span><span>Original Itunda glyph system</span></footer>
+<script>
+const buttons=[...document.querySelectorAll('.switch button')],cards=[...document.querySelectorAll('.grid article')];
+buttons.forEach(btn=>btn.onclick=()=>{buttons.forEach(b=>b.classList.toggle('active',b===btn));cards.forEach(c=>c.querySelector('img').src='svg/'+btn.dataset.mode+'/'+c.dataset.name+'.svg')});
+</script></body></html>
