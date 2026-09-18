@@ -17,7 +17,7 @@
     "expo-dev-client": "~57.0.19",
     "react": "19.2.3",
     "react-native": "0.86.3",
-    "react-native-svg": "~15.12.1"
+    "react-native-svg": "15.15.4"
   },
   "devDependencies": {
     "expo-doctor": "^1.17.0"
