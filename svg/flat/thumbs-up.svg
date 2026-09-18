@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" role="img" aria-label="ItundaFace thumbs up">
-  <path d="M17 35h11v33.5H17a4.5 4.5 0 0 1-4.5-4.5v-24A5 5 0 0 1 17 35Z" fill="#E0A655"/>
-  <path d="M30.5 34.5h25.2c4.8 0 8.3 3.1 8.3 7.2 0 1.9-.7 3.5-2 4.8 2.4 1.4 3.9 3.7 3.9 6.5 0 2.5-1 4.6-2.8 6.1.9 1.3 1.4 2.9 1.4 4.6 0 4.6-3.5 8-8.1 8H37.8c-4 0-7.3-3.2-7.3-7.2V34.5Z" fill="#FFCF87"/>
-  <path d="M31.8 33.8 37.2 18c1.1-3.2 4-5.4 7.4-5.4 1.8 0 3.2 1.6 2.8 3.4l-2.8 13.2" fill="none" stroke="#FFCF87" stroke-width="6.4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M17 35h11v33.5H17a4.5 4.5 0 0 1-4.5-4.5v-24A5 5 0 0 1 17 35Z" fill="#E7A45F"/>
+  <path d="M30.5 34.5h25.2c4.8 0 8.3 3.1 8.3 7.2 0 1.9-.7 3.5-2 4.8 2.4 1.4 3.9 3.7 3.9 6.5 0 2.5-1 4.6-2.8 6.1.9 1.3 1.4 2.9 1.4 4.6 0 4.6-3.5 8-8.1 8H37.8c-4 0-7.3-3.2-7.3-7.2V34.5Z" fill="#FFD39A"/>
+  <path d="M31.8 33.8 37.2 18c1.1-3.2 4-5.4 7.4-5.4 1.8 0 3.2 1.6 2.8 3.4l-2.8 13.2" fill="none" stroke="#FFD39A" stroke-width="6.4" stroke-linecap="round" stroke-linejoin="round"/>
   <path d="M17.5 39h10v7h-10Z" fill="#7472F4"/>
 </svg>
