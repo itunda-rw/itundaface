@@ -173,21 +173,23 @@ async function buildMaster(master){
 function setupScene(canvas){
   if(!canvas) return null;
   const scene=new THREE.Scene();
-  const camera=new THREE.PerspectiveCamera(30,2,.1,100);
-  camera.position.set(5.8,3.25,17.2);
-  camera.lookAt(0,0.1,0);
+  const profile=masterManifest?.camera ?? {fov:30,position:[5.8,3.25,17.2],lookAt:[0,0.1,0]};
+  const camera=new THREE.PerspectiveCamera(profile.fov ?? 30,2,.1,100);
+  camera.position.fromArray(profile.position ?? [5.8,3.25,17.2]);
+  camera.lookAt(...(profile.lookAt ?? [0,0.1,0]));
   const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true});
   renderer.setPixelRatio(Math.min(devicePixelRatio,2));
   renderer.outputColorSpace=THREE.SRGBColorSpace;
   renderer.shadowMap.enabled=true;
   renderer.shadowMap.type=THREE.PCFSoftShadowMap;
   scene.add(new THREE.HemisphereLight(0xffffff,0x9fa5b8,1.9));
+  const lighting=masterManifest?.lighting ?? {keyDirection:[-6.5,9.5,10.5],rimColor:"#7472F4"};
   const key=new THREE.DirectionalLight(0xffffff,4.2);
-  key.position.set(-6.5,9.5,10.5);
+  key.position.fromArray(lighting.keyDirection ?? [-6.5,9.5,10.5]);
   key.castShadow=true;
   key.shadow.mapSize.set(2048,2048);
   scene.add(key);
-  const rim=new THREE.DirectionalLight(0x7472f4,1.25);
+  const rim=new THREE.DirectionalLight(hexColor(lighting.rimColor) ?? 0x7472f4,1.25);
   rim.position.set(7,4,-8);
   scene.add(rim);
 
@@ -255,7 +257,6 @@ async function populate(canvas,layout){
     for(let i=0;i<30;i++){
       const item=loaded[i%loaded.length].clone(true);
       item.position.set((i%6-2.5)*2.55,(Math.floor(i/6)-2)*2.18,(i%3)*-.16);
-      item.rotation.y=(i%2 ? -.14 : .14);
       root.add(item);
     }
   }
@@ -301,6 +302,8 @@ async function populate(canvas,layout){
   canvas.addEventListener("pointercancel",release);
 
   let t=0;
+  const sharedCameraHeight=masterManifest?.camera?.position?.[1] ?? 3.25;
+  root.userData.sharedCameraHeight=sharedCameraHeight;
   function loop(){
     t+=.006;
     if(!drag) target=Math.sin(t*.42)*.08;
