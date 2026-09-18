@@ -260,13 +260,7 @@ async function populate(canvas,layout){
     if(picker){
       const select=async(id)=>{
         selectedMaster=id;
-        root.children.slice().forEach(child=>{
-          root.remove(child);
-          if(child.userData.flatReference){
-            child.material?.map?.dispose();
-            child.material?.dispose();
-          }
-        });
+        root.children.slice().forEach(child=>root.remove(child));
         const master=loaded.find(item=>item.userData.masterId===id) || loaded[0];
         const item=master.clone(true);
         item.scale.setScalar(1.12);
