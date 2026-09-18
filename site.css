@@ -66,3 +66,11 @@
 .three-d-grid div:hover img{transform:translateY(-8px) scale(1.05)}
 @media(max-width:900px){.three-d-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:600px){.three-d-showcase{padding:120px 20px}.three-d-grid{grid-template-columns:repeat(2,1fr);gap:8px}.three-d-wall{padding-top:50px;padding-bottom:70px}}
+
+.true-3d{padding:190px 28px;background:#f7f7f8}
+.three-stage{max-width:1280px;margin:80px auto 0;display:grid;grid-template-columns:minmax(0,1.6fr) minmax(300px,.8fr);align-items:center;gap:70px}
+#itunda-3d{width:100%;height:560px;display:block}
+.three-copy h2{font-size:clamp(58px,7vw,100px);line-height:.98;letter-spacing:-.06em;margin:30px 0}
+.three-copy h2 span{color:var(--indigo)}
+.three-copy p:not(.kicker){font-size:18px;line-height:1.65;max-width:440px}
+@media(max-width:800px){.true-3d{padding:120px 20px}.three-stage{grid-template-columns:1fr;gap:25px;margin-top:45px}#itunda-3d{height:420px}.three-copy h2{font-size:58px}}
