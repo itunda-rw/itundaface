@@ -60,21 +60,21 @@ function masterMeta(id){
 function materialPair(hex){
   const color=new THREE.Color(hex || 0x7472f4);
   const material=masterManifest?.material ?? {};
-  const side=color.clone().multiplyScalar(material.sideBrightness ?? .78);
+  const side=color.clone().multiplyScalar(material.sideBrightness ?? .62);
   return [
     new THREE.MeshPhysicalMaterial({
       color:side,
-      roughness:material.sideRoughness ?? .34,
+      roughness:material.sideRoughness ?? .38,
       metalness:material.metalness ?? .015,
-      clearcoat:material.clearcoat ?? .28,
-      clearcoatRoughness:material.clearcoatRoughness ?? .24
+      clearcoat:material.clearcoat ?? .3,
+      clearcoatRoughness:material.clearcoatRoughness ?? .2
     }),
     new THREE.MeshPhysicalMaterial({
       color,
-      roughness:material.roughness ?? .24,
+      roughness:material.roughness ?? .28,
       metalness:material.metalness ?? .01,
-      clearcoat:material.clearcoat ?? .5,
-      clearcoatRoughness:material.clearcoatRoughness ?? .16
+      clearcoat:material.clearcoat ?? .3,
+      clearcoatRoughness:material.clearcoatRoughness ?? .2
     })
   ];
 }
@@ -90,6 +90,7 @@ async function buildMaster(master){
 
   const data=await loader.loadAsync(master.url);
   const root=new THREE.Group();
+  const materialProfile=masterManifest?.material ?? {};
 
   // The flat SVG is the single source of truth. Every path stays in the
   // original SVG coordinate system until the complete glyph is assembled.
@@ -99,18 +100,18 @@ async function buildMaster(master){
     // Preserve SVG paint order as shallow physical layers. The first path
     // remains the body; later paths sit slightly forward instead of becoming
     // unrelated floating geometry.
-    const layerZ=pathIndex*0.075;
+    const layerZ=pathIndex*(masterManifest?.material?.layerSeparation ?? 0.025);
     const fill=hexColor(path.color?.getStyle?.()) ?? hexColor(node?.getAttribute?.("fill"));
     const shapes=SVGLoader.createShapes(path);
 
     for(const shape of shapes){
       const geometry=new THREE.ExtrudeGeometry(shape,{
-        depth:meta.depth ?? .46,
+        depth:materialProfile.depth ?? meta.depth ?? .82,
         bevelEnabled:true,
-        bevelSegments:5,
+        bevelSegments:materialProfile.bevelSegments ?? 6,
         steps:2,
-        bevelSize:.13,
-        bevelThickness:.13,
+        bevelSize:materialProfile.bevelSize ?? .18,
+        bevelThickness:materialProfile.bevelThickness ?? .16,
         curveSegments:28
       });
 
@@ -177,6 +178,7 @@ async function buildMaster(master){
   root.userData.layerCount=data.paths.length;
 
   root.rotation.x=Math.PI;
+  root.rotation.y=0.13;
   root.rotation.z=meta.tilt ?? 0;
   root.position.y+=meta.lift ?? 0;
   root.userData.masterId=master.id;
