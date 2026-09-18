@@ -39,13 +39,18 @@ const masters = [
 
 const loader = new SVGLoader();
 const cache = new Map();
-const MASTER_META = {
-  "thumbs-up": {depth:.48, tilt:-.18, lift:.04},
-  "heart": {depth:.44, tilt:.02, lift:.00},
-  "laughing": {depth:.46, tilt:.01, lift:.02},
-  "wow": {depth:.46, tilt:.00, lift:.01},
-  "sad": {depth:.46, tilt:-.015, lift:.01}
-};
+let masterManifest;
+async function loadMasterManifest(){
+  if(masterManifest) return masterManifest;
+  masterManifest = await fetch("3d/master-manifest.json", {cache:"no-store"}).then(r=>{
+    if(!r.ok) throw new Error("Unable to load ItundaFace 3D master manifest");
+    return r.json();
+  });
+  return masterManifest;
+}
+function masterMeta(id){
+  return masterManifest.masters.find(master=>master.id===id) ?? {};
+}
 
 function materialPair(hex){
   const color=new THREE.Color(hex || 0x7472f4);
@@ -63,6 +68,7 @@ function hexColor(value){
 
 async function buildMaster(master){
   if(cache.has(master.id)) return cache.get(master.id);
+  const meta=masterMeta(master.id);
 
   const data=await loader.loadAsync(master.url);
   const root=new THREE.Group();
@@ -81,7 +87,7 @@ async function buildMaster(master){
 
     for(const shape of shapes){
       const geometry=new THREE.ExtrudeGeometry(shape,{
-        depth:MASTER_META[master.id]?.depth ?? .46,
+        depth:meta.depth ?? .46,
         bevelEnabled:true,
         bevelSegments:5,
         steps:2,
@@ -151,8 +157,8 @@ async function buildMaster(master){
   root.userData.layerCount=data.paths.length;
 
   root.rotation.x=Math.PI;
-  root.rotation.z=MASTER_META[master.id]?.tilt ?? 0;
-  root.position.y+=MASTER_META[master.id]?.lift ?? 0;
+  root.rotation.z=meta.tilt ?? 0;
+  root.position.y+=meta.lift ?? 0;
   root.userData.masterId=master.id;
   root.userData.label=master.label;
   cache.set(master.id,root);
@@ -201,6 +207,7 @@ function setupScene(canvas){
 }
 
 async function populate(canvas,layout){
+  await loadMasterManifest();
   const env=setupScene(canvas);
   if(!env) return;
   const {scene,camera,renderer}=env;
