@@ -59,10 +59,23 @@ function masterMeta(id){
 
 function materialPair(hex){
   const color=new THREE.Color(hex || 0x7472f4);
-  const side=color.clone().multiplyScalar(.78);
+  const material=masterManifest?.material ?? {};
+  const side=color.clone().multiplyScalar(material.sideBrightness ?? .78);
   return [
-    new THREE.MeshPhysicalMaterial({color:side,roughness:.34,metalness:.015,clearcoat:.28,clearcoatRoughness:.24}),
-    new THREE.MeshPhysicalMaterial({color,roughness:.24,metalness:.01,clearcoat:.5,clearcoatRoughness:.16})
+    new THREE.MeshPhysicalMaterial({
+      color:side,
+      roughness:material.sideRoughness ?? .34,
+      metalness:material.metalness ?? .015,
+      clearcoat:material.clearcoat ?? .28,
+      clearcoatRoughness:material.clearcoatRoughness ?? .24
+    }),
+    new THREE.MeshPhysicalMaterial({
+      color,
+      roughness:material.roughness ?? .24,
+      metalness:material.metalness ?? .01,
+      clearcoat:material.clearcoat ?? .5,
+      clearcoatRoughness:material.clearcoatRoughness ?? .16
+    })
   ];
 }
 
