@@ -261,14 +261,20 @@ async function populate(canvas,layout){
   const overlayToggle=document.querySelector("#flat-overlay-toggle");
   const splitToggle=document.querySelector("#flat-split-toggle");
 
+  function getCompareOffset(){
+    const width=renderer?.domElement?.clientWidth || window.innerWidth;
+    return Math.min(3.2, Math.max(1.65, width / 220));
+  }
+
   function applyCompareState(){
     const reference=root.children.find(child=>child.userData?.flatReference);
     const active3d=root.children.find(child=>!child.userData?.flatReference);
     if(!reference || !active3d) return;
     if(splitEnabled){
-      reference.position.set(-3.2,0,.72);
+      const offset=getCompareOffset();
+      reference.position.set(-offset,0,.72);
       reference.material.opacity=1;
-      active3d.position.x=3.2;
+      active3d.position.x=offset;
     }else if(overlayEnabled){
       reference.position.set(0,0,.72);
       reference.material.opacity=.34;
