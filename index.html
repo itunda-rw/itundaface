@@ -61,7 +61,6 @@ function materialPair(hex){
   const color=new THREE.Color(hex || 0x7472f4);
   const material=masterManifest?.material ?? {};
   const side=color.clone().multiplyScalar(material.sideBrightness ?? .78);
-  const highlight=color.clone().lerp(new THREE.Color(0xffffff),material.highlightMix ?? .12);
   return [
     new THREE.MeshPhysicalMaterial({
       color:side,
