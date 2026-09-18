@@ -62,23 +62,29 @@ async function buildMaster(master){
 
   // The flat SVG is the single source of truth. Every path stays in the
   // original SVG coordinate system until the complete glyph is assembled.
-  for(const path of data.paths){
+  for(let pathIndex=0; pathIndex<data.paths.length; pathIndex++){
+    const path=data.paths[pathIndex];
     const node=path.userData?.node;
+    // Preserve SVG paint order as shallow physical layers. The first path
+    // remains the body; later paths sit slightly forward instead of becoming
+    // unrelated floating geometry.
+    const layerZ=pathIndex*0.075;
     const fill=hexColor(path.color?.getStyle?.()) ?? hexColor(node?.getAttribute?.("fill"));
     const shapes=SVGLoader.createShapes(path);
 
     for(const shape of shapes){
       const geometry=new THREE.ExtrudeGeometry(shape,{
-        depth:.72,
+        depth:.54,
         bevelEnabled:true,
-        bevelSegments:7,
-        steps:3,
-        bevelSize:.75,
-        bevelThickness:.75,
+        bevelSegments:5,
+        steps:2,
+        bevelSize:.13,
+        bevelThickness:.13,
         curveSegments:28
       });
 
       const mesh=new THREE.Mesh(geometry,materialPair(fill ?? 0x7472f4));
+      mesh.position.z=layerZ;
       mesh.castShadow=true;
       mesh.receiveShadow=true;
       root.add(mesh);
@@ -88,7 +94,7 @@ async function buildMaster(master){
     const strokeColor=hexColor(stroke);
     if(strokeColor){
       for(const subPath of path.subPaths || []){
-        const points=subPath.getPoints(64).map(p=>new THREE.Vector3(p.x,p.y,0.39));
+        const points=subPath.getPoints(64).map(p=>new THREE.Vector3(p.x,p.y,0.61+layerZ));
         if(points.length>1){
           const line=new THREE.Line(
             new THREE.BufferGeometry().setFromPoints(points),
@@ -107,8 +113,10 @@ async function buildMaster(master){
   const center=box.getCenter(new THREE.Vector3());
   root.position.sub(center);
 
-  const maxDim=Math.max(size.x,size.y);
+  const maxDim=Math.max(size.x,size.y,size.z);
   root.scale.setScalar(4.05/maxDim);
+  root.userData.flatSource=master.url;
+  root.userData.layerCount=data.paths.length;
 
   root.rotation.x=Math.PI;
   root.userData.masterId=master.id;
