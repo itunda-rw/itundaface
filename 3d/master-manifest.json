@@ -169,7 +169,7 @@
     }
   ],
   "material": {
-    "volume": "true-engine-3d",
+    "volume": "restrained",
     "frontStop": "canonical-color",
     "sideStop": "deeper-underside",
     "highlight": "broad-soft",
