@@ -66,21 +66,6 @@ function hexColor(value){
   try { return new THREE.Color(value).getHex(); } catch { return null; }
 }
 
-function disposeObject3D(object){
-  object.traverse(node=>{
-    if(node.geometry) node.geometry.dispose();
-    if(node.material){
-      const materials=Array.isArray(node.material)?node.material:[node.material];
-      materials.forEach(material=>{
-        for(const key of ["map","normalMap","roughnessMap","metalnessMap","aoMap"]){
-          if(material[key]) material[key].dispose();
-        }
-        material.dispose();
-      });
-    }
-  });
-}
-
 async function buildMaster(master){
   if(cache.has(master.id)) return cache.get(master.id);
   const meta=masterMeta(master.id);
@@ -273,18 +258,21 @@ async function populate(canvas,layout){
   if(layout==="hero"){
     const picker=document.querySelector(".master-picker");
     if(picker){
-      const select=(id)=>{
+      const select=async(id)=>{
         selectedMaster=id;
         root.children.slice().forEach(child=>{
           root.remove(child);
-          disposeObject3D(child);
+          if(child.userData.flatReference){
+            child.material?.map?.dispose();
+            child.material?.dispose();
+          }
         });
         const master=loaded.find(item=>item.userData.masterId===id) || loaded[0];
         const item=master.clone(true);
         item.scale.setScalar(1.12);
         root.add(item);
-        const reference=await buildFlatReference(master);
-        root.add(reference);
+        const flatReference=await buildFlatReference(master);
+        root.add(flatReference);
         picker.querySelectorAll("button").forEach(btn=>btn.classList.toggle("active",btn.dataset.master===master.userData.masterId));
         const reference=masterManifest.masters.find(entry=>entry.id===master.userData.masterId);
         const referenceImage=document.querySelector("#flat-reference-image");
@@ -297,7 +285,7 @@ async function populate(canvas,layout){
           referenceSource.textContent=reference.flatAsset;
         }
       };
-      picker.querySelectorAll("button").forEach(btn=>btn.addEventListener("click",()=>select(btn.dataset.master)));
+      picker.querySelectorAll("button").forEach(btn=>btn.addEventListener("click",()=>{select(btn.dataset.master);}));
       select("heart");
     }
   }
