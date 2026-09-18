@@ -11,7 +11,7 @@
     72,
     72
   ],
-  "pipeline": "canonical-flat-svg -> registered-paint-layers -> extruded-volume -> shared-camera-render",
+  "pipeline": "canonical-flat-svg -> silhouette-classified-volume -> rounded-face-or-beveled-object -> shared-camera-render",
   "camera": {
     "projection": "perspective",
     "position": [
@@ -183,6 +183,13 @@
     "bevelSize": 0.18,
     "bevelThickness": 0.16,
     "bevelSegments": 6,
-    "layerSeparation": 0.025
+    "layerSeparation": 0.025,
+    "faceVolume": {
+      "radius": 2.025,
+      "depthScale": 0.62,
+      "segments": 64,
+      "segmentsY": 48,
+      "surfaceArtwork": "canonical-svg-texture"
+    }
   }
 }
