@@ -57,41 +57,41 @@ function hexColor(value){
 
 async function buildMaster(master){
   if(cache.has(master.id)) return cache.get(master.id);
-  const data = await loader.loadAsync(master.url);
-  const root = new THREE.Group();
-  const sourceBounds = new THREE.Box3();
-  const fillMeshes = [];
 
+  const data=await loader.loadAsync(master.url);
+  const root=new THREE.Group();
+
+  // The flat SVG is the single source of truth. Every path stays in the
+  // original SVG coordinate system until the complete glyph is assembled.
   for(const path of data.paths){
-    const node = path.userData?.node;
-    const fill = hexColor(path.color?.getStyle?.()) ?? hexColor(node?.getAttribute?.("fill"));
-    const shapes = SVGLoader.createShapes(path);
+    const node=path.userData?.node;
+    const fill=hexColor(path.color?.getStyle?.()) ?? hexColor(node?.getAttribute?.("fill"));
+    const shapes=SVGLoader.createShapes(path);
+
     for(const shape of shapes){
-      const geometry = new THREE.ExtrudeGeometry(shape,{
+      const geometry=new THREE.ExtrudeGeometry(shape,{
         depth:.72,
         bevelEnabled:true,
         bevelSegments:7,
         steps:3,
-        bevelSize:.9,
-        bevelThickness:.9,
+        bevelSize:.75,
+        bevelThickness:.75,
         curveSegments:28
       });
-      geometry.center();
-      const mesh = new THREE.Mesh(geometry,material(fill ?? 0x7472f4));
+
+      const mesh=new THREE.Mesh(geometry,material(fill ?? 0x7472f4));
       mesh.castShadow=true;
       mesh.receiveShadow=true;
       root.add(mesh);
-      sourceBounds.expandByObject(mesh);
-      fillMeshes.push(mesh);
     }
 
-    const stroke = node?.getAttribute?.("stroke");
-    const strokeColor = hexColor(stroke);
+    const stroke=node?.getAttribute?.("stroke");
+    const strokeColor=hexColor(stroke);
     if(strokeColor){
       for(const subPath of path.subPaths || []){
-        const points = subPath.getPoints(48).map(p=>new THREE.Vector3(p.x,p.y,0.39));
+        const points=subPath.getPoints(64).map(p=>new THREE.Vector3(p.x,p.y,0.39));
         if(points.length>1){
-          const line = new THREE.Line(
+          const line=new THREE.Line(
             new THREE.BufferGeometry().setFromPoints(points),
             new THREE.LineBasicMaterial({color:strokeColor,transparent:true,opacity:.95})
           );
@@ -101,14 +101,19 @@ async function buildMaster(master){
     }
   }
 
-  const box = new THREE.Box3().setFromObject(root);
-  const size = box.getSize(new THREE.Vector3());
-  const maxDim = Math.max(size.x,size.y);
-  const scale = 4.05 / maxDim;
-  root.scale.setScalar(scale);
-  root.rotation.x = Math.PI;
-  root.userData.masterId = master.id;
-  root.userData.label = master.label;
+  // Normalize the assembled glyph once, so every internal layer remains
+  // registered exactly like the original flat master.
+  const box=new THREE.Box3().setFromObject(root);
+  const size=box.getSize(new THREE.Vector3());
+  const center=box.getCenter(new THREE.Vector3());
+  root.position.sub(center);
+
+  const maxDim=Math.max(size.x,size.y);
+  root.scale.setScalar(4.05/maxDim);
+
+  root.rotation.x=Math.PI;
+  root.userData.masterId=master.id;
+  root.userData.label=master.label;
   cache.set(master.id,root);
   return root;
 }
