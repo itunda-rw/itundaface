@@ -128,3 +128,26 @@ footer a{color:#555!important}
 .hero-globe{z-index:8!important;pointer-events:auto!important;touch-action:manipulation!important}
 .hero-globe.motion-enabled{box-shadow:0 0 0 10px rgba(255,224,100,.2),0 16px 40px rgba(0,0,0,.42)!important}
 @media(max-width:760px){.hero-orbit{touch-action:none!important}.hero-cloud img{filter:drop-shadow(0 16px 20px rgba(0,0,0,.66))!important}}
+
+/* TossFace parity: a calm, full-bleed mobile 3D field with the interface kept out of the artwork. */
+.hero-cloud{position:absolute!important;inset:0!important;z-index:2!important;display:block!important;overflow:hidden!important;background:#000!important;pointer-events:none!important}
+.hero-cloud img{position:absolute!important;display:block!important;object-fit:contain!important;opacity:.94!important;filter:drop-shadow(0 18px 22px rgba(0,0,0,.7))!important}
+.hero-cloud img:nth-child(1){width:170px!important;height:170px!important;left:-42px!important;top:17%!important;transform:rotate(-18deg) translateZ(80px)!important}
+.hero-cloud img:nth-child(2){width:128px!important;height:128px!important;left:25%!important;top:8%!important;transform:rotate(12deg) translateZ(140px)!important}
+.hero-cloud img:nth-child(3){width:230px!important;height:230px!important;right:-82px!important;top:3%!important;transform:rotate(18deg) translateZ(100px)!important}
+.hero-cloud img:nth-child(4){width:170px!important;height:170px!important;left:8%!important;top:42%!important;transform:rotate(-12deg) translateZ(120px)!important}
+.hero-cloud img:nth-child(5){width:155px!important;height:155px!important;right:6%!important;top:28%!important;transform:rotate(15deg) translateZ(160px)!important}
+.hero-cloud img:nth-child(6){width:190px!important;height:190px!important;left:-58px!important;top:61%!important;transform:rotate(-9deg) translateZ(70px)!important}
+.hero-cloud img:nth-child(7){width:145px!important;height:145px!important;left:37%!important;top:28%!important;transform:rotate(-20deg) translateZ(170px)!important}
+.hero-cloud img:nth-child(8){width:135px!important;height:135px!important;right:-32px!important;top:53%!important;transform:rotate(10deg) translateZ(120px)!important}
+.hero-cloud img:nth-child(9){width:180px!important;height:180px!important;left:16%!important;bottom:3%!important;transform:rotate(14deg) translateZ(80px)!important}
+.hero-cloud img:nth-child(10){width:118px!important;height:118px!important;right:27%!important;bottom:23%!important;transform:rotate(-15deg) translateZ(190px)!important}
+.hero-cloud img:nth-child(11){width:155px!important;height:155px!important;left:44%!important;top:52%!important;transform:rotate(8deg) translateZ(150px)!important}
+.hero-cloud img:nth-child(12){width:125px!important;height:125px!important;right:-24px!important;bottom:6%!important;transform:rotate(-16deg) translateZ(100px)!important}
+.hero-cloud img:nth-child(n+13){width:120px!important;height:120px!important;opacity:.82!important}
+.hero-cloud img:nth-child(13){left:2%!important;bottom:27%!important}.hero-cloud img:nth-child(14){right:9%!important;top:70%!important}.hero-cloud img:nth-child(15){left:52%!important;top:16%!important}.hero-cloud img:nth-child(16){right:35%!important;bottom:4%!important}.hero-cloud img:nth-child(17){left:70%!important;top:43%!important}.hero-cloud img:nth-child(18){left:28%!important;top:70%!important}.hero-cloud img:nth-child(19){right:42%!important;top:4%!important}.hero-cloud img:nth-child(20){left:57%!important;bottom:30%!important}
+.hero-inner{justify-content:flex-end!important;pointer-events:none!important}
+.hero-inner .eyebrow,.hero-inner h1,.hero-inner .hero-copy{display:none!important}
+.hero-actions{position:absolute!important;z-index:10!important;left:50%!important;bottom:clamp(44px,9vh,92px)!important;transform:translateX(-50%)!important;margin:0!important;pointer-events:auto!important}
+.hero-actions .primary{min-width:230px!important;min-height:66px!important;font-size:18px!important;border-radius:999px!important;background:#fff!important;color:#17171b!important}
+@media(max-width:760px){.hero-cloud img{width:clamp(86px,26vw,190px)!important;height:clamp(86px,26vw,190px)!important}.hero-actions .primary{min-width:230px!important;min-height:62px!important;font-size:17px!important}.hero-inner{padding:0!important}.hero-globe,.hero-face{display:none!important}}
