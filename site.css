@@ -43,3 +43,14 @@
  .principle-list{margin-top:65px}.principle-list article{grid-template-columns:110px 1fr;gap:20px;min-height:210px}
  .principle-art{height:120px}.principle-art img{width:90px;height:90px}
 }
+
+/* TossFace-style library wall: dense, oversized, continuous glyph typography. */
+.tossface-wall{overflow:hidden;padding:72px 0 110px;background:#fff}
+.wall-row{display:flex;align-items:center;gap:clamp(22px,3vw,54px);width:max-content;margin:0 0 24px;animation:itunda-scroll 42s linear infinite}
+.wall-reverse{animation-name:itunda-scroll-reverse}
+.wall-row img{width:clamp(72px,8vw,132px);height:clamp(72px,8vw,132px);object-fit:contain;flex:none}
+@keyframes itunda-scroll{from{transform:translateX(-8%)}to{transform:translateX(-55%)}} 
+@keyframes itunda-scroll-reverse{from{transform:translateX(-55%)}to{transform:translateX(-8%)}} 
+.glyph-stream h2{font-size:clamp(54px,7vw,104px);line-height:1;letter-spacing:-.06em;margin:50px 0 0}
+.glyph-stream h2 span{color:var(--indigo)}
+@media(max-width:700px){.tossface-wall{padding:42px 0 70px}.wall-row{gap:18px;margin-bottom:14px}.wall-row img{width:64px;height:64px}.glyph-stream h2{font-size:54px}}
