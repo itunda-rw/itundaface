@@ -1,0 +1,25 @@
+{
+  "expo": {
+    "name": "ItundaFace Test Lab",
+    "slug": "itundaface-test-lab",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "icon": "./assets/itunda-icon.png",
+    "android": {
+      "package": "rw.itunda.face.testlab",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/itunda-adaptive-foreground.png",
+        "backgroundColor": "#863BFF",
+        "monochromeImage": "./assets/itunda-monochrome.png"
+      }
+    },
+    "ios": {
+      "bundleIdentifier": "rw.itunda.face.testlab",
+      "icon": "./assets/itunda-icon.png"
+    },
+    "web": {
+      "favicon": "./assets/itunda-favicon.png"
+    }
+  }
+}
