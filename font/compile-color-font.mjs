@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import { execFileSync } from 'node:child_process';
 
 const root = new URL('../', import.meta.url);
+const fontDir = new URL('./', import.meta.url);
 const config = JSON.parse(fs.readFileSync(new URL('./compiler.config.json', import.meta.url), 'utf8'));
 const manifest = JSON.parse(fs.readFileSync(new URL('./build-manifest.json', import.meta.url), 'utf8'));
 
@@ -27,7 +28,7 @@ try {
   process.exit(error.status ?? 1);
 }
 
-const output = new URL(config.output.file, root);
+const output = new URL(config.output.file, fontDir);
 if (!fs.existsSync(output)) {
   throw new Error(`Compiler completed without producing ${output.pathname}`);
 }
