@@ -19,10 +19,17 @@ for (const glyph of manifest.glyphs) {
   }
 }
 
+const python = process.env.PYTHON ?? 'python3';
+
 try {
-  execFileSync('python3', ['font/compile-svg-font.py'], { stdio: 'inherit' });
+  execFileSync(python, ['font/compile-svg-font.py'], { stdio: 'inherit' });
 } catch (error) {
   process.exit(error.status ?? 1);
 }
 
-console.log(`ItundaFace binary font ready: ${new URL(config.output.file, root).pathname}`);
+const output = new URL(config.output.file, root);
+if (!fs.existsSync(output)) {
+  throw new Error(`Compiler completed without producing ${output.pathname}`);
+}
+
+console.log(`ItundaFace binary font ready: ${output.pathname}`);
