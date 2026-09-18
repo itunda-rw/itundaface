@@ -170,7 +170,9 @@ async function buildMaster(master){
   root.position.sub(center);
 
   const maxDim=Math.max(size.x,size.y,size.z);
-  root.scale.setScalar(4.05/maxDim);
+  const canonicalScale=4.05/maxDim;
+  root.scale.setScalar(canonicalScale);
+  root.userData.canonicalScale=canonicalScale;
   root.userData.flatSource=master.url;
   root.userData.layerCount=data.paths.length;
 
@@ -246,7 +248,8 @@ async function populate(canvas,layout){
     const material=new THREE.MeshBasicMaterial({map:texture,transparent:true,depthWrite:false});
     const mesh=new THREE.Mesh(flatPlane,material);
     mesh.position.set(4.6,2.6,0);
-    mesh.scale.setScalar(.68);
+    mesh.rotation.x=Math.PI;
+    mesh.scale.setScalar(master.userData.canonicalScale ? master.userData.canonicalScale*10 : .68);
     mesh.userData.flatReference=true;
     mesh.userData.flatSource=master.url;
     flatTextureCache.set(master.id,mesh);
@@ -260,7 +263,7 @@ async function populate(canvas,layout){
     if(!mesh) return;
     mesh.visible=true;
     mesh.position.set(enabled ? 0 : 4.6, enabled ? 0 : 2.6, enabled ? .72 : 0);
-    mesh.scale.setScalar(.68);
+    mesh.scale.setScalar(mesh.userData.canonicalScale ? mesh.userData.canonicalScale*10 : .68);
     mesh.material.opacity=enabled ? .34 : 1;
     if(overlayToggle){
       overlayToggle.setAttribute("aria-pressed",String(enabled));
