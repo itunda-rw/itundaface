@@ -4,60 +4,20 @@
   "title": "ItundaFace Glyph",
   "type": "object",
   "additionalProperties": false,
-  "required": [
-    "id",
-    "name",
-    "category",
-    "semanticMeaning",
-    "canvas",
-    "opticalBounds",
-    "canonicalDirection",
-    "canonicalRotation",
-    "flatAsset"
-  ],
+  "required": ["id","name","category","semanticMeaning","canvas","opticalBounds","anchor","canonicalDirection","canonicalRotation","palette","flatAsset","status"],
   "properties": {
-    "id": {
-      "type": "string",
-      "pattern": "^itf_[a-z0-9]+(?:_[a-z0-9]+)*$"
-    },
-    "name": { "type": "string", "minLength": 1 },
-    "category": { "type": "string", "minLength": 1 },
-    "semanticMeaning": { "type": "string", "minLength": 1 },
-    "canvas": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": ["width", "height"],
-      "properties": {
-        "width": { "const": 80 },
-        "height": { "const": 80 }
-      }
-    },
-    "opticalBounds": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": ["x", "y", "width", "height"],
-      "properties": {
-        "x": { "type": "number" },
-        "y": { "type": "number" },
-        "width": { "type": "number", "exclusiveMinimum": 0 },
-        "height": { "type": "number", "exclusiveMinimum": 0 }
-      }
-    },
-    "canonicalDirection": {
-      "type": "string",
-      "enum": ["none", "right", "left-required"]
-    },
-    "canonicalRotation": {
-      "type": "number",
-      "enum": [-45, 0, 45]
-    },
-    "flatAsset": {
-      "type": "string",
-      "pattern": "^svg/flat/.+\\.svg$"
-    },
-    "threeDAsset": {
-      "type": ["string", "null"],
-      "pattern": "^svg/3d/.+\\.svg$"
-    }
+    "id":{"type":"string","pattern":"^itf_[a-z0-9]+(?:_[a-z0-9]+)*$"},
+    "name":{"type":"string","minLength":1},
+    "category":{"type":"string","minLength":1},
+    "semanticMeaning":{"type":"string","minLength":1},
+    "canvas":{"type":"object","additionalProperties":false,"required":["width","height"],"properties":{"width":{"const":80},"height":{"const":80}}},
+    "opticalBounds":{"type":"object","additionalProperties":false,"required":["x","y","width","height"],"properties":{"x":{"type":"number"},"y":{"type":"number"},"width":{"type":"number","exclusiveMinimum":0},"height":{"type":"number","exclusiveMinimum":0}}},
+    "anchor":{"type":"object","additionalProperties":false,"required":["x","y"],"properties":{"x":{"type":"number"},"y":{"type":"number"}}},
+    "canonicalDirection":{"type":"string","enum":["none","right","left-required"]},
+    "canonicalRotation":{"type":"number","enum":[-45,0,45]},
+    "palette":{"type":"array","minItems":1,"maxItems":8,"items":{"type":"string","pattern":"^#[0-9A-Fa-f]{6}$"}},
+    "flatAsset":{"type":"string","pattern":"^svg/flat/.+\\.svg$"},
+    "threeDAsset":{"type":["string","null"],"pattern":"^svg/3d/.+\\.svg$"},
+    "status":{"type":"string","enum":["draft","calibration","production","deprecated"]}
   }
 }
