@@ -286,7 +286,11 @@ async function populate(canvas,layout){
         root.add(item);
         const flatReference=await buildFlatReference(master);
         root.add(flatReference);
-        picker.querySelectorAll("button").forEach(btn=>btn.classList.toggle("active",btn.dataset.master===master.userData.masterId));
+        picker.querySelectorAll("button").forEach(btn=>{
+          const active=btn.dataset.master===master.userData.masterId;
+          btn.classList.toggle("active",active);
+          btn.setAttribute("aria-pressed",String(active));
+        });
         const reference=masterManifest.masters.find(entry=>entry.id===master.userData.masterId);
         const referenceImage=document.querySelector("#flat-reference-image");
         const referenceName=document.querySelector("#flat-reference-name");
@@ -304,7 +308,10 @@ async function populate(canvas,layout){
           referenceLayers.textContent=reference.sourcePathCount+" layers";
         }
       };
-      picker.querySelectorAll("button").forEach(btn=>btn.addEventListener("click",()=>{select(btn.dataset.master);}));
+      picker.querySelectorAll("button").forEach(btn=>{
+        btn.setAttribute("aria-pressed","false");
+        btn.addEventListener("click",()=>{select(btn.dataset.master);});
+      });
       select("heart");
     }
   }
