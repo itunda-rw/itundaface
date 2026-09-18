@@ -66,7 +66,7 @@ function hexColor(value){
   try { return new THREE.Color(value).getHex(); } catch { return null; }
 }
 
-async async function buildMaster(master){
+async function buildMaster(master){
   if(cache.has(master.id)) return cache.get(master.id);
   const meta=masterMeta(master.id);
 
