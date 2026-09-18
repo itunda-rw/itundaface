@@ -279,10 +279,12 @@ async function populate(canvas,layout){
   splitToggle?.addEventListener("click",()=>{
     splitEnabled=!splitEnabled;
     const reference=root.children.find(child=>child.userData?.flatReference);
+    const active3d=root.children.find(child=>!child.userData?.flatReference);
     if(reference){
       reference.position.set(splitEnabled ? -3.2 : (overlayEnabled ? 0 : 4.6),splitEnabled ? 0 : (overlayEnabled ? 0 : 2.6),splitEnabled ? .72 : (overlayEnabled ? .72 : 0));
       reference.material.opacity=splitEnabled ? 1 : (overlayEnabled ? .34 : 1);
     }
+    if(active3d) active3d.position.x=splitEnabled ? 3.2 : 0;
     splitToggle.setAttribute("aria-pressed",String(splitEnabled));
     splitToggle.textContent=splitEnabled ? "SPLIT VIEW ON" : "SPLIT VIEW";
   });
@@ -316,6 +318,7 @@ async function populate(canvas,layout){
         const master=loaded.find(item=>item.userData.masterId===id) || loaded[0];
         const item=master.clone(true);
         item.scale.setScalar(1.12);
+        item.position.x=splitEnabled ? 3.2 : 0;
         root.add(item);
         const flatReference=await buildFlatReference(master);
         root.add(flatReference);
