@@ -1,7 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" role="img" aria-label="ItundaFace wow">
-  <circle cx="40" cy="40" r="34" fill="#FFCC4D"/>
-  <circle cx="25.5" cy="34" r="5.2" fill="#664500"/>
-  <circle cx="54.5" cy="34" r="5.2" fill="#664500"/>
-  <ellipse cx="40" cy="55.5" rx="9" ry="11" fill="#66471B"/>
-  <path d="M40 43.8v5" fill="none" stroke="#7472F4" stroke-width="2.6" stroke-linecap="round"/>
+  <circle cx="40" cy="40" r="33.5" fill="#FFCC4D"/>
+  <circle cx="25.5" cy="33.5" r="5.4" fill="#664500"/>
+  <circle cx="54.5" cy="33.5" r="5.4" fill="#664500"/>
+  <ellipse cx="40" cy="55.5" rx="8.8" ry="11.5" fill="#66471B"/>
 </svg>
