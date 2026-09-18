@@ -177,6 +177,7 @@
     "clearcoat": 0.42,
     "clearcoatRoughness": 0.18,
     "sideBrightness": 0.78,
-    "sideRoughness": 0.34
+    "sideRoughness": 0.34,
+    "highlightMix": 0.12
   }
 }
