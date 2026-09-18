@@ -63,9 +63,6 @@ for glyph in MANIFEST["glyphs"]:
     if not match:
         raise SystemExit(f"{glyph['id']}: invalid SVG master")
 
-    # OpenType SVG glyphs use a font-space origin. The canonical ItundaFace
-    # artwork is authored in a top-left 80x80 canvas, so flip Y and scale
-    # 80px -> 1000 UPM without changing the artwork itself.
     body = match.group(1).strip()
     svg = (
         '<svg xmlns="http://www.w3.org/2000/svg" '
