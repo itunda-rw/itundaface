@@ -89,3 +89,32 @@ footer a{color:#555!important}
 
 /* Interactive 360 pass */
 .hero-orbit{pointer-events:auto!important;touch-action:pan-y!important}.hero-globe{pointer-events:auto!important;appearance:none!important;background:transparent!important;padding:0!important;font:inherit!important;cursor:grab!important}.hero-globe:active{cursor:grabbing!important}.vr-hint{position:absolute;z-index:5;top:calc(48% + 142px);left:50%;transform:translateX(-50%);width:max-content;max-width:90vw;color:rgba(255,255,255,.88);font-size:14px;font-weight:600;text-shadow:0 2px 10px rgba(0,0,0,.85);pointer-events:none;white-space:nowrap}.hero-cloud{will-change:transform;transition:transform .12s ease-out}.hero-face{will-change:transform;transition:transform .12s ease-out}@media(max-width:760px){.vr-hint{top:calc(47% + 125px);font-size:13px}.hero-globe{cursor:pointer!important}}
+
+/* TossFace-inspired color and shape pass — original ItundaFace artwork retained. */
+:root{
+  --itf-coral:#ff625f;
+  --itf-yellow:#ffe064;
+  --itf-blue:#6b6ff6;
+  --itf-mint:#b9ead9;
+  --itf-lilac:#d9d5ff;
+}
+.nav{border-bottom-color:rgba(17,17,17,.08)!important}
+.brand span{color:var(--itf-coral)!important}
+.hero h1 span{color:var(--itf-yellow)!important}
+.hero-actions .primary{background:var(--itf-yellow)!important;color:#161616!important;border-radius:999px!important;padding:15px 25px!important;box-shadow:0 10px 28px rgba(255,224,100,.18)!important}
+.hero-actions .primary:hover{background:#fff!important;transform:translateY(-2px)!important}
+.hero-actions .secondary{border-radius:999px!important}
+.hero-globe{width:96px!important;height:96px!important;border:2px solid rgba(255,255,255,.92)!important;border-radius:50%!important;background:radial-gradient(circle at 36% 30%,#fff 0 5%,var(--itf-yellow) 6% 32%,var(--itf-coral) 33% 62%,var(--itf-blue) 63% 100%)!important;box-shadow:0 16px 40px rgba(0,0,0,.42),0 0 0 8px rgba(255,255,255,.08)!important;transition:transform .2s ease,box-shadow .2s ease!important}
+.hero-globe:hover{transform:scale(1.08) rotate(-6deg)!important;box-shadow:0 18px 48px rgba(0,0,0,.48),0 0 0 12px rgba(255,224,100,.16)!important}
+.vr-hint{color:var(--itf-yellow)!important;font-weight:700!important;letter-spacing:-.01em!important}
+.filter,.filters button,.picker button{border-radius:999px!important}
+.filter.active,.filters .active,.picker .active{background:var(--itf-coral)!important;color:#fff!important;border-color:var(--itf-coral)!important}
+.glyph{border:0!important;border-radius:24px!important;background:#f7f5ef!important;box-shadow:0 8px 22px rgba(17,17,17,.06)!important;transition:transform .2s ease,box-shadow .2s ease,background .2s ease!important}
+.glyph:nth-child(4n+1){background:#fff0ed!important}.glyph:nth-child(4n+2){background:#eef0ff!important}.glyph:nth-child(4n+3){background:#fff8d8!important}.glyph:nth-child(4n){background:#e9f8f2!important}
+.glyph:hover{transform:translateY(-5px) rotate(-1deg)!important;box-shadow:0 14px 28px rgba(17,17,17,.1)!important}
+.principle:nth-child(4n+1) .icon,.principle:nth-child(4n+1) img{background:var(--itf-coral)!important;border-radius:20px!important}.principle:nth-child(4n+2) .icon,.principle:nth-child(4n+2) img{background:var(--itf-blue)!important;border-radius:20px!important}.principle:nth-child(4n+3) .icon,.principle:nth-child(4n+3) img{background:var(--itf-yellow)!important;border-radius:20px!important}.principle:nth-child(4n) .icon,.principle:nth-child(4n) img{background:var(--itf-mint)!important;border-radius:20px!important}
+@media(max-width:760px){
+  .hero h1 span{display:inline-block;transform:rotate(-2deg)}
+  .hero-globe{width:84px!important;height:84px!important}
+  .glyph{border-radius:20px!important}
+}
