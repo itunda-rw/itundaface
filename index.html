@@ -96,9 +96,12 @@ async function buildRoundedFaceVolume(master){
   const radius=profile.radius ?? 2.025;
   const geometry=new THREE.SphereGeometry(radius,profile.segments ?? 64,profile.segmentsY ?? 48);
   geometry.scale(1,1,profile.depthScale ?? .62);
+  // Shift the UV seam behind the camera so the canonical SVG remains centered
+  // on the visible hemisphere instead of inheriting SphereGeometry's seam.
+  geometry.rotateY(Math.PI);
 
   const material=new THREE.MeshPhysicalMaterial({
-    color:new THREE.Color(meta.palette?.[0] ?? "#FFCC4D"),
+    color:0xffffff,
     map:texture,
     transparent:true,
     roughness:masterManifest?.material?.roughness ?? .28,
