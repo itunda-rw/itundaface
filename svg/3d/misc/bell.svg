@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" role="img" aria-label="ItundaFace 3D bell">
+  <defs>
+    <linearGradient id="itdf-3d-misc-bell-body" x1="15%" y1="0" x2="90%" y2="100%"><stop offset="0" stop-color="#FCE29A"/><stop offset="55%" stop-color="#F5C451"/><stop offset="100%" stop-color="#B4791C"/></linearGradient>
+    <linearGradient id="itdf-3d-misc-bell-shade" x1="80%" y1="0" x2="10%" y2="100%"><stop offset="0" stop-color="#E0A93D"/><stop offset="100%" stop-color="#8A6116"/></linearGradient>
+    <radialGradient id="itdf-3d-misc-bell-highlight" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".5"/><stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/></radialGradient>
+    <radialGradient id="itdf-3d-misc-bell-ground" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#000000" stop-opacity=".18"/><stop offset="100%" stop-color="#000000" stop-opacity="0"/></radialGradient>
+    <filter id="itdf-3d-misc-bell-shadow" x="-50%" y="-50%" width="200%" height="200%"><feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#000000" flood-opacity=".28"/></filter>
+  </defs>
+  <ellipse cx="40" cy="74" rx="24" ry="4" fill="url(#itdf-3d-misc-bell-ground)"/>
+  <g filter="url(#itdf-3d-misc-bell-shadow)">
+    <path d="M40 12C34 12 30 16.5 30 22V25C22 29 18 36 18 45V56L12 64C10.5 66 12 69 14.5 69H65.5C68 69 69.5 66 68 64L62 56V45C62 36 58 29 50 25V22C50 16.5 46 12 40 12Z" fill="url(#itdf-3d-misc-bell-body)"/>
+    <path d="M30 22V25C22 29 18 36 18 45V56L12 64C10.5 66 12 69 14.5 69H40V12C34 12 30 16.5 30 22Z" fill="url(#itdf-3d-misc-bell-shade)"/>
+    <path d="M31 70C31.8 74.5 35.3 77.5 40 77.5C44.7 77.5 48.2 74.5 49 70" fill="none" stroke="#6B4A0E" stroke-width="4.5" stroke-linecap="round"/>
+    <path d="M40 20V13" stroke="#7472F4" stroke-width="3" stroke-linecap="round"/>
+    <ellipse cx="30" cy="28" rx="9" ry="6" fill="url(#itdf-3d-misc-bell-highlight)"/>
+  </g>
+</svg>

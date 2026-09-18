@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" role="img" aria-label="ItundaFace 3D congratulations">
+  <defs>
+    <linearGradient id="itdf-3d-gifts-congrats-horn" x1="15%" y1="0" x2="90%" y2="100%"><stop offset="0" stop-color="#9C9AFF"/><stop offset="55%" stop-color="#7472F4"/><stop offset="100%" stop-color="#4D4AB8"/></linearGradient>
+    <radialGradient id="itdf-3d-gifts-congrats-ground" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#000000" stop-opacity=".18"/><stop offset="100%" stop-color="#000000" stop-opacity="0"/></radialGradient>
+    <filter id="itdf-3d-gifts-congrats-shadow" x="-50%" y="-50%" width="200%" height="200%"><feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#000000" flood-opacity=".28"/></filter>
+  </defs>
+  <ellipse cx="42" cy="66" rx="22" ry="4" fill="url(#itdf-3d-gifts-congrats-ground)"/>
+  <g filter="url(#itdf-3d-gifts-congrats-shadow)">
+    <path d="M20 60 50 20l14 14Z" fill="url(#itdf-3d-gifts-congrats-horn)"/>
+    <path d="M20 60 38 46l6 6Z" fill="#332F8F"/>
+    <circle cx="60" cy="16" r="3.4" fill="#FFCC4D"/>
+    <circle cx="68" cy="28" r="2.6" fill="#EF4A63"/>
+    <circle cx="70" cy="14" r="2" fill="#3CB878"/>
+    <circle cx="54" cy="8" r="2.4" fill="#EF4A63"/>
+    <circle cx="46" cy="14" r="1.8" fill="#3CB878"/>
+    <path d="M28 50l6-6" stroke="#FFFFFF" stroke-opacity=".4" stroke-width="3" stroke-linecap="round"/>
+  </g>
+</svg>

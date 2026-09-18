@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-  <circle cx="12" cy="12" r="9.5" fill="none" stroke="#f04452" stroke-width="2.4"/>
-  <line x1="5.8" y1="18.2" x2="18.2" y2="5.8" stroke="#f04452" stroke-width="2.4" stroke-linecap="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" role="img" aria-label="ItundaFace sold out">
+  <circle cx="40" cy="40" r="27" fill="none" stroke="#E84D5B" stroke-width="7"/>
+  <path d="M21 21l38 38" stroke="#E84D5B" stroke-width="7" stroke-linecap="round"/>
+  <path d="M40 12v6" stroke="#7472F4" stroke-width="3" stroke-linecap="round"/>
 </svg>

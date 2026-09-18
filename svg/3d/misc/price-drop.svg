@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" role="img" aria-label="ItundaFace 3D price drop">
+  <defs>
+    <linearGradient id="itdf-3d-misc-pricedrop-tag" x1="15%" y1="0" x2="90%" y2="100%"><stop offset="0" stop-color="#FF879A"/><stop offset="55%" stop-color="#EF4A63"/><stop offset="100%" stop-color="#A91733"/></linearGradient>
+    <radialGradient id="itdf-3d-misc-pricedrop-ground" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#000000" stop-opacity=".18"/><stop offset="100%" stop-color="#000000" stop-opacity="0"/></radialGradient>
+    <filter id="itdf-3d-misc-pricedrop-shadow" x="-50%" y="-50%" width="200%" height="200%"><feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#000000" flood-opacity=".28"/></filter>
+  </defs>
+  <ellipse cx="40" cy="76" rx="20" ry="4" fill="url(#itdf-3d-misc-pricedrop-ground)"/>
+  <g filter="url(#itdf-3d-misc-pricedrop-shadow)">
+    <path d="M40 66 15 24h50Z" fill="url(#itdf-3d-misc-pricedrop-tag)"/>
+    <circle cx="40" cy="34" r="4" fill="#7472F4"/>
+    <rect x="15" y="70" width="50" height="6" rx="3" fill="#A91733"/>
+    <path d="M22 28l6 4" stroke="#FFFFFF" stroke-opacity=".45" stroke-width="3" stroke-linecap="round"/>
+  </g>
+</svg>

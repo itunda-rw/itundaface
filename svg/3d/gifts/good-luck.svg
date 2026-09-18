@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" role="img" aria-label="ItundaFace 3D good luck">
+  <defs>
+    <linearGradient id="itdf-3d-gifts-goodluck-a" x1="15%" y1="0" x2="90%" y2="100%"><stop offset="0" stop-color="#7EDBA6"/><stop offset="55%" stop-color="#3CB878"/><stop offset="100%" stop-color="#1E7A4C"/></linearGradient>
+    <linearGradient id="itdf-3d-gifts-goodluck-b" x1="15%" y1="0" x2="90%" y2="100%"><stop offset="0" stop-color="#5FCB8E"/><stop offset="55%" stop-color="#2E9B63"/><stop offset="100%" stop-color="#166238"/></linearGradient>
+    <radialGradient id="itdf-3d-gifts-goodluck-ground" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#000000" stop-opacity=".18"/><stop offset="100%" stop-color="#000000" stop-opacity="0"/></radialGradient>
+    <filter id="itdf-3d-gifts-goodluck-shadow" x="-50%" y="-50%" width="200%" height="200%"><feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#000000" flood-opacity=".28"/></filter>
+  </defs>
+  <ellipse cx="40" cy="72" rx="20" ry="4" fill="url(#itdf-3d-gifts-goodluck-ground)"/>
+  <g filter="url(#itdf-3d-gifts-goodluck-shadow)">
+    <path d="M40 40C40 28 32 22 25 27c-7 5-4 15 15 13Z" fill="url(#itdf-3d-gifts-goodluck-a)"/>
+    <path d="M40 40C52 40 58 32 53 25c-5-7-15-4-13 15Z" fill="url(#itdf-3d-gifts-goodluck-b)"/>
+    <path d="M40 40C28 40 22 48 27 55c5 7 15 4 13-15Z" fill="url(#itdf-3d-gifts-goodluck-b)"/>
+    <path d="M40 40C40 52 48 58 55 53c7-5 4-15-15-13Z" fill="url(#itdf-3d-gifts-goodluck-a)"/>
+    <path d="M40 40v26" stroke="#7472F4" stroke-width="4" stroke-linecap="round"/>
+    <ellipse cx="32" cy="30" rx="6" ry="4" fill="#FFFFFF" opacity=".4"/>
+  </g>
+</svg>

@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
-  <path d="M36,52 L14,20 H58 Z" fill="#e0455c"/>
-  <rect x="14" y="58" width="44" height="6" rx="3" fill="#e0455c"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" role="img" aria-label="ItundaFace price drop">
+  <path d="M40 66 15 24h50Z" fill="#EF4A63"/>
+  <circle cx="40" cy="34" r="4" fill="#7472F4"/>
+  <rect x="15" y="70" width="50" height="6" rx="3" fill="#EF4A63"/>
 </svg>

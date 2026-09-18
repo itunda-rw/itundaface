@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" role="img" aria-label="ItundaFace 3D clock">
+  <defs>
+    <linearGradient id="itdf-3d-misc-clock-face" x1="15%" y1="0" x2="90%" y2="100%"><stop offset="0" stop-color="#FFFFFF"/><stop offset="70%" stop-color="#EFF2F8"/><stop offset="100%" stop-color="#C7CEDD"/></linearGradient>
+    <linearGradient id="itdf-3d-misc-clock-rim" x1="15%" y1="0" x2="90%" y2="100%"><stop offset="0" stop-color="#6B7CA3"/><stop offset="55%" stop-color="#3E4C6B"/><stop offset="100%" stop-color="#1E273B"/></linearGradient>
+    <radialGradient id="itdf-3d-misc-clock-ground" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#000000" stop-opacity=".18"/><stop offset="100%" stop-color="#000000" stop-opacity="0"/></radialGradient>
+    <filter id="itdf-3d-misc-clock-shadow" x="-50%" y="-50%" width="200%" height="200%"><feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#000000" flood-opacity=".28"/></filter>
+  </defs>
+  <ellipse cx="40" cy="75" rx="24" ry="4" fill="url(#itdf-3d-misc-clock-ground)"/>
+  <g filter="url(#itdf-3d-misc-clock-shadow)">
+    <circle cx="40" cy="40" r="30" fill="url(#itdf-3d-misc-clock-rim)"/>
+    <circle cx="40" cy="40" r="24" fill="url(#itdf-3d-misc-clock-face)"/>
+    <circle cx="40" cy="40" r="2.6" fill="#3E4C6B"/>
+    <path d="M40 24v16l11 6" fill="none" stroke="#3E4C6B" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M40 12v3M40 65v3M67 40h-3M16 40h-3" stroke="#7472F4" stroke-width="3" stroke-linecap="round"/>
+    <ellipse cx="32" cy="30" rx="8" ry="5" fill="#FFFFFF" opacity=".5"/>
+  </g>
+</svg>
