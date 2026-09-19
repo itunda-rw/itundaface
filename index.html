@@ -33,6 +33,7 @@
 <script type="module">
 import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js";
 import { SVGLoader } from "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/loaders/SVGLoader.js";
+import { RoomEnvironment } from "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/environments/RoomEnvironment.js";
 
 const masters = [
   {id:"thumbs-up",label:"Thumbs Up",url:"svg/flat/thumbs-up.svg"},
@@ -358,6 +359,10 @@ function setupScene(canvas){
   renderer.toneMapping=THREE.AgXToneMapping;
   renderer.toneMappingExposure=1.08;
   renderer.shadowMap.enabled=true;
+  const environmentScene=new RoomEnvironment(renderer);
+  const pmrem=new THREE.PMREMGenerator(renderer);
+  scene.environment=pmrem.fromScene(environmentScene,.04).texture;
+  environmentScene.traverse(object=>{ if(object.isMesh){ object.visible=false; } });
   renderer.shadowMap.type=THREE.PCFSoftShadowMap;
   scene.add(new THREE.HemisphereLight(0xffffff,0x9fa5b8,1.9));
   const lighting=masterManifest?.lighting ?? {keyDirection:[-6.5,9.5,10.5],rimColor:"#7472F4"};
