@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "sourceOfTruth": "svg/flat",
   "canvas": [
     80,
@@ -11,7 +11,7 @@
     72,
     72
   ],
-  "pipeline": "canonical-flat-svg -> silhouette-classified-volume -> rounded-face-or-beveled-object -> shared-camera-render",
+  "pipeline": "canonical-flat-svg -> silhouette-volume -> curved-feature-geometry -> PBR-studio-render",
   "camera": {
     "projection": "perspective",
     "position": [
@@ -196,7 +196,11 @@
       "depthScale": 0.95,
       "segments": 96,
       "segmentsY": 64,
-      "surfaceArtwork": "canonical-svg-texture"
-    }
+      "surfaceArtwork": "curved-feature-geometry",
+      "featureOffset": 0.045,
+      "strokeTubeOffset": 0.075,
+      "highlight": "physical-specular"
+    },
+    "environment": "RoomEnvironment / PMREM"
   }
 }
