@@ -173,6 +173,7 @@
     "model": "soft-toy",
     "surface": "high-subdivision smooth",
     "volume": "true-3D-solid",
+    "bevelProfile": "deep-soft-14-segment",
     "inflation": "rounded-bevel-solid",
     "bevelSegments": 12,
     "bevelSize": 0.18,
