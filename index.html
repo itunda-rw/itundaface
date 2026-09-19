@@ -100,12 +100,26 @@ async function buildRoundedFaceVolume(master){
   // expressive mark into geometry seated on the curved surface.
   const root=new THREE.Group();
 
-  function surfacePoint(x,y,offset=0){
+  function surfacePoint(x,y,normalOffset=0){
     const px=(x-40)*svgScale;
     const py=(40-y)*svgScale;
-    const radial=Math.min(radius*.985,Math.hypot(px,py));
-    const z=Math.sqrt(Math.max(.015,radius*radius-radial*radial))*depthScale;
-    return new THREE.Vector3(px,py,z+offset);
+    const radial=Math.hypot(px,py);
+    const clamped=Math.min(radius*.985,radial);
+    const zUnit=Math.sqrt(Math.max(.015,radius*radius-clamped*clamped));
+    const z=zUnit*depthScale;
+    // Ellipsoid normal: features are offset along the actual curved surface
+    // normal rather than simply translated in +Z. This is the key difference
+    // between a sticker-like layer and a physically seated 3D feature.
+    const normal=new THREE.Vector3(
+      px/(radius*radius),
+      py/(radius*radius),
+      z/(radius*radius*depthScale*depthScale)
+    ).normalize();
+    return new THREE.Vector3(
+      px+normal.x*normalOffset,
+      py+normal.y*normalOffset,
+      z+normal.z*normalOffset
+    );
   }
 
   function paint(path){
@@ -153,7 +167,12 @@ async function buildRoundedFaceVolume(master){
         });
         const position=geometry.attributes.position;
         for(let i=0;i<position.count;i++){
-          const p=surfacePoint(position.getX(i),position.getY(i),.045+position.getZ(i));
+          const localDepth=position.getZ(i);
+          const p=surfacePoint(
+            position.getX(i),
+            position.getY(i),
+            .045 + localDepth*.55
+          );
           position.setXYZ(i,p.x,p.y,p.z);
         }
         position.needsUpdate=true;
