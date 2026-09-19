@@ -369,6 +369,7 @@ function setupScene(canvas){
   const environmentScene=new RoomEnvironment(renderer);
   const pmrem=new THREE.PMREMGenerator(renderer);
   scene.environment=pmrem.fromScene(environmentScene,.04).texture;
+  scene.environmentIntensity=.72;
   environmentScene.traverse(object=>{ if(object.isMesh){ object.visible=false; } });
   renderer.shadowMap.type=THREE.PCFSoftShadowMap;
   scene.add(new THREE.HemisphereLight(0xffffff,0x9fa5b8,1.9));
