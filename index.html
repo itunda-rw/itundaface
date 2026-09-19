@@ -355,6 +355,8 @@ function setupScene(canvas){
   const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true});
   renderer.setPixelRatio(Math.min(devicePixelRatio,2));
   renderer.outputColorSpace=THREE.SRGBColorSpace;
+  renderer.toneMapping=THREE.AgXToneMapping;
+  renderer.toneMappingExposure=1.08;
   renderer.shadowMap.enabled=true;
   renderer.shadowMap.type=THREE.PCFSoftShadowMap;
   scene.add(new THREE.HemisphereLight(0xffffff,0x9fa5b8,1.9));
@@ -363,6 +365,10 @@ function setupScene(canvas){
   key.position.fromArray(lighting.keyDirection ?? [-6.5,9.5,10.5]);
   key.castShadow=true;
   key.shadow.mapSize.set(2048,2048);
+  key.shadow.camera.near=.5;
+  key.shadow.camera.far=40;
+  key.shadow.bias=-0.00025;
+  key.shadow.normalBias=.025;
   scene.add(key);
   const rim=new THREE.DirectionalLight(hexColor(lighting.rimColor) ?? 0x7472f4,2.2);
   rim.position.set(8,6,-10);
