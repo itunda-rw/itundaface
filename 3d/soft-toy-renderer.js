@@ -19,7 +19,7 @@ async function loadManifest(){
 const meta=id=>manifest.masters.find(x=>x.id===id)||{};
 const C=v=>{try{return new THREE.Color(v).getHex()}catch{return null}};
 function mat(hex,o={}){
- return new THREE.MeshPhysicalMaterial({color:hex??0x7472f4,roughness:o.roughness??.30,metalness:.002,clearcoat:o.clearcoat??.28,clearcoatRoughness:.24,specularIntensity:o.specularIntensity??.62});
+ return new THREE.MeshPhysicalMaterial({color:hex??0x7472f4,roughness:o.roughness??.30,metalness:.002,clearcoat:o.clearcoat??.28,clearcoatRoughness:.24,specularIntensity:o.specularIntensity??.62,sheen:o.sheen??.10,sheenColor:o.sheenColor??0xffe6c7,sheenRoughness:o.sheenRoughness??.72});
 }
 function tube(points,r,m){
  const g=new THREE.TubeGeometry(new THREE.CatmullRomCurve3(points,false,"centripetal",.12),Math.max(20,points.length*4),r,18,false);
@@ -36,7 +36,7 @@ function base(){
  return root;
 }
 function laughing(){
- const r=base(),dark=mat(0x664500,{roughness:.3,clearcoat:.25}),mouth=mat(0x66471B,{roughness:.34,clearcoat:.2}),cream=mat(0xFFF4C9,{roughness:.22,clearcoat:.35});
+ const r=base(),dark=mat(0x664500,{roughness:.34,clearcoat:.18,specularIntensity:.55}),mouth=mat(0x66471B,{roughness:.38,clearcoat:.14,specularIntensity:.5}),cream=mat(0xFFF4C9,{roughness:.30,clearcoat:.18,specularIntensity:.55});
  r.add(tube([p(18.5,31.7),p(24.5,27.8,.19),p(30.5,31.7)],.095,dark));
  r.add(tube([p(49.5,31.7),p(55.5,27.8,.19),p(61.5,31.7)],.095,dark));
  const s=new THREE.Shape();s.moveTo(-1.4,-.15);s.bezierCurveTo(-.8,.18,.05,.3,0,.3);s.bezierCurveTo(.8,.3,1.4,.18,1.4,-.15);s.bezierCurveTo(1.18,-.9,.5,-1.18,0,-1.18);s.bezierCurveTo(-.5,-1.18,-1.18,-.9,-1.4,-.15);
@@ -54,7 +54,7 @@ function wow(){
  r.userData.volumeType="soft-toy-physical-face";return r;
 }
 function sad(){
- const r=base(),dark=mat(0x664500,{roughness:.3,clearcoat:.25}),mouth=mat(0x66471B,{roughness:.34,clearcoat:.2}),tear=mat(0x7472F4,{roughness:.2,clearcoat:.55});
+ const r=base(),dark=mat(0x664500,{roughness:.3,clearcoat:.25}),mouth=mat(0x66471B,{roughness:.34,clearcoat:.2}),tear=mat(0x7472F4,{roughness:.24,clearcoat:.32,specularIntensity:.58});
  r.add(tube([p(18.5,32),p(24.2,36,.18),p(30,32)],.095,dark));
  r.add(tube([p(50,32),p(55.8,36,.18),p(61.5,32)],.095,dark));
  r.add(tube([p(27,61.2),p(33.5,55.5,.19),p(40,52.2,.2),p(46.5,55.5,.19),p(53,61.2)],.105,mouth));
