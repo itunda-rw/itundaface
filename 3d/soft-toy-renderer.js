@@ -67,11 +67,11 @@ async function svgVolume(master){
  if(cache.has(master.id))return cache.get(master.id).clone(true);
  const data=await svgLoader.loadAsync(master.url),root=new THREE.Group();
  for(const path of data.paths)for(const shape of SVGLoader.createShapes(path)){
-  const g=new THREE.ExtrudeGeometry(shape,{depth:meta(master.id).depth||.48,bevelEnabled:true,bevelSegments:8,bevelSize:.12,bevelThickness:.1,curveSegments:32});
-  const m=new THREE.Mesh(g,mat(C(path.color?.getStyle?.())||0x7472f4));m.castShadow=m.receiveShadow=true;root.add(m);
+  const g=new THREE.ExtrudeGeometry(shape,{depth:.34,bevelEnabled:true,bevelSegments:12,bevelSize:.18,bevelThickness:.15,curveSegments:48});
+  const m=new THREE.Mesh(g,mat(C(path.color?.getStyle?.())||0x7472f4,{roughness:.30,clearcoat:.22,specularIntensity:.58}));g.computeVertexNormals();m.castShadow=m.receiveShadow=true;root.add(m);
  }
  const box=new THREE.Box3().setFromObject(root),size=box.getSize(new THREE.Vector3()),center=box.getCenter(new THREE.Vector3());
- root.position.sub(center);root.scale.setScalar(4/Math.max(size.x,size.y,size.z));root.rotation.x=Math.PI;root.rotation.y=.12;root.userData.volumeType="bevelled-solid-volume";cache.set(master.id,root);return root.clone(true);
+ root.position.sub(center);root.scale.setScalar(4/Math.max(size.x,size.y,size.z));root.rotation.x=Math.PI;root.rotation.y=.12;root.userData.inflatedBevel=true;root.userData.volumeType="bevelled-solid-volume";cache.set(master.id,root);return root.clone(true);
 }
 async function build(master){
  let r=master.id==="laughing"?laughing():master.id==="wow"?wow():master.id==="sad"?sad():await svgVolume(master);
