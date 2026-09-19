@@ -143,10 +143,17 @@ async function buildRoundedFaceVolume(master){
     if(fill && fill!==0){
       const shapes=SVGLoader.createShapes(path);
       for(const shape of shapes){
-        const geometry=new THREE.ShapeGeometry(shape,32);
+        const geometry=new THREE.ExtrudeGeometry(shape,{
+          depth:.12,
+          bevelEnabled:true,
+          bevelSegments:3,
+          bevelSize:.025,
+          bevelThickness:.018,
+          curveSegments:24
+        });
         const position=geometry.attributes.position;
         for(let i=0;i<position.count;i++){
-          const p=surfacePoint(position.getX(i),position.getY(i),.045);
+          const p=surfacePoint(position.getX(i),position.getY(i),.045+position.getZ(i));
           position.setXYZ(i,p.x,p.y,p.z);
         }
         position.needsUpdate=true;
