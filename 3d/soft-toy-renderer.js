@@ -19,7 +19,7 @@ async function loadManifest(){
 const meta=id=>manifest.masters.find(x=>x.id===id)||{};
 const C=v=>{try{return new THREE.Color(v).getHex()}catch{return null}};
 function mat(hex,o={}){
- return new THREE.MeshPhysicalMaterial({color:hex??0x7472f4,roughness:o.roughness??.24,metalness:.005,clearcoat:o.clearcoat??.5,clearcoatRoughness:.18,specularIntensity:o.specularIntensity??.82});
+ return new THREE.MeshPhysicalMaterial({color:hex??0x7472f4,roughness:o.roughness??.30,metalness:.002,clearcoat:o.clearcoat??.28,clearcoatRoughness:.24,specularIntensity:o.specularIntensity??.62});
 }
 function tube(points,r,m){
  const g=new THREE.TubeGeometry(new THREE.CatmullRomCurve3(points,false,"centripetal",.12),Math.max(20,points.length*4),r,18,false);
@@ -31,7 +31,7 @@ function base(){
  const root=new THREE.Group();
  const body=new THREE.Mesh(new THREE.SphereGeometry(2.02,128,96),mat(0xFFCC4D,{roughness:.24,clearcoat:.5}));
  body.scale.z=.96;body.castShadow=body.receiveShadow=true;root.add(body);
- const hi=new THREE.Mesh(new THREE.SphereGeometry(1.82,72,48),new THREE.MeshPhysicalMaterial({color:0xffffff,transparent:true,opacity:.075,roughness:.12,clearcoat:.7,clearcoatRoughness:.12,depthWrite:false}));
+ const hi=new THREE.Mesh(new THREE.SphereGeometry(1.82,72,48),new THREE.MeshPhysicalMaterial({color:0xffffff,transparent:true,opacity:.055,roughness:.20,clearcoat:.32,clearcoatRoughness:.22,depthWrite:false}));
  hi.scale.set(.72,.5,.08);hi.position.set(-.55,.7,1.88);root.add(hi);
  return root;
 }
@@ -81,13 +81,13 @@ function sceneFor(canvas){
  if(!canvas)return null;
  const scene=new THREE.Scene(),cp=manifest.camera,camera=new THREE.PerspectiveCamera(cp.fov,2,.1,100);
  camera.position.fromArray(cp.position);camera.lookAt(...cp.lookAt);
- const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true});renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.AgXToneMapping;renderer.toneMappingExposure=1.06;renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;
- const env=new RoomEnvironment(renderer),pmrem=new THREE.PMREMGenerator(renderer);scene.environment=pmrem.fromScene(env,.05).texture;scene.environmentIntensity=.92;
- scene.add(new THREE.HemisphereLight(0xffffff,0xb5b9c8,2.25));
- const key=new THREE.DirectionalLight(0xffffff,4.6);key.position.set(-6.5,9.5,10.5);key.castShadow=true;key.shadow.mapSize.set(2048,2048);key.shadow.camera.near=.5;key.shadow.camera.far=40;key.shadow.bias=-.0002;key.shadow.normalBias=.018;scene.add(key);
- const fill=new THREE.DirectionalLight(0xffffff,1.25);fill.position.set(6,3,7);scene.add(fill);
- const rim=new THREE.DirectionalLight(0x7472f4,1.35);rim.position.set(7,6,-8);scene.add(rim);
- const floor=new THREE.Mesh(new THREE.PlaneGeometry(24,16),new THREE.ShadowMaterial({opacity:.1}));floor.rotation.x=-Math.PI/2;floor.position.y=-3.95;floor.receiveShadow=true;scene.add(floor);
+ const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true});renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.AgXToneMapping;renderer.toneMappingExposure=1.14;renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;
+ const env=new RoomEnvironment(renderer),pmrem=new THREE.PMREMGenerator(renderer);scene.environment=pmrem.fromScene(env,.05).texture;scene.environmentIntensity=1.12;
+ scene.add(new THREE.HemisphereLight(0xffffff,0xc9ccd5,2.75));
+ const key=new THREE.DirectionalLight(0xffffff,5.35);key.position.set(-6.5,9.5,10.5);key.castShadow=true;key.shadow.mapSize.set(2048,2048);key.shadow.camera.near=.5;key.shadow.camera.far=40;key.shadow.bias=-.0002;key.shadow.normalBias=.018;scene.add(key);
+ const fill=new THREE.DirectionalLight(0xffffff,1.55);fill.position.set(6,3,7);scene.add(fill);
+ const rim=new THREE.DirectionalLight(0x7472f4,.95);rim.position.set(7,6,-8);scene.add(rim);
+ const floor=new THREE.Mesh(new THREE.PlaneGeometry(24,16),new THREE.ShadowMaterial({opacity:.075}));floor.rotation.x=-Math.PI/2;floor.position.y=-3.95;floor.receiveShadow=true;scene.add(floor);
  const resize=()=>{const w=canvas.clientWidth||1100,h=canvas.clientHeight||650;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix()};resize();addEventListener("resize",resize);
  return {scene,camera,renderer};
 }
