@@ -1,5 +1,5 @@
 {
-  "version": 4,
+  "version": 5,
   "sourceOfTruth": "svg/flat",
   "canvas": [
     80,
@@ -11,7 +11,7 @@
     72,
     72
   ],
-  "pipeline": "canonical-flat-svg -> silhouette-volume -> normal-seated-feature-volume -> PBR-studio-render",
+  "pipeline": "canonical-flat-svg -> primitive/solid 3D model -> physical facial components -> soft-studio PBR render",
   "camera": {
     "projection": "perspective",
     "position": [
@@ -33,7 +33,8 @@
       10.5
     ],
     "rimColor": "#7472F4",
-    "shared": true
+    "shared": true,
+    "style": "bright-soft-studio"
   },
   "masters": [
     {
@@ -169,42 +170,19 @@
     }
   ],
   "material": {
-    "volume": "restrained",
+    "model": "soft-toy",
+    "surface": "high-subdivision smooth",
+    "volume": "true-3D-solid",
     "frontStop": "canonical-color",
-    "sideStop": "deeper-underside",
-    "highlight": "broad-soft",
-    "metalness": 0.01,
-    "roughness": 0.22,
+    "highlight": "broad-soft-specular",
+    "metalness": 0.005,
+    "roughness": 0.24,
     "clearcoat": 0.5,
-    "clearcoatRoughness": 0.2,
-    "sideBrightness": 0.48,
-    "sideRoughness": 0.38,
-    "depth": 7.5,
-    "bevelSize": 0.72,
-    "bevelThickness": 0.58,
-    "bevelSegments": 8,
-    "layerSeparation": 0.025,
-    "skinPalette": {
-      "light": "#FFD39A",
-      "lightHighlight": "#FFE4BD",
-      "warmMid": "#E7A45F",
-      "deep": "#B96F45",
-      "deepShadow": "#8E5037"
-    },
-    "faceVolume": {
-      "radius": 2.025,
-      "depthScale": 0.95,
-      "segments": 96,
-      "segmentsY": 64,
-      "surfaceArtwork": "curved-feature-geometry",
-      "featureOffset": 0.045,
-      "strokeTubeOffset": 0.075,
-      "highlight": "physical-specular",
-      "featurePlacement": "ellipsoid-normal",
-      "featureExtrusion": "normal-seated"
-    },
+    "clearcoatRoughness": 0.18,
+    "facialComponents": "physical-primitives-and-bevelled-solids",
+    "shadows": "soft-contact",
     "environment": "RoomEnvironment / PMREM",
-    "environmentIntensity": 0.84,
+    "environmentIntensity": 0.92,
     "rendererToneMapping": "AgX"
   }
 }
