@@ -383,17 +383,17 @@ function setupScene(canvas){
   renderer.setPixelRatio(Math.min(devicePixelRatio,2));
   renderer.outputColorSpace=THREE.SRGBColorSpace;
   renderer.toneMapping=THREE.AgXToneMapping;
-  renderer.toneMappingExposure=1.08;
+  renderer.toneMappingExposure=1.03;
   renderer.shadowMap.enabled=true;
   const environmentScene=new RoomEnvironment(renderer);
   const pmrem=new THREE.PMREMGenerator(renderer);
   scene.environment=pmrem.fromScene(environmentScene,.04).texture;
-  scene.environmentIntensity=.72;
+  scene.environmentIntensity=.84;
   environmentScene.traverse(object=>{ if(object.isMesh){ object.visible=false; } });
   renderer.shadowMap.type=THREE.PCFSoftShadowMap;
-  scene.add(new THREE.HemisphereLight(0xffffff,0x9fa5b8,1.9));
+  scene.add(new THREE.HemisphereLight(0xffffff,0x9fa5b8,2.05));
   const lighting=masterManifest?.lighting ?? {keyDirection:[-6.5,9.5,10.5],rimColor:"#7472F4"};
-  const key=new THREE.DirectionalLight(0xffffff,5.6);
+  const key=new THREE.DirectionalLight(0xffffff,4.9);
   key.position.fromArray(lighting.keyDirection ?? [-6.5,9.5,10.5]);
   key.castShadow=true;
   key.shadow.mapSize.set(2048,2048);
@@ -402,7 +402,7 @@ function setupScene(canvas){
   key.shadow.bias=-0.00025;
   key.shadow.normalBias=.025;
   scene.add(key);
-  const rim=new THREE.DirectionalLight(hexColor(lighting.rimColor) ?? 0x7472f4,2.2);
+  const rim=new THREE.DirectionalLight(hexColor(lighting.rimColor) ?? 0x7472f4,1.85);
   rim.position.set(8,6,-10);
   scene.add(rim);
 
