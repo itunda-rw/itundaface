@@ -176,13 +176,13 @@
     "frontStop": "canonical-color",
     "highlight": "broad-soft-specular",
     "metalness": 0.005,
-    "roughness": 0.24,
-    "clearcoat": 0.5,
-    "clearcoatRoughness": 0.18,
+    "roughness": 0.3,
+    "clearcoat": 0.28,
+    "clearcoatRoughness": 0.24,
     "facialComponents": "physical-primitives-and-bevelled-solids",
     "shadows": "soft-contact",
     "environment": "RoomEnvironment / PMREM",
-    "environmentIntensity": 0.92,
+    "environmentIntensity": 1.12,
     "rendererToneMapping": "AgX"
   }
 }
