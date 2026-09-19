@@ -87,52 +87,155 @@ function hexColor(value){
 async function buildRoundedFaceVolume(master){
   const meta=masterMeta(master.id);
   const profile=masterManifest?.material?.faceVolume ?? {};
-  const texture=new THREE.TextureLoader().load(master.url);
-  texture.colorSpace=THREE.SRGBColorSpace;
-  texture.wrapS=THREE.ClampToEdgeWrapping;
-  texture.wrapT=THREE.ClampToEdgeWrapping;
-  texture.anisotropy=4;
+  const data=await loader.loadAsync(master.url);
 
   const radius=profile.radius ?? 2.025;
-  const geometry=new THREE.SphereGeometry(radius,profile.segments ?? 64,profile.segmentsY ?? 48);
-  geometry.scale(1,1,profile.depthScale ?? .62);
-  // Shift the UV seam behind the camera so the canonical SVG remains centered
-  // on the visible hemisphere instead of inheriting SphereGeometry's seam.
-  geometry.rotateY(Math.PI);
+  const depthScale=profile.depthScale ?? .95;
+  const svgScale=4.05/68;
 
-  const material=new THREE.MeshPhysicalMaterial({
-    color:0xffffff,
-    map:texture,
-    transparent:true,
-    roughness:masterManifest?.material?.roughness ?? .28,
+  // The old implementation wrapped the complete SVG as one texture on a
+  // sphere. That produced real geometry but still looked like a sticker on a
+  // ball. This renderer makes the face itself the volume and turns each
+  // expressive mark into geometry seated on the curved surface.
+  const root=new THREE.Group();
+
+  function surfacePoint(x,y,offset=0){
+    const px=(x-40)*svgScale;
+    const py=(40-y)*svgScale;
+    const radial=Math.min(radius*.985,Math.hypot(px,py));
+    const z=Math.sqrt(Math.max(.015,radius*radius-radial*radial))*depthScale;
+    return new THREE.Vector3(px,py,z+offset);
+  }
+
+  function paint(path){
+    const style=path.color?.getStyle?.();
+    return hexColor(style) ?? hexColor(path.userData?.node?.getAttribute?.("fill")) ?? 0x7472f4;
+  }
+
+  const faceColor=paint(data.paths[0]);
+  const faceMaterial=new THREE.MeshPhysicalMaterial({
+    color:faceColor,
+    roughness:masterManifest?.material?.roughness ?? .22,
     metalness:masterManifest?.material?.metalness ?? .01,
-    clearcoat:masterManifest?.material?.clearcoat ?? .3,
+    clearcoat:masterManifest?.material?.clearcoat ?? .5,
     clearcoatRoughness:masterManifest?.material?.clearcoatRoughness ?? .2,
-    side:THREE.FrontSide
+    specularIntensity:.72
   });
 
-  const mesh=new THREE.Mesh(geometry,material);
-  mesh.castShadow=true;
-  mesh.receiveShadow=true;
-  mesh.userData.faceVolume=true;
+  const faceGeometry=new THREE.SphereGeometry(
+    radius,
+    profile.segments ?? 96,
+    profile.segmentsY ?? 64
+  );
+  faceGeometry.scale(1,1,depthScale);
+  const face=new THREE.Mesh(faceGeometry,faceMaterial);
+  face.castShadow=true;
+  face.receiveShadow=true;
+  root.add(face);
 
-  const root=new THREE.Group();
-  root.add(mesh);
+  // Expressive fills become small physical surfaces that follow the face
+  // curvature instead of being painted into a camera-facing bitmap.
+  for(let pathIndex=1;pathIndex<data.paths.length;pathIndex++){
+    const path=data.paths[pathIndex];
+    const node=path.userData?.node;
+    const fill=hexColor(path.color?.getStyle?.()) ?? hexColor(node?.getAttribute?.("fill"));
+    if(fill && fill!==0){
+      const shapes=SVGLoader.createShapes(path);
+      for(const shape of shapes){
+        const geometry=new THREE.ShapeGeometry(shape,32);
+        const position=geometry.attributes.position;
+        for(let i=0;i<position.count;i++){
+          const p=surfacePoint(position.getX(i),position.getY(i),.045);
+          position.setXYZ(i,p.x,p.y,p.z);
+        }
+        position.needsUpdate=true;
+        geometry.computeVertexNormals();
+        const material=new THREE.MeshPhysicalMaterial({
+          color:fill,
+          roughness:.24,
+          metalness:.005,
+          clearcoat:.38,
+          clearcoatRoughness:.18,
+          specularIntensity:.7,
+          side:THREE.DoubleSide
+        });
+        const feature=new THREE.Mesh(geometry,material);
+        feature.castShadow=true;
+        feature.receiveShadow=true;
+        root.add(feature);
+      }
+    }
+
+    // SVG strokes become rounded micro-tubes seated on the same curved
+    // surface. This gives eyes, smiles and outlines actual highlight/shadow.
+    const stroke=hexColor(node?.getAttribute?.("stroke"));
+    const strokeWidth=parseFloat(node?.getAttribute?.("stroke-width") || "0");
+    if(stroke && strokeWidth>0){
+      for(const subPath of path.subPaths || []){
+        const raw=subPath.getPoints(96);
+        if(raw.length>1){
+          const curve=new THREE.CatmullRomCurve3(
+            raw.map(p=>surfacePoint(p.x,p.y,.075)),
+            false,
+            "centripetal",
+            .15
+          );
+          const tube=new THREE.TubeGeometry(
+            curve,
+            Math.max(16,raw.length-1),
+            Math.max(.045,strokeWidth*.018),
+            10,
+            false
+          );
+          const tubeMaterial=new THREE.MeshPhysicalMaterial({
+            color:stroke,
+            roughness:.2,
+            metalness:.005,
+            clearcoat:.5,
+            clearcoatRoughness:.16,
+            specularIntensity:.78
+          });
+          const feature=new THREE.Mesh(tube,tubeMaterial);
+          feature.castShadow=true;
+          feature.receiveShadow=true;
+          root.add(feature);
+        }
+      }
+    }
+  }
+
+  // A soft top/front highlight is geometry, not a fake painted gradient.
+  const highlightMaterial=new THREE.MeshPhysicalMaterial({
+    color:0xffffff,
+    transparent:true,
+    opacity:.09,
+    roughness:.12,
+    metalness:0,
+    clearcoat:.65,
+    clearcoatRoughness:.12,
+    depthWrite:false
+  });
+  const highlight=new THREE.Mesh(
+    new THREE.SphereGeometry(radius*.88,64,40),
+    highlightMaterial
+  );
+  highlight.scale.set(.78,.42,.08);
+  highlight.position.set(-.55,.72,radius*depthScale*.92);
+  root.add(highlight);
+
   const scale=4.05/(radius*2);
   root.scale.setScalar(scale);
-  root.rotation.x=Math.PI;
-  root.rotation.y=0.18;
+  root.rotation.y=.18;
   root.rotation.z=meta.tilt ?? 0;
   root.position.y+=meta.lift ?? 0;
   root.userData.canonicalScale=scale;
   root.userData.flatSource=master.url;
-  root.userData.layerCount=1;
+  root.userData.layerCount=data.paths.length;
   root.userData.masterId=master.id;
   root.userData.label=master.label;
-  root.userData.volumeType="rounded-face";
+  root.userData.volumeType="curved-feature-volume";
   return root;
 }
-
 async function buildMaster(master){
   if(cache.has(master.id)) return cache.get(master.id);
   const meta=masterMeta(master.id);
