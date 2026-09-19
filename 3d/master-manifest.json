@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "sourceOfTruth": "svg/flat",
   "canvas": [
     80,
@@ -11,7 +11,7 @@
     72,
     72
   ],
-  "pipeline": "canonical-flat-svg -> silhouette-volume -> curved-feature-geometry -> PBR-studio-render",
+  "pipeline": "canonical-flat-svg -> silhouette-volume -> normal-seated-feature-volume -> PBR-studio-render",
   "camera": {
     "projection": "perspective",
     "position": [
@@ -199,8 +199,12 @@
       "surfaceArtwork": "curved-feature-geometry",
       "featureOffset": 0.045,
       "strokeTubeOffset": 0.075,
-      "highlight": "physical-specular"
+      "highlight": "physical-specular",
+      "featurePlacement": "ellipsoid-normal",
+      "featureExtrusion": "normal-seated"
     },
-    "environment": "RoomEnvironment / PMREM"
+    "environment": "RoomEnvironment / PMREM",
+    "environmentIntensity": 0.84,
+    "rendererToneMapping": "AgX"
   }
 }
