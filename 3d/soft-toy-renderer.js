@@ -71,7 +71,7 @@ async function svgVolume(master){
   const m=new THREE.Mesh(g,mat(C(path.color?.getStyle?.())||0x7472f4,{roughness:.30,clearcoat:.22,specularIntensity:.58}));g.computeVertexNormals();m.castShadow=m.receiveShadow=true;root.add(m);
  }
  const box=new THREE.Box3().setFromObject(root),size=box.getSize(new THREE.Vector3()),center=box.getCenter(new THREE.Vector3());
- root.position.sub(center);root.scale.setScalar(4/Math.max(size.x,size.y,size.z));root.rotation.x=Math.PI;root.rotation.y=.12;root.userData.inflatedBevel=true;root.userData.volumeType="bevelled-solid-volume";cache.set(master.id,root);return root.clone(true);
+ root.position.sub(center);root.scale.setScalar(4/Math.max(size.x,size.y,size.z));root.rotation.x=Math.PI;root.rotation.y=.12;root.userData.inflatedBevel=true;const glow=new THREE.Mesh(new THREE.SphereGeometry(1,48,32),new THREE.MeshBasicMaterial({color:0xffffff,transparent:true,opacity:.025,depthWrite:false}));glow.scale.set(1.05,.82,.16);glow.position.set(-.18,.22,.42);root.add(glow);root.userData.volumeType="bevelled-solid-volume";root.userData.surface="deep-bevel-soft-solid";cache.set(master.id,root);return root.clone(true);
 }
 async function build(master){
  let r=master.id==="laughing"?laughing():master.id==="wow"?wow():master.id==="sad"?sad():await svgVolume(master);
