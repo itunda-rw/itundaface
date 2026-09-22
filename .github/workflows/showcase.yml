@@ -1,4 +1,5 @@
 name: Deploy ItundaFace Showcase
+# Keep GitHub Pages production deployment active for the latest ItundaFace release.
 
 on:
   push:
