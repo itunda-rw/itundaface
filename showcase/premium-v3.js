@@ -84,4 +84,15 @@
   // Keep the visual identity deterministic if the existing theme toggle changes.
   const syncTheme = () => root.dataset.theme = root.dataset.theme || 'light';
   syncTheme();
+
+  // Full library category browser: keeps the breadth visible without pretending
+  // unfinished families already have production artwork.
+  const fullTabs = document.querySelectorAll('.full-tab');
+  const fullPanels = document.querySelectorAll('.full-panel');
+  fullTabs.forEach(tab => tab.addEventListener('click', () => {
+    const key = tab.dataset.full;
+    fullTabs.forEach(x => x.classList.toggle('active', x === tab));
+    fullPanels.forEach(panel => panel.classList.toggle('active', panel.dataset.panel === key));
+  }));
+
 })();
