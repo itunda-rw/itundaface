@@ -23,8 +23,27 @@ export const ITUNDA_FACE_3D_RULES = {
   flat3dSilhouetteMustMatch: true,
 } as const;
 
+export const ITUNDA_FACE_ANATOMY_RULES = {
+  basePrimitives: ['circle', 'line', 'controlled-curve'] as const,
+  preferredCornerLanguage: 'soft-rounded',
+  strokeLanguage: 'uniform-optical-weight',
+  faceFeatureAlignment: 'shared-baseline-and-center',
+  repeatedFeatureScale: 'family-consistent',
+  eyeSpacing: 'optically-equal',
+  mouthPlacement: 'centered-to-expression',
+  exceptionPolicy: 'semantic-exception-must-be-documented',
+} as const;
+
+export const ITUNDA_FACE_COLOR_RULES = {
+  brand: '#7472F4',
+  brandRole: 'identity-accent',
+  semanticPriority: ['meaning', 'surface-contrast', 'brand-accent'] as const,
+  surfaceModes: ['light', 'dark'] as const,
+  compactPalette: true,
+} as const;
+
 export const ITUNDA_FACE_CONSTRUCTION_RULES = {
-  primitives: ['circle', 'line', 'controlled-curve'] as const,
+  primitives: ITUNDA_FACE_ANATOMY_RULES.basePrimitives,
   avoidFreeformCurvesWhenEquivalentPrimitiveExists: true,
   removeDetailsThatDoNotSurviveAt14px: true,
   semanticColorBeforeBrandAccent: true,
@@ -43,8 +62,9 @@ export const ITUNDA_FACE_QUALITY_GATES = [
   'direction-consistency',
   '45-degree-angle-consistency',
   'single-system-palette',
-  'flat-3d-silhouette-parity',
   'family-anatomy-consistency',
+  'semantic-color-priority',
+  'flat-3d-silhouette-parity',
   'light-dark-readability',
   'accessibility',
   'contrast-thresholds',
@@ -62,5 +82,6 @@ export function isOpticallyBalanced(fillRatio: number): boolean {
 }
 
 export function isPreferredFlatSize(size: number): boolean {
-  return size >= ITUNDA_FACE_OPTICAL_RULES.minimumReadableSize && size <= ITUNDA_FACE_OPTICAL_RULES.balancedCheckSize;
+  return size >= ITUNDA_FACE_OPTICAL_RULES.minimumReadableSize &&
+    size <= ITUNDA_FACE_OPTICAL_RULES.balancedCheckSize;
 }
