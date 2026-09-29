@@ -4,8 +4,20 @@
   "description": "Itunda's independently authored expressive glyph system for reactions, communication, places, identity, commerce, finance, and Rwanda-native moments.",
   "license": "MIT",
   "homepage": "https://github.com/itunda-rw/itundaface",
-  "repository": {"type": "git", "url": "https://github.com/itunda-rw/itundaface.git"},
-  "keywords": ["emoji", "icons", "svg", "react", "reactions", "itunda", "rwanda", "design-system"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/itunda-rw/itundaface.git"
+  },
+  "keywords": [
+    "emoji",
+    "icons",
+    "svg",
+    "react",
+    "reactions",
+    "itunda",
+    "rwanda",
+    "design-system"
+  ],
   "main": "react/canonical.tsx",
   "types": "react/canonical.tsx",
   "exports": {
@@ -21,8 +33,21 @@
     "./state": "./react/state.tsx",
     "./families": "./react/families.ts",
     "./validation": "./react/validation.ts",
-    "./quality": "./react/quality.ts"
+    "./quality": "./react/quality.ts",
+    "./manifest": "./react/validation.ts"
   },
-  "files": ["svg", "react", "tokens.json", "DESIGN_SYSTEM.md", "CHANGELOG.md", "RELEASE.md", "LICENSE", "README.md"],
-  "peerDependencies": {"react": ">=17"}
+  "files": [
+    "svg",
+    "react",
+    "tokens.json",
+    "DESIGN_SYSTEM.md",
+    "CHANGELOG.md",
+    "RELEASE.md",
+    "LICENSE",
+    "README.md",
+    "manifest.json"
+  ],
+  "peerDependencies": {
+    "react": ">=17"
+  }
 }
