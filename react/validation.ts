@@ -21,3 +21,21 @@ export function isSupportedFlatSize(size: number): size is typeof ITUNDA_FACE_FL
 export function isSupported3DSize(size: number): size is typeof ITUNDA_FACE_3D_SIZES[number] {
   return (ITUNDA_FACE_3D_SIZES as readonly number[]).includes(size);
 }
+
+
+export const ITUNDA_FACE_CONTRAST = {
+  normalTextMinimum: 4.5,
+  largeTextMinimum: 3,
+} as const;
+
+export function meetsTextContrast(ratio: number, largeText = false): boolean {
+  return ratio >= (largeText ? ITUNDA_FACE_CONTRAST.largeTextMinimum : ITUNDA_FACE_CONTRAST.normalTextMinimum);
+}
+
+export function isCanonicalFlatSize(size: number): boolean {
+  return isSupportedFlatSize(size) && size >= ITUNDA_FACE_FLAT_SIZES[0];
+}
+
+export function isCanonical3DSize(size: number): boolean {
+  return isSupported3DSize(size) && size >= ITUNDA_FACE_3D_SIZES[0];
+}
