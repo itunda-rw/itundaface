@@ -1,0 +1,62 @@
+name: ItundaFace System Integrity
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'manifest.json'
+      - 'react/quality.ts'
+      - 'react/validation.ts'
+      - 'package.json'
+      - 'showcase/**'
+      - 'DESIGN_SYSTEM.md'
+      - 'README.md'
+  pull_request:
+    paths:
+      - 'manifest.json'
+      - 'react/quality.ts'
+      - 'react/validation.ts'
+      - 'package.json'
+      - 'showcase/**'
+      - 'DESIGN_SYSTEM.md'
+      - 'README.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  integrity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate canonical manifest
+        shell: bash
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const manifest = JSON.parse(fs.readFileSync('manifest.json', 'utf8'));
+          const pkg = JSON.parse(fs.readFileSync('package.json', 'utf8'));
+          const requiredFamilies = ['reactions','communication','places','identity','commerce','finance','culture','state'];
+          const requiredFlat = [14,16,18,20,24];
+          const required3d = [32,40,48,64];
+
+          const fail = (m) => { console.error('FAIL:', m); process.exit(1); };
+
+          if (manifest.name !== 'ItundaFace') fail('manifest name');
+          if (manifest.brand.hex !== '#7472F4') fail('brand identity color drift');
+          if (JSON.stringify(manifest.flatSizes) !== JSON.stringify(requiredFlat)) fail('flat size contract drift');
+          if (JSON.stringify(manifest.threeDSizes) !== JSON.stringify(required3d)) fail('3D size contract drift');
+          if (JSON.stringify(manifest.families) !== JSON.stringify(requiredFamilies)) fail('family contract drift');
+          if (manifest.direction.directionalObjects !== 'right') fail('direction contract drift');
+          if (manifest.direction.defaultTiltDegrees !== 45) fail('angle contract drift');
+          if (manifest.optical.fillRatio.min !== 0.68 || manifest.optical.fillRatio.target !== 0.78 || manifest.optical.fillRatio.max !== 0.88) fail('optical contract drift');
+          if (manifest.accessibility.normalTextContrastMinimum !== 4.5 || manifest.accessibility.largeTextContrastMinimum !== 3) fail('contrast contract drift');
+          if (!manifest.accessibility.reducedMotion) fail('reduced motion contract missing');
+          if (!manifest.threeD.flat3dSilhouetteParity) fail('flat/3D parity contract missing');
+          if (!manifest.identity.originalArtwork || !manifest.identity.rwandaNativeVocabulary) fail('identity contract missing');
+          if (pkg.version !== manifest.version) fail('package and manifest versions differ');
+          if (pkg.exports['./manifest'] !== './manifest.json') fail('manifest package export missing');
+          console.log('ItundaFace system integrity: PASS');
+          NODE
