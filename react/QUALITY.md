@@ -38,6 +38,13 @@ Before publishing a React-facing ItundaFace change, verify:
 - Light and dark surfaces preserve recognition and contrast.
 - Canonical SVG geometry and React geometry describe the same artwork.
 
+## Accessibility
+
+- Normal text and essential UI meaning target a minimum 4.5:1 contrast ratio.
+- Large text targets a minimum 3:1 contrast ratio.
+- Light and dark surfaces are both reviewed with semantic color before brand accent.
+- Non-essential motion supports reduced-motion behavior; the glyph remains understandable without animation.
+
 ## SVG safety
 
 - Every SVG definition ID in `svg/3d/**/*.svg` uses the `itdf-3d-` namespace.
