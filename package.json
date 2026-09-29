@@ -34,7 +34,7 @@
     "./families": "./react/families.ts",
     "./validation": "./react/validation.ts",
     "./quality": "./react/quality.ts",
-    "./manifest": "./react/validation.ts"
+    "./manifest": "./manifest.json"
   },
   "files": [
     "svg",
