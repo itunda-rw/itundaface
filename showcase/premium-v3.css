@@ -39,3 +39,16 @@ footer{border-top:1px solid #ddd!important;background:#fff!important}
 @media(max-width:900px){.principle-grid{grid-template-columns:1fr}.principle,.principle:nth-child(n+2){padding:30px 0;border-right:0;border-bottom:1px solid #ddd;min-height:220px}.principle h3{margin-top:55px}.principle:last-child{border-bottom:0}.gallery{grid-template-columns:repeat(4,1fr)}.phone-layout,.agent-grid{grid-template-columns:1fr;gap:55px}}
 @media(max-width:760px){.nav{height:64px;padding-inline:18px}.nav.scrolled{height:60px}.hero{padding:118px 20px 60px}.hero-copy{font-size:17px}.hero-orbit{height:330px;min-height:0;margin-top:30px}.hero-face{width:210px;height:210px}.hero-ring{width:330px}.stage{min-height:560px}.stage-face{width:235px;height:235px}.picker{justify-content:flex-start;overflow:auto;padding-inline:18px}.gallery{grid-template-columns:repeat(3,1fr)}.glyph{min-height:130px}section{padding:105px 20px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+
+.spec-section{background:var(--bg);border-top:1px solid var(--line)}
+.spec-head{display:grid;grid-template-columns:1fr .72fr;gap:80px;align-items:end}
+.spec-grid{display:grid;grid-template-columns:repeat(3,1fr);margin-top:70px;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.spec-grid article{min-height:220px;padding:30px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--card);display:flex;flex-direction:column}
+.spec-grid b{font-size:11px;color:var(--premium-blue);letter-spacing:.08em}
+.spec-grid strong{font-size:25px;letter-spacing:-.05em;margin-top:auto}
+.spec-grid span{font-size:13px;line-height:1.6;color:var(--muted);margin-top:9px;max-width:260px}
+.spec-footer{margin-top:14px;padding:24px 0;display:flex;justify-content:space-between;gap:20px;border-bottom:1px solid var(--line);color:var(--muted);font-size:12px}
+.spec-footer a{font-weight:750;text-decoration:none;color:var(--ink)}
+.spec-footer a:hover{color:var(--premium-blue)}
+@media(max-width:900px){.spec-head{grid-template-columns:1fr;gap:25px}.spec-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.spec-grid{grid-template-columns:1fr}.spec-grid article{min-height:180px}.spec-footer{flex-direction:column}}
