@@ -223,3 +223,19 @@ Each new family should be designed as a system before individual glyphs are prod
 TossFace is a useful reference for system thinking, not a source of artwork. ItundaFace must remain independently authored.
 
 Do not copy, trace, modify, recolor, or combine TossFace artwork. Build new ItundaFace geometry from the Itunda grammar and Itunda product meaning.
+
+
+## Calibration and release discipline
+
+The five master reactions (`thumbs-up`, `heart`, `laughing`, `wow`, `sad`) are the visual calibration set. Before a family expands, compare its members against these masters for:
+
+1. optical occupied area and perceived scale;
+2. repeated anatomy and curve language;
+3. semantic color before Itunda Indigo accents;
+4. 14px and 24px flat readability;
+5. 32–64px 3D readability;
+6. flat/3D silhouette continuity;
+7. light/dark surface recognition;
+8. accessible naming and reduced-motion behavior.
+
+The machine-readable `manifest.json` is the canonical summary of these release constraints. Changes to the manifest, quality rules, or family API should be reviewed together so the documentation, package surface, and showcase do not drift.
