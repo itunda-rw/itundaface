@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "name": "ItundaFace",
+  "version": "2.2.4",
+  "canvas": {
+    "width": 80,
+    "height": 80
+  },
+  "brand": {
+    "name": "Itunda Indigo",
+    "hex": "#7472F4",
+    "role": "identity-accent"
+  },
+  "optical": {
+    "fillRatio": {
+      "min": 0.68,
+      "target": 0.78,
+      "max": 0.88
+    },
+    "minimumReadableSize": 14,
+    "balancedCheckSize": 24
+  },
+  "flatSizes": [
+    14,
+    16,
+    18,
+    20,
+    24
+  ],
+  "threeDSizes": [
+    32,
+    40,
+    48,
+    64
+  ],
+  "direction": {
+    "readingFlow": "left-to-right",
+    "directionalObjects": "right",
+    "defaultTiltDegrees": 45
+  },
+  "threeD": {
+    "camera": "consistent-medium-front-biased",
+    "lightDirection": "top-left",
+    "shadowDirection": "down",
+    "groundShadow": "soft-minimal",
+    "flat3dSilhouetteParity": true
+  },
+  "families": [
+    "reactions",
+    "communication",
+    "places",
+    "identity",
+    "commerce",
+    "finance",
+    "culture",
+    "state"
+  ],
+  "accessibility": {
+    "normalTextContrastMinimum": 4.5,
+    "largeTextContrastMinimum": 3,
+    "reducedMotion": true,
+    "semanticRole": "img",
+    "accessibleLabelRequired": true
+  },
+  "identity": {
+    "originalArtwork": true,
+    "rwandaNativeVocabulary": true,
+    "brandAccentIsIdentityOnly": true
+  },
+  "qualityGates": [
+    "silhouette-first",
+    "optical-size",
+    "minimum-size-legibility",
+    "direction-consistency",
+    "45-degree-angle-consistency",
+    "single-system-palette",
+    "family-anatomy-consistency",
+    "semantic-color-priority",
+    "flat-3d-silhouette-parity",
+    "light-dark-readability",
+    "accessibility",
+    "contrast-thresholds",
+    "reduced-motion",
+    "canonical-svg-react-parity",
+    "3d-svg-id-uniqueness",
+    "original-artwork"
+  ]
+}
